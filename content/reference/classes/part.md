@@ -14,7 +14,7 @@ Written by KingTasaz on August 28th, 2026
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a Part, in the order they appear on Vortex Studio.
+Properties of a Part, in the order they appear in Vortex Studio.
 <br><br>
 <ul>
 <details>
@@ -96,7 +96,7 @@ When `false`, the part will experience gravity and forces from other parts.
 ### CanCollide
 > `Boolean` \
 \
-Determines whether the `Part` is given physics collisions, or whether it can phase through other parts. \
+Determines whether the `Part` has physics collisions enabled or can phase through other parts. \
 \
 **Note:** A `Part` cannot be unanchored while collision is disabled.
 
@@ -123,7 +123,7 @@ The runtime class name of the `Part`.
 > `Boolean` \
 \
 Controls whether or not the `Part` will cast a shadow.
-This can be used to save performance with part's whose shadows cannot be seen, or for glass parts which realistically would not create a shadow.
+This can be used to improve performance for parts whose shadows cannot be seen, or for glass parts that would not realistically cast a shadow.
 
 <br/>
 
@@ -132,7 +132,7 @@ This can be used to save performance with part's whose shadows cannot be seen, o
 > [`Color3`](../datatypes/color3.md) \
 \
 Determines the visible color of the `Part`.
-Will also affect the part's [`Material`]() color.
+It will also affect the part's [`Material`]() color.
 
 <br/>
 
@@ -141,7 +141,7 @@ Will also affect the part's [`Material`]() color.
 > [`Enum.Material`](../datatypes/enumitem.md) \
 \
 Determines which `Material` type to apply when rendering the `Part`.
-Currently this has no effect other than visual.
+Currently, this only has a visual effect.
 
 <br/>
 
@@ -149,7 +149,7 @@ Currently this has no effect other than visual.
 ### Name
 > `string` \
 \
-The name of the `Part`, and its label in the explorer.
+The name of the `Part` and its label in the Explorer.
 
 <br/>
 
@@ -173,7 +173,7 @@ The containing `Instance` of the `Part`, or `nil` when it has no parent.
 ### Position
 > [`Vector3`](../datatypes/vector3.md) \
 \
-The position of the `Part`, in World-space.
+The position of the `Part`, in world space.
 
 <br/>
 
@@ -198,7 +198,7 @@ The size of the `Part` in each dimension (width, height, depth).
 > `Float` \
 \
 Sets the `transparency` of the part from `0` (opaque) to `1` (invisible).
-When drawing shadows, all parts are treated as opaque regardless of their `transparency`. Unless it is set to `1`, where the part does not render at all.
+When drawing shadows, all parts are treated as opaque regardless of their `transparency`, unless it is set to `1`, , in which case the part does not render at all.
 
 <br/>
 
@@ -206,7 +206,7 @@ When drawing shadows, all parts are treated as opaque regardless of their `trans
 ### Truss
 > `Boolean` \
 \
-If a `part` is a truss part, then the `Player` is able to climb the part by walking up to it. It is recommened to keep truss parts anchored, as they otherwise produce unpredictable effects.
+If a `part` is a truss part, then the `Player` can climb the part by walking up to it. It is recommended to keep truss parts anchored, as they can otherwise produce unpredictable effects.
 
 <br/>
 
@@ -371,8 +371,8 @@ releases.
 > it.
 
 `Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` expose
-connectable events, but changing the corresponding property or attribute does
-not deliver callbacks. `Touched` and `TouchEnded` are connectable; their event
+connectable events, but changing the corresponding property or attribute does not trigger 
+callbacks. `Touched` and `TouchEnded` are connectable; their event
 delivery has not been established.
 
 > [!NOTE]

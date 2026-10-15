@@ -14,7 +14,7 @@ Written by TheJustDare on August 30th, 2026
 
 <details>
 <summary><b>Methods</b></summary>
-Methods of `Debris`.
+Methods available on `Debris`.
 <br><br>
 
 * [AddItem](#additem)
@@ -24,8 +24,7 @@ Methods of `Debris`.
 
 ## Overview
 
-`Debris` is a service that allows removal of instances without yielding for objects that may lose utility after a set period of time.
-
+`Debris` is a service that allows instances that may lose utility after a set period of time to be removed without yielding
 ```lua
 local Debris = game:GetService("Debris")
 
@@ -54,7 +53,7 @@ Debris:AddItem(part, 5)
 
 > `Debris:SetMaxItems(maxItems: Number)`
 >
-> Sets the service's maximum tracked-item count.
+> Sets the service's maximum number of tracked items.
 
 #### Parameters
 
@@ -62,7 +61,7 @@ Debris:AddItem(part, 5)
 
 ## Testing Notes
 
-The exposed method surface was revalidated in Vortex Studio 0.3.4; detailed
+The exposed methods were revalidated in Vortex Studio 0.3.4; detailed
 method behavior may differ in later releases.
 
 `AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`.

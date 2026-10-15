@@ -1,14 +1,14 @@
 ---
 title: RemoteEvent
-description: An event that sends information between client and server.
+description: An event that sends information between clients and the server.
 ---
 
 ## Summary
 
-Can be used to communicate from the server to a client (or all of them) and
-vice-versa.
+A `RemoteEvent` can be used to communicate from the server to a client (or all clients)
+and vice versa.
 
-For more additional information, see
+For additional information, see
 [RemoteFunction](./remote-function.md).
 
 ### Example
@@ -51,24 +51,23 @@ MyRemote.OnClientEvent:Connect(received_msg)
 
 ## Methods
 
-- `FireAllClients(arguments: Tuple) : ()` - Fires data to all clients;
-- `FireClient(player: Player, arguments: Tuple) : ()` - Fires data from the
-  server to a client;
-- `FireServer(arguments: Tuple) : ()` - Fires data from the client to the
+- `FireAllClients(arguments: Tuple) : ()` - Sends data to all clients;
+- `FireClient(player: Player, arguments: Tuple) : ()` - Sends data from the
+   server to a client;
+- `FireServer(arguments: Tuple) : ()` - FSends data from the client to the
   server.
-
 ## Events
 
-- `OnClientEvent(arguments: Tuple) : Signal` - Fired when the client receives
-  data from the server;
-- `OnServerEvent(senderId: Number, arguments: Tuple) : Signal` - Fired when
-  the server receives data from the client.
+- `OnClientEvent(arguments: Tuple) : Signal` - Fires when the client receives
+   data from the server
+- `OnServerEvent(senderId: Number, arguments: Tuple) : Signal` - Fires when
+   the server receives data from the client.
 
 ## Vortex Studio 0.3.4 notes
 
-- `FireServer` to `OnServerEvent` was confirmed for an editor-authored remote
+- `FireServer` to `OnServerEvent` delivery was confirmed for an editor-authored remote
   in `ReplicatedStorage`.
-- Script-created remotes parented into `ReplicatedStorage` were visible to the
+- Script-created remotes parented to `ReplicatedStorage` were visible to the
   client but did not dispatch to the server handler.
 - `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed, but their
   delivery has not yet been established.

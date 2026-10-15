@@ -28,8 +28,8 @@ The observed public fields are `ClassName`, `Name`, `Position`,
 
 The tested generic Instance methods are available, including `GetChildren`,
 `GetDescendants`, `FindFirstChild`, `FindFirstChildOfClass`, `WaitForChild`,
-`IsA`, and the attribute/property-signal methods. The Character's tested
-hierarchy and lifecycle signals are unavailable; its `Changed` signal is
+`IsA`, and the attribute/property-signal methods. The tested hierarchy 
+and lifecycle signals on the Character are unavailable; its `Changed` signal is
 connectable. Model pivot and primary-part APIs are unavailable.
 
 `Character:FindFirstChild("Humanoid")` and
@@ -39,11 +39,11 @@ this public projection.
 
 ## Write-only visual rotation
 
-`Character.Orientation` is the confirmed server-side route for turning the
+`Character.Orientation` is the confirmed server-side method for turning the
 visible Character. Assigning `Vector3.new(0, 90, 0)` visibly quarter-turns the
 character even though `Character.Orientation` is `nil` before the assignment
-and remains `nil` after it. Treat it as a write-only visual command rather
-than readable transform state:
+and remains `nil` after it. Treat it as a write-only visual command rather 
+than as readable transform state:
 
 ```luau
 character.Orientation = Vector3.new(0, 90, 0)
@@ -63,9 +63,9 @@ has no verified visible turn effect, and from the public
 `Character:GetChildren()` returns an unnamed generic `Instance`. After a short
 loading delay, that wrapper can expose a separate `Scene` property containing
 the rendered armature, body meshes, limbs, and avatar-specific attachments.
-It is a transient renderer projection rather than normal Character hierarchy.
+It is a transient renderer projection rather than part of the normal Character hierarchy.
 
-Once that visual Scene is available, the observed direct-member route is:
+Once that visual Scene is available, the observed direct-member path is::
 
 ```luau
 local wrapper = character:GetChildren()[1]
@@ -92,16 +92,16 @@ projection.
 The Scene can be replaced while the Character itself remains available. A
 replacement destroys old visual instances, so stored limb or accessory
 references cannot be reparented into the new Scene. Resolve the current visual
-Scene again whenever it is needed. See [Model: Transient Character visual
+Scene whenever it is needed. See [Model: Transient Character visual
 Scene](./model.md#transient-character-visual-scene) for the full observed tree,
 visual-node surface, and attachment details.
 
-The tested visual `HumanoidRootPart` and `Torso` also discard an `Orientation`
-write without error: the value remains `nil` on readback. They are not a
-rotation-control route.
+The tested visual `HumanoidRootPart` and `Torso` also ignore an `Orientation`
+write without producing an error: the value remains `nil` on readback. They cannot be 
+used to control rotation.
 
-The tested `R7Body.Material` does not have working properties (Position, size, etc.),
-the only working property is :Destroy() from testing.
+The tested `R7Body.Material` does not have any working properties (Position, size, etc.),
+the only working property found during testing is :Destroy().
 
 ## Lifecycle limitation
 

@@ -1,6 +1,6 @@
 ---
 title: Humanoid
-description: Represents the humanoid controller in a Player Character.
+description: Represents the humanoid controller of a player's Character.
 ---
 
 The current player's humanoid is available as
@@ -14,7 +14,7 @@ The character's root transform is exposed separately as a
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a `Humanoid`.
+Properties of the `Humanoid`.
 <br><br>
 
 * [ClassName](#classname): `string`
@@ -26,17 +26,17 @@ Properties of a `Humanoid`.
 
 <details>
 <summary><b>Methods</b></summary>
-Methods of a `Humanoid`.
+Methods of the `Humanoid`.
 <br><br>
 
 * [IsDead](#isdead): `Boolean`
-* [GetState] (#getstate): `Enum.HumanoidStateType`
+* [GetState](#getstate): `Enum.HumanoidStateType`
 
 </details>
 
 <details>
 <summary><b>Signals</b></summary>
-Signals of a `Humanoid`.
+Signals of the `Humanoid`.
 <br><br>
 
 * [Died](#died): [`Signal`](../datatypes/signal.md)
@@ -54,7 +54,7 @@ Signals of a `Humanoid`.
 
 > `string`
 >
-> The Humanoid class name, `"Humanoid"`.
+> The class name of the Humanoid, `"Humanoid"`.
 
 <br/>
 
@@ -62,7 +62,7 @@ Signals of a `Humanoid`.
 
 > `string`
 >
-> The Humanoid name.
+> The name of the Humanoid.
 
 <br/>
 
@@ -94,7 +94,7 @@ Signals of a `Humanoid`.
 
 ### GetState
 
-> `Enum.HumanoidStateType``
+> `Enum.HumanoidStateType`
 >
 > `humanoid:GetState()`
 >
@@ -108,7 +108,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.Died`
 >
-> Signals that the Humanoid died.
+> Fires when the Humanoid dies.
 
 <br/>
 
@@ -118,7 +118,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.HealthChanged`
 >
-> Signals when the Humanoid health changes.
+> Fires when the Humanoid's health changes.
 
 ### StateChanged
 
@@ -126,7 +126,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.StateChanged`
 >
-> Signals when the Humanoid state changes.
+> Fires when the Humanoid's state changes.
 
 ### Jumping
 
@@ -134,7 +134,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.Jumping`
 >
-> Signals when the Humanoid is jumping.
+> Fires when the Humanoid is jumping.
 
 ### FreeFalling
 
@@ -142,7 +142,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.FreeFalling`
 >
-> Signals when the Humanoid enters or leaves the freefall state.
+> Fires when the Humanoid enters or leaves the freefall state.
 
 ### Running
 
@@ -150,7 +150,7 @@ Signals of a `Humanoid`.
 >
 > `humanoid.Running`
 >
-> Signals when the Humanoid enters or leaves the running state.
+> Fires when the Humanoid enters or leaves the running state.
 
 #### Parameters
 
@@ -161,25 +161,25 @@ Signals of a `Humanoid`.
 These observations are from Vortex Studio 0.3.4 and may differ in later
 releases.
 
-The observed character Humanoid was a specialized table with `ClassName` and
+The observed Character's Humanoid was a specialized table with `ClassName` and
 `Name` both reporting `"Humanoid"`, and `Health` and `MaxHealth` both
 reporting `100`. `IsDead()` was exposed and returned `false`. `Died` and
-`HealthChanged` exposed `Signal:Connect`.
+`HealthChanged` exposed signals that support `Signal:Connect`.
 
 Assigning `Health` or `MaxHealth` is rejected in both a `LocalScript` and a
-confirmed server `Script` (`RunService:IsServer()` returned `true`). The error
-still says that the value is read-only in a LocalScript and server-authoritative,
+confirmed server `Script` (`RunService:IsServer()` returned `true`). The error still
+states that the value is read-only in a LocalScript and that character state is server-authoritative,
 so its wording does not match the observed server behavior. Server code can now
 enumerate a `Player`, read its `Character`, and obtain this `Humanoid`, but that
-projection does not currently grant Health-write authority.
+projection does not currently grant authority to write to Health.
 
 `WalkSpeed`, `JumpPower`, `JumpHeight`, and `UseJumpPower` read as `nil` on the
 tested server-visible Humanoid projection, so their write behavior remains
 unknown. `Died` and `HealthChanged` are exposed Signal references; their
 delivery remains unconfirmed.
 
-The confirmed server method surface contains `IsDead()` only. The Roblox-style
-methods `TakeDamage`, state/movement control, animation, and accessory methods
+TThe confirmed server-side API exposes only `IsDead()`. The Roblox-style
+`TakeDamage` method, along with state/movement control, animation, and accessory methods
 all read as `nil`. Of the tested Roblox-style signals, only `Died` and
 `HealthChanged` are connectable; `Jumping`, `FreeFalling`, `Running`,
 `StateChanged`, `MoveToFinished`, `PlatformStanding`, `Ragdoll`, and `Seated`
