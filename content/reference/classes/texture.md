@@ -1,6 +1,6 @@
 ---
 title: Texture
-description: Textures allow for rendering special decals onto parts
+description: Textures allow special decals to be rendered on parts.
 ---
 
 <!-- 
@@ -19,7 +19,7 @@ are set automatically, so six textures can cover the entire part quickly.
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a Texture, in the order they appear on Vortex Studio.
+Properties of a Texture, in the order they appear in Vortex Studio.
 <br><br>
 <ul>
 <details>
@@ -39,15 +39,15 @@ Properties of a Texture, in the order they appear on Vortex Studio.
 ### Face
 > [`Enum.Face`](../datatypes/enumitem.md) \
 \
-Controls which face of the parent [`Part`](./part.md) that the texture is displayed on.
+Controls the face of the parent [`Part`](./part.md) on which the texture is displayed.
 
 <br/>
 
 ### Texture
 > [`Enum.Texture`](../datatypes/enumitem.md) \
 \
-Sets which texture to render onto the selected face.
-Currently the only options are `Inlets` or `Studs`. 
+Sets the texture to render on the selected face.
+Currently, the only options are `Inlets` and `Studs`. 
 
 <br/>
 
@@ -55,8 +55,8 @@ Currently the only options are `Inlets` or `Studs`.
 
 In Vortex Studio 0.3.4, `Instance.new("Texture")`,
 `Instance.new("Decal")`, and `Instance.new("SurfaceAppearance")` all fail in
-both Script and LocalScript. A script-created `Part` also has no readable
+both Script and LocalScript contexts. A script-created `Part` also has no readable
 `Texture`, `TextureID`, `SurfaceAppearance`, or `Decal` field.
 
-Editor-authored texture behavior was not established by this probe, but there
+Editor-authored texture behavior was not confirmed by this probe, but there
 is currently no confirmed script API for creating or changing textures.

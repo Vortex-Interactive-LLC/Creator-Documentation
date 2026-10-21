@@ -1,6 +1,6 @@
 ---
 title: Workspace
-description: Service that holds and renders every 3D player-interactable instance.
+description: A service that holds and renders every 3D instance that players can interact with.
 ---
 
 <!-- 
@@ -14,16 +14,16 @@ Written by Kindtracker on September 19, 2026
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a Workspace, in the order they appear on Vortex Studio
+Properties of a Workspace, in the order they appear in Vortex Studio
 <br><br>
 
 - [ClassName](#classname): `string`
-- [Name](#name): `strings`
+- [Name](#name): `string`
 </details>
 
 <details>
 <summary><b>Methods</b></summary>
-Methods of a `Workspace`.
+Methods of `Workspace`.
 <br><br>
 
 - [FindFirstChild](#findfirstchild): [`Instance`](./instance.md) | `nil`
@@ -62,7 +62,7 @@ found.
 
 #### Parameters
 
-- `name`: `string` — the child name to find.
+- `name`: `string` — the name of the child to find.
 
 <br/>
 
@@ -100,7 +100,7 @@ Waits for and returns a direct child with the supplied `name`.
 
 #### Parameters
 
-- `name`: `string` — the child name to wait for.
+- `name`: `string` — the name of the child to wait for.
 
 
 <br/>
@@ -114,7 +114,7 @@ may differ in later releases.
 and `WaitForChild` resolves it. `FindFirstChild` returns `nil` and
 `GetChildren` omits it.
 
-For existing authored children, repeated `GetChildren()` calls can return fresh
+For existing authored children, repeated `GetChildren()` calls can return new
 Lua wrapper tables for the same underlying Instance. Do not use a returned
-wrapper as a persistent table key across frames; use a unique authored name or
+wrapper as a persistent table key between frames; use a unique authored name or
 another stable identifier instead.

@@ -21,14 +21,14 @@ In Vortex Studio 0.3.4, `game:GetService("Lighting")` fails with
 editor-facing Lighting controls documented below therefore do not currently
 have a confirmed runtime scripting surface.
 
-There are two main controls under Lighting's properties:
+There are two main controls in Lighting's properties:
 - `Ambient` is the general lighting that every object receives regardless of its position or rotation.
-- `Sun` is the light placed on object faces that are in direct view of the sun. If shadows are enabled, then parts of a face can be blocked from the sun.
+- `Sun` is the light that illuminates object faces directly exposed to itself. If shadows are enabled, then parts of a face can be blocked from sunlight.
 <br><br>
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of Lighting, in the order they appear on Vortex Studio.
+Properties of Lighting, in the order they appear in Vortex Studio.
 <br><br>
 <ul>
 <details>
@@ -61,7 +61,7 @@ Properties of Lighting, in the order they appear on Vortex Studio.
 > [`Color3`](../datatypes/color3.md) \
 \
 Determines the visible color of the `Part`.
-Will also affect the part's [`Material`]() color.
+It will also affect the Part's [`Material`]() color.
 
 <br/>
 
@@ -84,22 +84,21 @@ This value has `no effect`.
 ### Rotation
 > [`Vector3`](../datatypes/vector3.md) \
 \
-Determines the angle at which sunlight hits objects, and as such the dimensions of shadows.
-
+Determines the angle at which sunlight hits objects and, as such, the dimensions of shadows.
 <br/>
 
 
 ### Size
 > [`Vector3`](../datatypes/vector3.md) \
 \
-This value is `read-only` has `no effect`.
+This value is `read-only` and has `no effect`.
 
 <br/>
 
 ### Sun Brightness
 > `Float` \
 \
-Determines how bright the `sun` lighting is.
+Determines the brightness value of the `sun`.
 
 <br/>
 
@@ -107,14 +106,14 @@ Determines how bright the `sun` lighting is.
 > [`Color3`](../datatypes/color3.md) \
 \
 Determines the color of sunlight that hits objects.
-Will blend with the ambient coloring.
+It will blend with the ambient color.
 
 <br/>
 
 ### Sun Shadows
 > `Boolean` \
 \
-Toggles shadows globally (from the sun).
-Currently, there are no other types of lights that create shadows, so this is a toggle button for every shadow in your game.
+Toggles shadows from the sun globally.
+Currently, there are no other types of lights that create shadows, so this setting controls all shadows in the game.
 
 <br/>

@@ -5,12 +5,11 @@ description: A partially exposed local-event instance.
 
 ## Runtime support
 
-`BindableEvent` is constructable in Vortex Studio 0.3.4 in both `Script` and
+`BindableEvent` can be constructed in Vortex Studio 0.3.4 in both `Script` and
 `LocalScript`. It exposes an `Event` table.
 
-However, the instance has no `Fire` method, so scripts cannot trigger that
-signal. Its practical use as an in-process event bus is therefore unavailable
-in the current runtime.
+However, the instance has no `Fire` method, scripts cannot fire that signal.
+It therefore cannot currently be used as an in-process event bus.
 
 ```lua
 local event = Instance.new("BindableEvent")

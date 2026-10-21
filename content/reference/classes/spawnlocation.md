@@ -1,6 +1,6 @@
 ---
 title: SpawnLocation
-description: A special part which provides a position to load player characters at
+description: A special part that provides a spawn position for player characters.
 ---
 
 <!-- 
@@ -16,14 +16,14 @@ Written by KingTasaz on August 28th, 2026
 
 ## Runtime availability
 
-`Instance.new("SpawnLocation")` fails in both Script and LocalScript in
-Vortex Studio 0.3.4. A Workspace descendant scan also found no live
-`SpawnLocation` in the tested project, so its editor-facing behavior below is
-not a confirmed runtime scripting surface.
+`Instance.new("SpawnLocation")` fails in both Script and LocalScript contexts in
+Vortex Studio 0.3.4. A descendant scan of Workspace also found no live
+`SpawnLocation` in the tested project, so the editor-facing behavior described
+below is not confirmed to be available through runtime scripting.
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a SpawnLocation, in the order they appear on Vortex Studio.
+Properties of a SpawnLocation, in the order they appear in Vortex Studio.
 <br><br>
 <ul>
 <details>
