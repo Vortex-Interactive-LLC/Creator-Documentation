@@ -71,7 +71,7 @@ The basic transform tools (Move, Rotate) work more or less as expected when used
 
 > `Model:MoveTo(targetPosition: Vector3)`
 >
-> Moves the `Model` to the given position.
+> Moves the `Model` to the given position. Returns nothing
 
 #### Parameters
 
