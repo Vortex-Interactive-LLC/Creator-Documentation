@@ -7,7 +7,7 @@ description: A script that runs locally for a client.
 
 A `LocalScript` runs on the client (the player's machine). Use LocalScripts for client-only behavior such as UI, camera control, and input handling; do not use them for server-authoritative logic.
 
-## Example
+## Code Samples
 
 ```luau
 -- Example LocalScript that prints the local player's name
