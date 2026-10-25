@@ -59,7 +59,7 @@ The current player's humanoid is available in both contexts; `Script` and `Local
 -- Script
 
 local player = game:GetService('Players'):GetPlayers()[1]
-local character = player and player.Character or player.CharacterAdded:Wait()
+local character = player and player.Character or player and player.CharacterAdded:Wait()
 local humanoid:Humanoid = character:WaitForChild('Humanoid')
 ```
 
@@ -67,7 +67,7 @@ local humanoid:Humanoid = character:WaitForChild('Humanoid')
 -- LocalScript
 
 local player = game:GetService('Players').LocalPlayer
-local character = player and player.Character or player.CharacterAdded:Wait()
+local character = player.Character or player.CharacterAdded:Wait()
 local humanoid:Humanoid = character:WaitForChild('Humanoid')
 ```
 
