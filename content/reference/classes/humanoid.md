@@ -12,6 +12,14 @@ Properties of `Humanoid`.
 
 * [Health](#health): `number`
 * [MaxHealth](#maxhealth): `number`
+* [WalkSpeed](#walkspeed): `number`
+* [JumpPower](#jumppower): `number`
+* [JumpHeight](#jumpheight): `number`
+* [AutoRotate](#autorotate): `boolean`
+* [HipHeight](#hipheight): `number`
+* [MoveDirection](#movedirection): `Vector3`
+* [Sit](#sit): `boolean`
+* [SeatPart](#seatpart): `BasePart`
 
 </details>
 
@@ -22,6 +30,7 @@ Signals of `Humanoid`.
 
 * [IsDead](#isdead): `boolean`
 * [GetState](#getstate): `Enum.HumanoidStateType`
+* [TakeDamage](#takedamage)
 
 </details>
 
@@ -30,7 +39,13 @@ Signals of `Humanoid`.
 Signals of `Humanoid`.
 <br><br>
 
-* [Changed: `Connection`](#changed)
+* [Died](#died): `Connection`
+* [HealthChanged](#healthchanged): `Connection`
+* [StateChanged](#statechanged): `Connection`
+* [Jumping](#jumping): `Connection`
+* [Running](#running): `Connection`
+* [FreeFalling](#freefalling): `Connection`
+* [Seated](#seated): `Connection`
 
 </details>
 
@@ -156,6 +171,10 @@ local humanoid:Humanoid = character:WaitForChild('Humanoid')
 >
 > Signals when the `Health` property changes. Returns new health amount.
 
+#### Parameters
+
+- `health`: `number` — current `Health` value
+
 ### StateChanged
 
 > `StateChanged(old: Enum.HumanoidStateType, new: Enum.HumanoidStateType)`
@@ -169,35 +188,48 @@ local humanoid:Humanoid = character:WaitForChild('Humanoid')
 
 ### Jumping
 
-> [`Signal`](../datatypes/signal.md)
+> `Jumping(active: boolean)`
 >
-> `humanoid.Jumping`
->
-> Signals when the Humanoid is jumping.
-
-### FreeFalling
-
-> [`Signal`](../datatypes/signal.md)
->
-> `humanoid.FreeFalling`
->
-> Signals when the Humanoid enters or leaves the freefall state.
-
-### Running
-
-> [`Signal`](../datatypes/signal.md)
->
-> `humanoid.Running`
->
-> Signals when the Humanoid enters or leaves the running state.
+> Signals when the `Humanoid` is jumping. Returns when `Humanoid` entering or leaving `Enum.HumanoidStateType.Jumping`
 
 #### Parameters
 
-- `health`: `Number` — the updated health value.
+- `active`: `boolean` — `Jumping` state `boolean`
+
+### Running
+
+> `Running(speed: number)`
+>
+> Signals when the `WalkSpeed` property of `Humanoid` changes. Returns current `WalkSpeed` value 
+
+#### Parameters
+
+- `speed`: `number` — Current `WalkSpeed` value 
+
+### FreeFalling
+
+> `FreeFalling(active: boolean)`
+>
+> Signals when the `Humanoid` is falling. Returns when `Humanoid` entering or leaving `Enum.HumanoidStateType.Freefall`
+
+#### Parameters
+
+- `active`: `number` — `Freefall` state boolean
+
+### Seated
+
+> `Seated(active: boolean, seat: BasePart)`
+>
+> Fires when a `Humanoid` sits in or gets up from a `Seat`
+
+#### Parameters
+
+- `active`: `boolean` — `Seated` state `boolean`
+- `seat`: `BasePart` — current `Seat` or `nil`
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
+These observations are from Vortex Studio 0.8.1 and may differ in later
 releases.
 
 The observed character Humanoid was a specialized table with `ClassName` and
@@ -205,24 +237,11 @@ The observed character Humanoid was a specialized table with `ClassName` and
 reporting `100`. `IsDead()` was exposed and returned `false`. `Died` and
 `HealthChanged` exposed `Signal:Connect`.
 
-Assigning `Health` or `MaxHealth` is rejected in both a `LocalScript` and a
-confirmed server `Script` (`RunService:IsServer()` returned `true`). The error
-still says that the value is read-only in a LocalScript and server-authoritative,
-so its wording does not match the observed server behavior. Server code can now
-enumerate a `Player`, read its `Character`, and obtain this `Humanoid`, but that
-projection does not currently grant Health-write authority.
-
-`WalkSpeed`, `JumpPower`, `JumpHeight`, and `UseJumpPower` read as `nil` on the
-tested server-visible Humanoid projection, so their write behavior remains
-unknown. `Died` and `HealthChanged` are exposed Signal references; their
-delivery remains unconfirmed.
+`UseJumpPower` read as `nil` on the tested server-visible Humanoid projection, so their write behavior remains
+unknown. `Died` and `HealthChanged` are exposed Signal references.
 
 The confirmed server method surface contains `IsDead()` only. The Roblox-style
-methods `TakeDamage`, state/movement control, animation, and accessory methods
-all read as `nil`. Of the tested Roblox-style signals, only `Died` and
-`HealthChanged` are connectable; `Jumping`, `FreeFalling`, `Running`,
-`StateChanged`, `MoveToFinished`, `PlatformStanding`, `Ragdoll`, and `Seated`
-all read as `nil`.
+methods animation, and accessory methods all read as `nil`. Of the tested Roblox-style signals, only `Died` and
+`HealthChanged` are connectable; `MoveToFinished`, `PlatformStanding`, `Ragdoll` all read as `nil`.
 
 The specialized Humanoid has an opaque `__index` and `__newindex` metatable;
-`IsA` was not exposed on the value itself.
