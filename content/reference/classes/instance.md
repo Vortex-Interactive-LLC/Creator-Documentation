@@ -33,6 +33,7 @@ Common properties of an `Instance`-like object.
 <details>
 <summary><b>Signals</b></summary>
 Common signals of an `Instance`-like object.
+<br><br>
 
 * [Changed](#changed): `Connection`
 
@@ -100,3 +101,5 @@ The following matrix records whether each member is exposed as a function on the
 A `Players` service can still provide its class-specific `GetPlayers()` method, and a `Humanoid` can provide `IsDead()`, even though the generic methods above are absent.
 
 These observations were made in Vortex Studio 0.8.1 and may change in later versions.
+
+`ClassName` of `Connection` is `RBXScriptSignal`.
