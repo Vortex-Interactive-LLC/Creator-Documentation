@@ -39,6 +39,10 @@ Common signals of an `Instance`-like object.
 
 </details>
 
+## Overview
+
+`Instance` is the base class for all classes in the class hierarchy of Vortex
+
 ## Properties
 
 ### Name
