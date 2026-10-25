@@ -8,10 +8,11 @@ Instance
 Revision 1
 
 Written by Kindtracker on August 28th, 2026
+Updated by LocalScriptMaker on October 25th, 2026
 -->
 
 > [!IMPORTANT]
-> Vortex Studio 0.3.4 does not expose one uniform Instance method set on every
+> Vortex Studio 0.8.1 does not expose one uniform Instance method set on every
 > engine-backed value. The members below describe ordinary Instance-like
 > objects. Use the concrete class reference and the availability matrix on this
 > page before calling a method.
@@ -24,6 +25,7 @@ Common properties of an `Instance`-like object.
 <br><br>
 
 * [Name](#name): `string`
+* [ClassName](#classname): `string`
 * [Parent](#parent): `Instance | nil`
 
 </details>
@@ -31,6 +33,9 @@ Common properties of an `Instance`-like object.
 <details>
 <summary><b>Signals</b></summary>
 Common signals of an `Instance`-like object.
+
+* [Changed](#changed): `Connection`
+  
 <br><br>
 
 * [Name](#name): `string`
@@ -65,6 +70,22 @@ Common signals of an `Instance`-like object.
 >
 > Fires after a property of the object changes. Returns property.
 
+#### Parameters
+
+- `property`: `string` — changed property.
+
+### Code Samples
+
+```luau
+local function onChanged(property)
+    print("The new property's value is",object[property])
+end
+
+object.Changed:Connect(onChanged)
+```
+
+See this [reference](../instance) to find more instance methods.
+
 ## Vortex Studio Method Availability
 
 The following matrix records whether each member is exposed as a function on the live object.
@@ -82,4 +103,4 @@ The following matrix records whether each member is exposed as a function on the
 
 A `Players` service can still provide its class-specific `GetPlayers()` method, and a `Humanoid` can provide `IsDead()`, even though the generic methods above are absent.
 
-These observations were made in Vortex Studio 0.3.4 and may change in later versions.
+These observations were made in Vortex Studio 0.8.1 and may change in later versions.
