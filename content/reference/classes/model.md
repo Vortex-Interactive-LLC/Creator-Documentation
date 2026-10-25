@@ -87,7 +87,7 @@ both `Script` and `LocalScript`.
 also unavailable (`nil`) in both contexts. Assigning `Model.PrimaryPart` is
 rejected as a non-settable property.
 
-In 0.8.1, the live [Character](../guides/character.md) Model is a special case. In both a `LocalScript` and
+In 0.8.1, the live [Character](.../guides/character.md) Model is a special case. In both a `LocalScript` and
 a confirmed server `Script`, it exposes `ClassName`, `Name`, and `Position`, plus
 direct `Humanoid` and `HumanoidRootPart` members; `Parent` reads as `nil`.
 It exposes the tested generic Instance method surface and a connectable
