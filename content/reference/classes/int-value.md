@@ -3,34 +3,59 @@ title: IntValue
 description: A detached integer value container.
 ---
 
+<!--
+Debris
+Revision 1
+
+-->
+
 ## Summary
 
-`IntValue` is constructable in Vortex Studio 0.3.4 in both `Script` and
-`LocalScript`. It stores a numeric `Value` and does not need a parent to be
-read or written.
+<details>
+<summary><b>Properties</b></summary>
+Properties of `IntValue`.
+<br><br>
+
+* [Value](#value): `number`
+
+</details>
+
+<details>
+<summary><b>Signals</b></summary>
+Signals of `IntValue`.
+<br><br>
+
+* [Changed](#changed): `Connection`
+
+</details>
+
+## Overview
+
+`IntValue` is an instance that contains and modifies a `number` value.
 
 ## Properties
 
-### Name
-
-> `string`
-
-The instance name. A new value is named `IntValue`.
-
 ### Value
 
-> `number`
+> `IntValue.Value: number`
+>
+> `number` value.
 
-A new `IntValue` starts at `0`. Assigning and reading integral values works:
+## Signals
 
-```lua
-local score = Instance.new("IntValue")
-score.Value = 42
-print(score.Value) -- 42
-```
+### Changed
 
-## Change notifications
+> `Changed(value: number): Connection`
+>
+> Fires whenever the `Value` property of `IntValue` changes.
 
-`Changed` and `GetPropertyChangedSignal("Value")` are present and connectable,
-but changing `Value` did not invoke either callback in the tested 0.3.4
-runtime. Poll `Value` when a script must observe a change.
+#### Parameters
+
+- `value: number` — new `Value` property of `IntValue`
+
+## Testing Notes
+
+The exposed method surface was revalidated in Vortex Studio 0.8.1; detailed
+method behavior may differ in later releases.
+
+`ClassName` of `Connection` is `RBXScriptSignal`
