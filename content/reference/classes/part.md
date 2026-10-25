@@ -14,136 +14,81 @@ Written by KingTasaz on August 28th, 2026
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a Part, in the order they appear on Vortex Studio.
+Properties of `IntValue`.
 <br><br>
-<ul>
-<details>
-<summary><b>Appearance</b></summary>
 
-- [Color](#color): [`Color3`](../datatypes/color3.md)
-- [Transparency](#transparency): `Float`
-- [Material](#material): [`Enum.Material`](../globals/enum.md) <!-- not sure if this should link to enumitem.md or enum.md <pretty sure it's enum.md> -->
-- [Cast Shadow](#cast-shadow): `Boolean`
+* [Value](#value): `number`
 
 </details>
 
 <details>
-<summary><b>Behaviour</b></summary>
+<summary><b>Signals</b></summary>
+Signals of `IntValue`.
+<br><br>
 
-- [Anchored](#anchored): `Boolean`
-- [CanCollide](#cancollide): `Boolean`
-- [ClassName](#classname): `string`
-- [Parent](#parent): [`Instance`](./instance.md) | `nil`
-- [Truss](#truss): `Boolean`
+* [Changed](#changed): `Connection`
 
 </details>
 
-<details>
-<summary><b>Transform</b></summary>
+## Overview
 
-- [CFrame](#cframe): [`CFrame`](../datatypes/cframe.md)
-- [Name](#name): `string`
-- [Position](#position): [`Vector3`](../datatypes/vector3.md)
-- [Rotation](#rotation): [`Vector3`](../datatypes/vector3.md)
-- [Size](#size): [`Vector3`](../datatypes/vector3.md)
-- [Orientation](#orientation): [`Vector3`](../datatypes/vector3.md)
-
-</details>
-
-</ul>
-</details>
-
-<details>
-<summary><b>Methods</b></summary>
-<br>
-
-- [Clone](#clone): `Part`
-- [Destroy](#destroy): `nil`
-- [FindFirstChild](#findfirstchild): [`Instance`](./instance.md) | `nil`
-- [FindFirstChildOfClass](#findfirstchildofclass): [`Instance`](./instance.md) | `nil`
-- [GetAttribute](#getattribute): `Variant` | `nil`
-- [GetAttributeChangedSignal](#getattributechangedsignal): [`Signal`](../datatypes/signal.md)
-- [GetAttributes](#getattributes): `{ [string]: Variant }`
-- [GetChildren](#getchildren): `{ Instance }`
-- [GetDescendants](#getdescendants): `{ Instance }`
-- [GetPropertyChangedSignal](#getpropertychangedsignal): [`Signal`](../datatypes/signal.md)
-- [IsA](#isa): `Boolean`
-- [SetAttribute](#setattribute): `nil`
-- [WaitForChild](#waitforchild): [`Instance`](./instance.md)
-
-</details>
-
-<details>
-<summary><b>Events</b></summary>
-<br>
-
-- [Changed](#changed): [`Signal`](../datatypes/signal.md)
-- [Touched](#touched): [`Signal`](../datatypes/signal.md)
-- [TouchEnded](#touchended): [`Signal`](../datatypes/signal.md)
-</details>
+A `Part` is a `BasePart` that comes in different primitive shapes.
 
 ## Properties
 
 ### Anchored
-> `Boolean` \
-\
-When `true`, the given part will be unable to move via interactions with the environment. \
-When `false`, the part will experience gravity and forces from other parts.
 
-<br/>
-
+> `Part.Anchored: boolean`
+>
+> Determines when a part is subject to physics.
 
 ### CanCollide
-> `Boolean` \
-\
-Determines whether the `Part` is given physics collisions, or whether it can phase through other parts. \
-\
-**Note:** A `Part` cannot be unanchored while collision is disabled.
 
-<br/>
+> `Part.CanCollide: boolean`
+>
+> Determines when a part has a collision.
 
+### CanQuery
 
-### CFrame
-> [`CFrame`](../datatypes/cframe.md) \
-\
-Sets the position and rotation of the `Part` as a single transform.
+> `Part.CanQuery: boolean`
+>
+> Determines whether the part will be ignored when a ray hits it. `CanQuery` always `true` if part is collidable, else can be set manually.
 
-<br/>
+### CanTouch
 
-
-### ClassName
-> `string` \
-\
-The runtime class name of the `Part`.
-
-<br/>
-
-
-### Cast Shadow
-> `Boolean` \
-\
-Controls whether or not the `Part` will cast a shadow.
-This can be used to save performance with part's whose shadows cannot be seen, or for glass parts which realistically would not create a shadow.
-
-<br/>
-
+> `Part.CanTouch: boolean`
+>
+> Determines when a part supports triggering the `Touched` and `TouchEnded` signals.
 
 ### Color
-> [`Color3`](../datatypes/color3.md) \
-\
-Determines the visible color of the `Part`.
-Will also affect the part's [`Material`]() color.
 
-<br/>
+> `Part.Color: Color3`
+>
+> Visual color of a part's surface.
 
+### Transparency
+
+> `Part.Transparency: number`
+>
+> Determines how much a part can be seen through.
 
 ### Material
-> [`Enum.Material`](../datatypes/enumitem.md) \
-\
-Determines which `Material` type to apply when rendering the `Part`.
-Currently this has no effect other than visual.
 
-<br/>
+> `Part.Material: Enum.Material`
+>
+> Appearance of a part.
+
+### CastShadow
+
+> `Part.CastShadow: boolean`
+>
+> Determines whether the part will cast a shadow.
+
+### Velocity
+
+> `Part.Velocity: Vector3`
+>
+> Determines whether the part will cast a shadow.
 
 
 ### Name
