@@ -3,15 +3,9 @@ title: LocalScript
 description: A script that runs locally for a client.
 ---
 
-## Summary
+## Overview
 
-A LocalScript runs on the client (the player's machine). Use LocalScripts for client-only behavior such as UI, camera control, and input handling; do not use them for server-authoritative logic.
-
-## Typical properties / methods
-
-- `Parent` : Instance — where the script is placed (e.g., a PlayerGui or StarterPlayerScripts).
-- `Disabled` : Boolean — whether the script is currently disabled.
-- `Source` : string — the script source (editor-only / read-only in some tools; not guaranteed to be available at runtime).
+A `LocalScript` runs on the client (the player's machine). Use LocalScripts for client-only behavior such as UI, camera control, and input handling; do not use them for server-authoritative logic.
 
 ## Example
 
@@ -20,7 +14,7 @@ A LocalScript runs on the client (the player's machine). Use LocalScripts for cl
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 if player then
-  print("Hello, " .. player.Name)
+    print("Hello, " .. player.Name)
 end
 ```
 
