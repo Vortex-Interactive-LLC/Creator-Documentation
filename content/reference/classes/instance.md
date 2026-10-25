@@ -29,13 +29,11 @@ Common properties of an `Instance`-like object.
 </details>
 
 <details>
-<summary><b>Methods</b></summary>
-Common methods of an `Instance`-like object.
+<summary><b>Signals</b></summary>
+Common signals of an `Instance`-like object.
 <br><br>
 
-* [Clone()](#clone): `Instance`
-* [Destroy()](#destroy): `nil`
-* [GetChildren()](#getchildren): `{ Instance }`
+* [Name](#name): `string`
 
 </details>
 
@@ -43,45 +41,29 @@ Common methods of an `Instance`-like object.
 
 ### Name
 
-> `string` 
+> `Instance.Name: string`
 >
 > The name of the `Instance`.
 
-<br/>
+### ClassName
+
+> `Instance.ClassName: string`
+>
+> The name of the `Instance` class.
 
 ### Parent
 
-> `Instance | nil`
+> `Instance.Parent: Instance | nil`
 >
 > The instance's hierarchical parent, or `nil` when it has no parent.
 
-<br/>
+## Signals
 
-## Methods
+### Changed
 
-### Clone()
-
-> `Instance` 
+> `Changed(property: string)`
 >
-> Create a copy of the `Instance` and return copy.
-
-<br/>
-
-### Destroy()
-
-> `nil` 
->
-> Destroy the `Instance` and children.
-
-<br/>
-
-### GetChildren()
-
-> `{ Instance }` 
->
-> Return children of the `Instance`.
-
-<br/>
+> Fires after a property of the object changes. Returns property.
 
 ## Vortex Studio Method Availability
 
