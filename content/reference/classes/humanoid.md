@@ -245,3 +245,5 @@ methods animation, and accessory methods all read as `nil`. Of the tested Roblox
 `HealthChanged` are connectable; `MoveToFinished`, `PlatformStanding`, `Ragdoll` all read as `nil`.
 
 The specialized Humanoid has an opaque `__index` and `__newindex` metatable;
+
+`ClassName` of `Connection` is `RBXScriptSignal`
