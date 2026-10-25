@@ -16,7 +16,7 @@ Revision 1
 Properties of `BoolValue`.
 <br><br>
 
-* [Value: boolean](#value)
+* [Value](#value): `boolean`
 
 </details>
 
@@ -25,7 +25,7 @@ Properties of `BoolValue`.
 Signals of `BoolValue`.
 <br><br>
 
-* [Changed: `Connection`](#changed)
+* [Changed](#changed): `Connection`
 
 </details>
 
