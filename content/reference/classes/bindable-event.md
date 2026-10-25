@@ -25,7 +25,7 @@ Methods of `BindableEvent`.
 Signals of `BindableEvent`.
 <br><br>
 
-* [Event: `Connection`](#event)
+* [Event](#event): `Connection`
 
 </details>
 
