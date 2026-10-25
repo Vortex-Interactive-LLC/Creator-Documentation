@@ -8,25 +8,44 @@ Part
 Revision 2
 
 Written by KingTasaz on August 28th, 2026
+Updated by LocalScriptMaker on October 25th, 2026
 -->
 
 ## Summary
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of `IntValue`.
+Properties of `Part`.
 <br><br>
 
-* [Value](#value): `number`
+* [Anchored](#anchored): `boolean`
+* [CanCollide](#cancollide): `boolean`
+* [CanQuery](#canquery): `boolean`
+* [CanTouch](#cantouch): `boolean`
+* [Color](#color): `Color3`
+* [Transparency](#transparency): `number`
+* [Material](#material): `Enum.Material`
+* [CastShadow](#castshadow): `boolean`
+* [Velocity](#velocity): `Vector3`
+* [AngularVelocity](#angularvelocity): `Vector3`
+* [Position](#position): `Vector3`
+* [Orientation](#orientation): `Vector3`
+* [Rotation](#rotation): `Vector3`
+* [CFrame](#cframe): `CFrame`
+* [Size](#size): `Vector3`
+* [Shape](#shape): `Enum.PartType`
+* [CenterOfMass](#centerofmass): `Vector3`
+* [Mass](#mass): `number`
 
 </details>
 
 <details>
 <summary><b>Signals</b></summary>
-Signals of `IntValue`.
+Signals of `Part`.
 <br><br>
 
-* [Changed](#changed): `Connection`
+* [Touched](#touched): `Connection`
+* [TouchEnded](#touchended): `Connection`
 
 </details>
 
@@ -100,233 +119,77 @@ A `Part` is a `BasePart` that comes in different primitive shapes.
 
 > `Part.Position: Vector3`
 >
-> 
-
+> Determines position in 3D space.
 
 ### Orientation
-> [`Vector3`](../datatypes/vector3.md) \
-\
-The rotation of the `Part` in degrees along each axis.
 
-<br/>
-
-
-### Parent
-> [`Instance`](./instance.md) | `nil` \
-\
-The containing `Instance` of the `Part`, or `nil` when it has no parent.
-
-<br/>
-
-
-### Position
-> [`Vector3`](../datatypes/vector3.md) \
-\
-The position of the `Part`, in World-space.
-
-<br/>
-
+> `Part.Orientation: Vector3`
+>
+> Rotation of the part in the world. **Applied in Y → X → Z axis.**
 
 ### Rotation
-> [`Vector3`](../datatypes/vector3.md) \
-\
-The rotation of the `Part` along each axis.
 
-<br/>
+> `Part.Rotation: Vector3`
+>
+> Rotation of the part in the world. **Applied in X → Y → Z axis.**
 
+### CFrame
+
+> `Part.CFrame: CFrame`
+>
+> Represents both a 3D `Position` and `Orientation` of the `Part`.
 
 ### Size
-> [`Vector3`](../datatypes/vector3.md) \
-\
-The size of the `Part` in each dimension (width, height, depth).
 
-<br/>
+> `Part.Size: Vector3`
+>
+> Determines part's visual dimensions like length, height, width.
 
+### Shape
 
-### Transparency
-> `Float` \
-\
-Sets the `transparency` of the part from `0` (opaque) to `1` (invisible).
-When drawing shadows, all parts are treated as opaque regardless of their `transparency`. Unless it is set to `1`, where the part does not render at all.
+> `Part.Shape: Enum.PartType`
+>
+> Sets the overall shape of the object.
 
-<br/>
+### CenterOfMass
 
+> `Part.CenterOfMass: Vector3`
+>
+> Describes the local `Position` of a part's center of mass, relative to its `CFrame`.
 
-### Truss
-> `Boolean` \
-\
-If a `part` is a truss part, then the `Player` is able to climb the part by walking up to it. It is recommened to keep truss parts anchored, as they otherwise produce unpredictable effects.
+### Mass
 
-<br/>
+> `Part.Mass: number`
+>
+> Determines how "heavy" a `Part` is, based on its `Size`.
 
-## Methods
-
-### Clone()
-> `Part` \
-\
-Creates and returns a copy of the `Part`.
-
-<br/>
-
-
-### Destroy()
-> `nil` \
-\
-Destroys the `Part`.
-
-<br/>
-
-
-### FindFirstChild()
-> [`Instance`](./instance.md) | `nil` \
-\
-`part:FindFirstChild(name: string)` \
-\
-Returns the first direct child with the supplied `name`, or `nil` when none is
-found.
-
-<br/>
-
-
-### FindFirstChildOfClass()
-> [`Instance`](./instance.md) | `nil` \
-\
-`part:FindFirstChildOfClass(className: string)` \
-\
-Returns the first direct child whose class matches `className`, or `nil` when
-none is found.
-
-<br/>
-
-
-### GetAttribute()
-> `Variant` | `nil` \
-\
-`part:GetAttribute(name: string)` \
-\
-Returns the value stored under the supplied attribute `name`.
-
-<br/>
-
-
-### GetAttributeChangedSignal()
-> [`Signal`](../datatypes/signal.md) \
-\
-`part:GetAttributeChangedSignal(name: string)` \
-\
-Returns an event associated with changes to the supplied attribute `name`.
-
-<br/>
-
-
-### GetAttributes()
-> `{ [string]: Variant }` \
-\
-Returns a table containing the `Part` attributes.
-
-<br/>
-
-
-### GetChildren()
-> `{ Instance }` \
-\
-Returns the direct children of the `Part`.
-
-<br/>
-
-
-### GetDescendants()
-> `{ Instance }` \
-\
-Returns the descendants of the `Part`.
-
-<br/>
-
-
-### GetPropertyChangedSignal()
-> [`Signal`](../datatypes/signal.md) \
-\
-`part:GetPropertyChangedSignal(property: string)` \
-\
-Returns an event associated with changes to the supplied property.
-
-<br/>
-
-
-### IsA()
-> `Boolean` \
-\
-`part:IsA(className: string)` \
-\
-Returns whether the `part` is an instance of `className` or one of its
-ancestor classes.
-
-<br/>
-
-
-### SetAttribute()
-> `nil` \
-\
-`part:SetAttribute(name: string, value: Variant | nil)` \
-\
-Sets the attribute `name` to `value`. Passing `nil` clears the attribute.
-
-<br/>
-
-
-### WaitForChild()
-> [`Instance`](./instance.md) \
-\
-`part:WaitForChild(name: string)` \
-\
-Waits for and returns a direct child with the supplied `name`.
-
-<br/>
-
-## Events
-
-### Changed
-> [`Signal`](../datatypes/signal.md) \
-\
-An event associated with changes to the `part`.
-
-<br/>
-
+## Signals
 
 ### Touched
-> [`Signal`](../datatypes/signal.md) \
-\
-An event associated with physical contact with the `part`.
 
-<br/>
+> `Touched(otherPart: BasePart): Connection`
+>
+> Fires when a `Part` touches another `Part`.
 
+#### Parameters
+
+- `otherPart: BasePart` — the `Part` that came in contact with the given `Part`.
 
 ### TouchEnded
-> [`Signal`](../datatypes/signal.md) \
-\
-An event associated with the end of physical contact with the `part`.
 
-<br/>
+> `TouchEnded(otherPart: BasePart): Connection`
+>
+> Fires when a `Part` stops touching another `Part`.
+
+#### Parameters
+
+- `otherPart: BasePart` — the `Part` that stopped touching this `Part`.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
+These observations are from Vortex Studio 0.8.1 and may differ in later
 releases.
 
-> [!WARNING]
-> After `child.Parent = part` succeeds, `child.Parent == part` is `false`.
-> `WaitForChild(childName)` resolves the child, but `FindFirstChild`,
-> `FindFirstChildOfClass`, `GetChildren`, and `GetDescendants` do not expose
-> it.
-
 `Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` expose
-connectable events, but changing the corresponding property or attribute does
-not deliver callbacks. `Touched` and `TouchEnded` are connectable; their event
+connectable events. `Touched` and `TouchEnded` are connectable; their event
 delivery has not been established.
-
-> [!NOTE]
-> A server Script can read a player's
-> [`Character.HumanoidRootPart`](./humanoid-root-part.md), but assigning its
-> current `Position` or `Size` is rejected as client-side, server-authoritative
-> character state. This restriction applies to the live character root part; it
-> does not change the tested behavior of ordinary script-created Parts.
