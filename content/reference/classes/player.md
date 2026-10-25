@@ -5,11 +5,40 @@ description: An instance holding information about a connected client.
 
 ## Summary
 
+<details>
+<summary><b>Properties</b></summary>
+Properties of `Player`.
+<br><br>
+
+* [Value](#value): `number`
+
+</details>
+
+<details>
+<summary><b>Methods</b></summary>
+Methods of `Player`.
+<br><br>
+
+* [Value](#value): `number`
+
+</details>
+
+<details>
+<summary><b>Signals</b></summary>
+Signals of `Player`.
+<br><br>
+
+* [Changed](#changed): `Connection`
+
+</details>
+
+## Overview
+
 Represents a connected client. The current client is available through the
 [Players](./players.md) service as
 `LocalPlayer`.
 
-### Example
+### Code Samples
 
 ```luau
 -- LocalScript
