@@ -35,10 +35,6 @@ Common properties of an `Instance`-like object.
 Common signals of an `Instance`-like object.
 
 * [Changed](#changed): `Connection`
-  
-<br><br>
-
-* [Name](#name): `string`
 
 </details>
 
