@@ -10,7 +10,10 @@ description: An instance holding information about a connected client.
 Properties of `Player`.
 <br><br>
 
-* [Value](#value): `number`
+* [Character](#character): `Model`
+* [UserId](#userid): `number`
+* [DisplayName](#displayname): `string`
+* [Character](#character): `Model`
 
 </details>
 
@@ -19,7 +22,7 @@ Properties of `Player`.
 Methods of `Player`.
 <br><br>
 
-* [Value](#value): `number`
+* [GetMouse](#getmouse): `Mouse`
 
 </details>
 
@@ -28,7 +31,8 @@ Methods of `Player`.
 Signals of `Player`.
 <br><br>
 
-* [Changed](#changed): `Connection`
+* [CharacterAdded](#characteradded): `Connection`
+* [CharacterRemoving](#characterremoving): `Connection`
 
 </details>
 
@@ -38,7 +42,7 @@ Represents a connected client. The current client is available through the
 [Players](./players.md) service as
 `LocalPlayer`.
 
-### Code Samples
+## Code Samples
 
 ```luau
 -- LocalScript
@@ -51,27 +55,57 @@ print("Hello, " .. player.Name .. "!")
 
 ## Properties
 
-- `Name` - the player's name;
-- `ClassName` - `"Player"` for the current client projection;
-- `Character` - the current [`Character`](./character.md) `Model`, when available.
-- `Position`, `Rotation`, and `CFrame` - initially `nil`, writable
-  Player-local projection fields in the tested runtime. They are not aliases
-  for the public character root's physical transform.
-- `Orientation` - an initially `nil`, writable
-  [`Vector3`](../datatypes/vector3.md) projection field. Its retained value is
-  not the verified route for visibly turning the Character.
+### Character
+
+> `Player.Character: Model`
+>
+> The player's default physical representation in the world.
+
+### UserId
+
+> `Player.UserId: number`
+>
+> A unique identifying integer assigned to all user accounts, in ascending order.
+
+### DisplayName
+
+> `Player.DisplayName: string`
+>
+> Player's username, equivalent to `Player.Name`.
+
+## Methods
+
+### GetMouse
+
+> `GetMouse(): Mouse`
+>
+> Returns an instance of the `Mouse` class.
+
+## Signals
+
+### CharacterAdded
+
+> `CharacterAdded(character: Model): Connection`
+>
+> Fires after the `Player` has joined the game and spawned in world
+
+### CharacterRemoving
+
+> `CharacterRemoving(character: Model): Connection`
+>
+> Fires after the `Player` has left the game
 
 ## Player transform projection fields
 
 `Player.Position`, `Player.Rotation`, and `Player.CFrame` begin as `nil` but
-accept and retain assigned `Vector3`/`CFrame` values in both a server Script
-and a LocalScript. They do not update the public
+accept and retain assigned `Vector3`/`CFrame` values in both a server `Script`
+and a `LocalScript`. They do not update the public
 `Character.HumanoidRootPart`: an explicit three-stud `Player.Position` write
 left the root at its original position in both contexts, and a
 `Player.Rotation` write likewise caused no translation.
 
 `Position` and `Rotation` are also context-local. A 15-second server writer /
-LocalScript observer run, followed by the contexts swapped, showed that each
+`LocalScript` observer run, followed by the contexts swapped, showed that each
 writer retained its own values while the observer stayed `nil`. Do not use
 these fields for character movement, replicated state, or a server-client
 metadata channel.
@@ -83,7 +117,7 @@ instead when the goal is to turn the visible Character.
 
 ## Methods and signals
 
-The 0.3.4 Player surface probe did not expose any of the tested standard Player
+The 0.8.1 `Player` surface probe did not expose any of the tested standard Player
 or Instance methods, nor any tested lifecycle, chat, hierarchy, or change
 signals. This includes `GetChildren`, attributes, `GetMouse`, `Kick`, and
 `LoadCharacter`.
@@ -91,7 +125,7 @@ signals. This includes `GetChildren`, attributes, `GetMouse`, `Kick`, and
 A dedicated 15-second observer also found `Player.CharacterAdded` to be `nil`
 in both a LocalScript and a server Script throughout its full window. The
 delayed and replaced visual Character Scene therefore does not correspond to
-an exposed Player character-lifecycle signal.
+an exposed `Player` character-lifecycle signal.
 
 ## Observed character projection
 
@@ -105,26 +139,20 @@ Player
     └── HumanoidRootPart (Part projection)
 ```
 
-[`Character`](./character.md), [`Humanoid`](./humanoid.md), and
-[`HumanoidRootPart`](./humanoid-root-part.md) are direct readable members—not
+[`Character`](../../guides/character.md), [`Humanoid`](../../guides/humanoid.md), and
+[`HumanoidRootPart`](../../guides/humanoid-root-part.md) are direct readable members—not
 a `Player:GetChildren()` result. `Character:FindFirstChild` resolves the same
 Humanoid and root-part values. `Character:GetChildren()` instead returns one
 unnamed generic `Instance`, so it is not a usable character-rig inventory.
-The other tested standard R6/R15 body-part and `Animate` names were absent
+The other tested standard R6 body-part and `Animate` names were absent
 from the public Character projection. The anonymous child can later expose a
 separate, transient visual `Scene` containing the rendered rig and
 avatar-specific attachments; see [Model: Transient Character visual
 Scene](./model.md#transient-character-visual-scene).
 
-## Vortex Studio 0.3.4 notes
+## Vortex Studio 0.8.1 notes
 
 `Players.LocalPlayer` is available in a `LocalScript` and `nil` in a normal
 server `Script`. In both contexts, the Player surface probe found only
-`ClassName`, `Name`, and `Character` as non-`nil` fields. `Parent` reads as
-`nil` for the observed LocalPlayer. A server Script can obtain this Player
-through `Players:GetPlayers()`, but it cannot derive the Player from a
-RemoteEvent's numeric sender id.
-
-The client `LocalPlayer` and the server-visible Player both lack the Instance
-attribute method surface. Player attributes therefore cannot be used as a
-server-to-client metadata channel in the tested runtime.
+`ClassName`, `Name`, and `Character` as non-`nil` fields. A server Script can obtain this `Player`
+through `Players:GetPlayers()[1]`.
