@@ -35,10 +35,10 @@ Properties of Lighting, in the order they appear on Vortex Studio.
 <summary><b>Appearance</b></summary>
 
 - [Ambient Color](#ambient-color): [`Color3`](../datatypes/color3.md)
-- [Brightness](#brightness): `Float`
+- [Brightness](#brightness): `number`
 - [Sun Color](#sun-color): [`Color3`](../datatypes/color3.md)
-- [Sun Brightness](#sun-brightness): `Float`
-- [Sun Shadows](#sun-shadows): `Boolean`
+- [Sun Brightness](#sun-brightness): `number`
+- [Sun Shadows](#sun-shadows): `boolean`
 
 </details>
 
@@ -66,7 +66,7 @@ Will also affect the part's [`Material`]() color.
 <br/>
 
 ### Brightness
-> `Float` \
+> `number` \
 \
 Determines how bright the `ambient` lighting is.
 
@@ -97,7 +97,7 @@ This value is `read-only` has `no effect`.
 <br/>
 
 ### Sun Brightness
-> `Float` \
+> `number` \
 \
 Determines how bright the `sun` lighting is.
 
@@ -112,7 +112,7 @@ Will blend with the ambient coloring.
 <br/>
 
 ### Sun Shadows
-> `Boolean` \
+> `boolean` \
 \
 Toggles shadows globally (from the sun).
 Currently, there are no other types of lights that create shadows, so this is a toggle button for every shadow in your game.
