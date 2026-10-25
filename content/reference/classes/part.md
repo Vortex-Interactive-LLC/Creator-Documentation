@@ -88,15 +88,19 @@ A `Part` is a `BasePart` that comes in different primitive shapes.
 
 > `Part.Velocity: Vector3`
 >
-> Determines whether the part will cast a shadow.
+> Describes how its `Part.Position` is presently changing. The unit of this property is studs per second
 
+### AngularVelocity
 
-### Name
-> `string` \
-\
-The name of the `Part`, and its label in the explorer.
+> `Part.AngularVelocity: Vector3`
+>
+> Describes how its `Part.Orientation` is presently changing. The unit of this property is studs per second
 
-<br/>
+### Position
+
+> `Part.Position: Vector3`
+>
+> 
 
 
 ### Orientation
