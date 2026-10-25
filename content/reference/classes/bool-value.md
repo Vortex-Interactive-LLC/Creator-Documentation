@@ -39,7 +39,7 @@ Signals of `BoolValue`.
 
 > `BoolValue.Value: boolean`
 >
-> `boolean` value
+> `boolean` value.
 
 ## Signals
 
@@ -51,11 +51,11 @@ Signals of `BoolValue`.
 
 #### Parameters
 
-- `value: boolean` — new `Value` property of `BoolValue`
+- `value: boolean` — new `Value` property of `BoolValue`.
 
 ## Testing Notes
 
 The exposed method surface was revalidated in Vortex Studio 0.8.1; detailed
 method behavior may differ in later releases.
 
-ClassName of `Connection` is `RBXScriptSignal`
+`ClassName` of `Connection` is `RBXScriptSignal`.
