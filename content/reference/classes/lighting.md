@@ -16,8 +16,8 @@ Written by KingTasaz on August 28th, 2026
 
 ## Runtime availability
 
-In Vortex Studio 0.3.4, `game:GetService("Lighting")` fails with
-`"Lighting" is not a valid service` in both Script and LocalScript. The
+In Vortex Studio 0.8.1, `game:GetService("Lighting")` and also like `game.Lighting` fails with
+`"Lighting" is not a valid service` in both `Script` and `LocalScript`. The
 editor-facing Lighting controls documented below therefore do not currently
 have a confirmed runtime scripting surface.
 
