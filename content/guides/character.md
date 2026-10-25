@@ -36,13 +36,13 @@ Properties of `Character`.
 
 ### Velocity
 
-> `Velocity(velocity: Vector3)`
+> `Character.Velocity: Vector3`
 >
 > Describes how its `Character.Position` is presently changing. The unit of this property is studs per second
 
 ### AngularVelocity
 
-> `AngularVelocity(angularVelocity: Vector3)`
+> `Character.AngularVelocity: Vector3`
 >
 > Describes how its `Character.Orientation` is presently changing. The unit of this property is studs per second
 
