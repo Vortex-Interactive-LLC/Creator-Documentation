@@ -39,7 +39,7 @@ Signals of `BindableEvent`.
 
 > `Fire(arguments: Tuple)`
 >
-> Fires `BindableEvent` that enables its signal. Returns nothing
+> Fires `BindableEvent` that enables its signal. Returns nothing.
 
 #### Parameters
 
@@ -55,11 +55,11 @@ Signals of `BindableEvent`.
 
 #### Parameters
 
-- `arguments`: `Tuple` — the parameters sent through [Fire](#Fire)
+- `arguments`: `Tuple` — the parameters sent through [Fire](#Fire).
 
 ## Testing Notes
 
 The exposed method surface was revalidated in Vortex Studio 0.8.1; detailed
 method behavior may differ in later releases.
 
-ClassName of `Connection` is `RBXScriptSignal`
+`ClassName` of `Connection` is `RBXScriptSignal`.
