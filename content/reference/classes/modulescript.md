@@ -17,7 +17,67 @@ ModuleScripts are typically placed in `ReplicatedStorage` so that they are visib
 
 ## Code Samples
 
-To activate a `ModuleScript`, you need to specify the path to it using the `require` function. 
+To activate a `ModuleScript` specify the path to it using the `require` function. 
+
 ```luau
 local moduleScript = require(game:GetService('ReplicatedStorage').ModuleScript)
+```
+
+By default, a `ModuleScript` returns an empty array. Supports adding values, can be converted into a dictionary.
+
+```luau
+local module = {
+	['fruits'] = {
+		'banana',
+		'apple',
+		'orange'
+	},
+	['vegetables'] = {
+		'cucumber',
+		'corn',
+		'tomato'
+	},
+	['amount'] = 6
+}
+
+return module
+```
+
+Also `ModuleScript` supports the creation of functions.
+
+```luau
+local module = {}
+
+function module.foo()
+	print('Foo!')
+end
+
+function module.bar()
+	print('Bar!')
+end
+
+function module.quux()
+	return 'Quux!'
+end
+
+return module
+```
+```luau
+return function()
+	print('Boom!')
+end
+```
+
+A function in a `ModuleScript` can be called within the same `ModuleScript`.
+
+```luau
+local module = {}
+
+function module.foo()
+	print('Foo!')
+end
+
+module.foo()
+
+return module
 ```
