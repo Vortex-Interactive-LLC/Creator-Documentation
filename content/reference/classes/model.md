@@ -96,8 +96,7 @@ Like a detached Model, its pivot and primary-part APIs remain unavailable.
 
 The live Character Model is also the verified write-only visual rotation
 target: `character.Orientation = Vector3.new(0, 90, 0)` visibly turns the
-character in a server Script while the field remains `nil` on readback. See
-[Character: Write-only visual rotation](./character.md#write-only-visual-rotation).
+character in a server Script while the field remains `nil` on readback.
 
 `Character:FindFirstChild("Humanoid")` and
 `Character:FindFirstChild("HumanoidRootPart")` return the same direct members. Character attribute values replicate in both directions between a
