@@ -3,19 +3,8 @@ title: Game
 description: The root instance of a game.
 ---
 
-<!-- 
-Game
-Revision 2
-
-Written by Kindtracker on August 29th, 2026
-Edited by MtcLuna05 on August 30th, 2026
-Edited by LocalScriptMaker on October 22th, 2026
--->
-
 > [!NOTE]
 > There will be more things (methods, constructors, properties, etc.) in the future.
-
-`game` is the root instance and provides access to services.
 
 ## Summary
 
@@ -24,8 +13,8 @@ Edited by LocalScriptMaker on October 22th, 2026
 Properties of `game`.
 <br><br>
 
-* [Workspace](#workspace): [`Workspace`](/content/reference/classes/workspace.md)
-* [Players](#players): [`Players`](/content/reference/classes/players.md)
+* [Workspace](#workspace): `Workspace`
+* [Players](#players): `Players`
 
 </details>
 
@@ -57,6 +46,10 @@ Services of `game`.
 
 </details>
 
+## Overview
+
+`game` is the root instance and provides access to services.
+
 ## Properties
 
 ### Workspace
@@ -65,8 +58,6 @@ Services of `game`.
 >
 > The root `Workspace` service.
 
-<br/>
-
 ### Players
 
 > [`Players`](../classes/players.md)
@@ -74,14 +65,10 @@ Services of `game`.
 > A direct alias for the Players service. In Vortex Studio 0.3.4 it is a
 > distinct proxy table from `game:GetService("Players")`.
 
-<br/>
-
 ## Methods
 
 ### GetService()
 
-> `Instance`
->
 > `game:GetService(serviceName: string)`
 >
 > Returns the service with the specified name.
@@ -90,12 +77,8 @@ Services of `game`.
 
 - `serviceName`: `string` — the name of the service to retrieve.
 
-<br/>
-
 ### BindToClose()
 
-> `Instance`
->
 > `game:BindToClose(function: function)`
 >
 > Binds a function to be called before the game closes.
@@ -114,8 +97,6 @@ end
 game:BindToClose(onBindToClose)
 ```
 
-<br/>
-
 ## Services
 
 ### Workspace
@@ -124,15 +105,11 @@ game:BindToClose(onBindToClose)
 >
 > The Workspace is the root object that holds anything that is currently in the world. [Workspace](../classes/workspace.md)
 
-<br/>
-
 ### Players
 
 > `Instance`
 >
 > The service that contains the currently connected player objects. [Players](../classes/players.md)
-
-<br/>
 
 ### ReplicatedStorage
 
@@ -140,15 +117,11 @@ game:BindToClose(onBindToClose)
 >
 > A container for instances loaded by both the server and the client. [ReplicatedStorage](../classes/replicated-storage.md)
 
-<br/>
-
 ### StarterPlayerScripts
 
 > `Instance`
 >
 > Container inside the StarterPlayer service that stores client-side scripts. [StarterPlayerScripts](../classes/starter-player-scripts.md)
-
-<br/>
 
 ### ServerScriptService
 
@@ -156,16 +129,12 @@ game:BindToClose(onBindToClose)
 >
 > Contains [Scripts](../classes/script.md) that run when the server starts. [ServerScriptService](../classes/server-script-service.md)
 
-<br/>
-
 ### Lighting
 
 > Unavailable in the tested runtime
 >
 > `game:GetService("Lighting")` rejects this service in both Script and
 > LocalScript in Vortex Studio 0.3.4. [Lighting](../classes/lighting.md)
-
-<br/>
 
 ## Testing Notes
 
