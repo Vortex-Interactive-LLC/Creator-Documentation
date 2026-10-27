@@ -40,34 +40,21 @@ There is also [RemoteFunction](./remote-function.md), which is primarily used fo
 ```luau
 -- Script
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-local MyRemote = ReplicatedStorage:WaitForChild("MyRemote") -- WaitForChild is important.
+local remoteEvent = game:GetService('ReplicatedStorage').RemoteEvent
 
--- local activePlayers = Players:GetPlayers()
--- local random_player = activePlayers[math.random(1, #activePlayers)]
--- MyRemote:FireClient(random_player, "Message coming from the server!")
--- MyRemote:FireAllClients("Minions, tonight, we'll steal the moon!!!")
-
-local function reply_received(sender, reply)
-    print("Reply received from connection " .. sender .. ": " .. reply)
+local function _onServerEvent(sender:Player,arguments)
+	print(`Reply received from connection {sender}: {arguments}`)
 end
 
-MyRemote.OnServerEvent:Connect(reply_received)
+remoteEvent.OnServerEvent:Connect(_onServerEvent)
 ```
 
 ```luau
 -- LocalScript
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local MyRemote = ReplicatedStorage:WaitForChild("MyRemote")
+local remoteEvent = game:GetService('ReplicatedStorage').RemoteEvent
 
-function received_msg(msg)
-    print("Message received: " .. msg .. ". Replying.")
-    MyRemote:FireServer("Copy that.")
-end
-
-MyRemote.OnClientEvent:Connect(received_msg)
+remoteEvent:FireServer('hi',1,true,{})
 ```
 
 ## Methods
