@@ -5,33 +5,51 @@ description: A detached string value container.
 
 ## Summary
 
-`StringValue` is constructable in Vortex Studio 0.3.4 in both `Script` and
-`LocalScript`. It stores a string `Value` and does not need a parent to be
-read or written.
+<details>
+<summary><b>Properties</b></summary>
+Properties of `StringValue`.
+<br><br>
+
+* [Value](#value): `boolean`
+
+</details>
+
+<details>
+<summary><b>Signals</b></summary>
+Signals of `StringValue`.
+<br><br>
+
+* [Changed](#changed): `Connection`
+
+</details>
+
+## Overview
+
+`StringValue` is an instance that contains and modifies a `string` value.
 
 ## Properties
 
-### Name
-
-> `string`
-
-The instance name. A new value is named `StringValue`.
-
 ### Value
 
-> `string`
+> `StringValue.Value: string`
+>
+> `string` value.
 
-A new `StringValue` starts with the empty string. Assigning and reading a
-string works:
+## Signals
 
-```lua
-local message = Instance.new("StringValue")
-message.Value = "Hello, Vortex"
-print(message.Value) -- Hello, Vortex
-```
+### Changed
 
-## Change notifications
+> `Changed(value: string): Connection`
+>
+> Fires whenever the `Value` property of `StringValue` changes.
 
-`Changed` and `GetPropertyChangedSignal("Value")` are present and connectable,
-but changing `Value` did not invoke either callback in the tested 0.3.4
-runtime. Poll `Value` when a script must observe a change.
+#### Parameters
+
+- `value: string` — new `Value` property of `StringValue`.
+
+## Testing Notes
+
+The exposed method surface was revalidated in Vortex Studio 0.8.1; detailed
+method behavior may differ in later releases.
+
+`ClassName` of `Connection` is `RBXScriptSignal`.
