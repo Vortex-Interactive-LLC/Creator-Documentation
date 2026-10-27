@@ -3,8 +3,6 @@ title: RunService
 description: Provides runtime-context helpers and a per-frame heartbeat signal.
 ---
 
-`RunService` is available through `game:GetService("RunService")`.
-
 ## Summary
 
 <details>
@@ -23,55 +21,45 @@ Methods of `RunService`.
 Signals of `RunService`.
 <br><br>
 
-* [Heartbeat](#heartbeat): [`Signal`](../datatypes/signal.md)
+* [Heartbeat](#heartbeat): `Connection`
 
 </details>
+
+## Overview
+
+`RunService` is available through `game:GetService("RunService")`.
 
 ## Methods
 
 ### IsClient
 
-> `Boolean`
->
-> `RunService:IsClient()`
+> `RunService:IsClient(): boolean`
 >
 > Returns whether the current script runs in a client context.
 
-<br/>
-
 ### IsServer
 
-> `Boolean`
->
-> `RunService:IsServer()`
+> `RunService:IsServer(): boolean`
 >
 > Returns whether the current script runs in a server context.
 
-<br/>
-
 ### IsStudio
 
-> `Boolean`
->
-> `RunService:IsStudio()`
+> `RunService:IsStudio(): boolean`
 >
 > Returns whether the current runtime is Vortex Studio.
-
-<br/>
 
 ## Signals
 
 ### Heartbeat
 
-> [`Signal`](../datatypes/signal.md)
->
-> `RunService.Heartbeat`
+> `Heartbeat(deltaTime: number)`
 >
 > Fires once per runtime update with the elapsed time since the previous update, right after the frame’s physics are finished.
 
 #### Parameters
 
-- `deltaTime`: `Number` — elapsed time in seconds since the previous heartbeat.
+- `deltaTime`: `number` — elapsed time in seconds since the previous heartbeat.
 
 ## Testing Notes
 
