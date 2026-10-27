@@ -55,7 +55,7 @@ Properties of a Pointlight, in the order they appear on Vortex Studio.
 ## Properties
 
 ### Brightness
-> `Float` \
+> `number` \
 \
 The emission brightness of the light. Does not affect range.
 
@@ -79,7 +79,7 @@ The name of the `pointlight`, and its label in the explorer.
 
 
 ### Range
-> `Float` \
+> `number` \
 \
 The maximum (spherical) range that the light can reach.
 This controls the drop-off of the brightness over time, but does not increase the brightness.
