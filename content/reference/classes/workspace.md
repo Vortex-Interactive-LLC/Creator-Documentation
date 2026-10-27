@@ -3,114 +3,76 @@ title: Workspace
 description: Service that holds and renders every 3D player-interactable instance.
 ---
 
-<!-- 
-Workspace
-Revision 1.2
-
-Written by Kindtracker on September 19, 2026
--->
-
 ## Summary
-
-<details>
-<summary><b>Properties</b></summary>
-Properties of a Workspace, in the order they appear on Vortex Studio
-<br><br>
-
-- [ClassName](#classname): `string`
-- [Name](#name): `strings`
-</details>
 
 <details>
 <summary><b>Methods</b></summary>
 Methods of a `Workspace`.
 <br><br>
 
-- [FindFirstChild](#findfirstchild): [`Instance`](./instance.md) | `nil`
-- [GetChildren](#getchildren): `{ Instance }`
-- [Raycast](#raycast): [`RaycastResult`](../datatypes/raycast-result.md) | `nil`
-- [WaitForChild](#waitforchild): [`Instance`](./instance.md)
+- [GetServerTimeNow](#getservertimenow): `number`
+- [Raycast](#raycast): `RaycastResult?`
+- [Spherecast](#spherecast): `RaycastResult?`
+- [Blockcast](#blockcast): `RaycastResult?`
 
 </details>
 
-## Properties
+## Overview
 
-### ClassName
-> `string` \
-\
-The runtime class name of the service.
-
-<br/>
-
-
-### Name
-> `string` \
-\
-The service name shown by the runtime.
-
-<br/>
+Service `Workspace` houses 3D objects which are rendered to the 3D world.
 
 ## Methods
 
-### FindFirstChild()
-> [`Instance`](./instance.md) | `nil` \
-\
-`workspace:FindFirstChild(name: string)` \
-\
-Returns the first direct child with the supplied `name`, or `nil` when none is
-found.
+### GetServerTimeNow
 
-#### Parameters
+> `workspace:GetServerTimeNow(): number`
+>
+> Returns the server's Unix time in seconds.
 
-- `name`: `string` — the child name to find.
+### Raycast
 
-<br/>
-
-
-### GetChildren()
-> `{ Instance }` \
-\
-Returns the direct children of `Workspace`.
-
-<br/>
-
-
-### Raycast()
-> `RaycastResult | nil` 
-\
-`Workspace:Raycast(origin: Vector3, direction: Vector3, raycastParams: RaycastParams | nil)`
-\
-Casts a ray from the specified origin in the specified direction. The function returns a [RaycastResult](../datatypes/raycast-result.md) if an eligible object intersects the ray, or `nil` if no object is hit.
+> `workspace:Raycast(origin: Vector3, direction: Vector3, raycastParams: table?): RaycastResult?`
+>
+> Casts a ray from the specified origin in the specified direction. The function returns a [RaycastResult](../datatypes/raycast-result.md) if an eligible object intersects the ray, or `nil` if no object is hit.
 
 #### Parameters
 
 - `origin`: `Vector3` — The origin point of the ray.
 - `direction`: `Vector3` — The directional vector of the ray.
-- `raycastParams`: An optional object used to specify hit eligibility during the raycast operation.
+- `raycastParams`: `table` — An optional table used to specify hit eligibility during the raycast operation.
 
-<br/>
+### Spherecast
 
-
-### WaitForChild()
-> [`Instance`](./instance.md) \
-\
-`workspace:WaitForChild(name: string)` \
-\
-Waits for and returns a direct child with the supplied `name`.
+> `workspace:Spherecast(origin: Vector3, radius: number, direction: Vector3, raycastParams: table?): RaycastResult?`
+>
+> Casts a spherical-shape ray with a specified radius from the specified origin in the specified direction. The function returns a [RaycastResult](../datatypes/raycast-result.md) if an eligible object intersects the ray, or `nil` if no object is hit.
 
 #### Parameters
 
-- `name`: `string` — the child name to wait for.
+- `origin`: `Vector3` — The origin point of the ray.
+- `radius`: `number` — The radius of the cast spherical shape in studs. The maximum radius is 256 studs.
+- `direction`: `Vector3` — The directional vector of the ray.
+- `raycastParams`: `table?` — An optional table used to specify hit eligibility during the raycast operation.
 
+### Blockcast
 
-<br/>
+> `workspace:Blockcast(origin: CFrame, size: Vector3, direction: Vector3, raycastParams: table?): RaycastResult?`
+>
+> Casts a block-shape ray with a specified size from the specified origin in the specified direction. The function returns a [RaycastResult](../datatypes/raycast-result.md) if an eligible object intersects the ray, or `nil` if no object is hit.
+
+#### Parameters
+
+- `origin`: `CFrame` — The origin point of the ray.
+- `size`: `number` — The size of the cast block shape in studs. The maximum size is 512 studs.
+- `direction`: `Vector3` — The directional vector of the ray.
+- `raycastParams`: `table?` — An optional table used to specify hit eligibility during the raycast operation.
 
 ## Testing Notes
 
-The hierarchy observations below were revalidated in Vortex Studio 0.3.4 and
+The hierarchy observations below were revalidated in Vortex Studio 0.8.1 and
 may differ in later releases.
 
-0.3.4. A temporary `Part` can be parented to `Workspace`,
+0.8.1. A temporary `Part` can be parented to `Workspace`,
 and `WaitForChild` resolves it. `FindFirstChild` returns `nil` and
 `GetChildren` omits it.
 
