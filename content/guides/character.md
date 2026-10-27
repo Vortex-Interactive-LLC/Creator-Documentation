@@ -27,8 +27,8 @@ local character = player and player.Character or player and player.CharacterAdde
 Properties of `Character`.
 <br><br>
 
-* [Velocity: `Vector3`](#velocity)
-* [AngularVelocity: `Vector3`](#angularvelocity)
+* [Velocity](#velocity): `Vector3`
+* [AngularVelocity](#angularvelocity): `Vector3`
 
 </details>
 
