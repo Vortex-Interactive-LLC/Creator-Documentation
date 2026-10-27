@@ -8,7 +8,7 @@ description: Store simple script-visible values in Vortex.
 ## Available containers
 
 Vortex Studio 0.3.4 supports detached [`IntValue`](../reference/classes/int-value.md), [`StringValue`](../reference/classes/string-value.md), `NumberValue` and `BoolValue` instances.
-They start at `0` and `""` respectively, and their `Value` properties are
+They start at `0`, `""`, `0`, `false` respectively, and their `Value` properties are
 readable and writable in both Script and LocalScript.
 
 ## Code Samples
