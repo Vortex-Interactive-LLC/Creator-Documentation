@@ -59,7 +59,7 @@ Properties of a SpotLight, in the order they appear on Vortex Studio.
 ## Properties
 
 ### Angle
-> `Float` \
+> `number` \
 \
 The angle of the emission cone.
 Smaller angles can produce sharper cutoffs, and wider angles create a softer fall off.
@@ -67,7 +67,7 @@ Smaller angles can produce sharper cutoffs, and wider angles create a softer fal
 <br/>
 
 ### Brightness
-> `Float` \
+> `number` \
 \
 The emission brightness of the light. Does not affect range.
 
@@ -99,7 +99,7 @@ The name of the `spotlight`, and its label in the explorer.
 
 
 ### Range
-> `Float` \
+> `number` \
 \
 The maximum (linear) range that the light can reach.
 This controls the drop-off of the brightness over time, but does not increase the brightness.
