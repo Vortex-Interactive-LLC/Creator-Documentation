@@ -5,87 +5,106 @@ description: A function that is invoked and returns values from the server to th
 
 ## Summary
 
+<details>
+<summary><b>Methods</b></summary>
+Methods of `RemoteFunction`.
+<br><br>
+
+* [InvokeServer](#invokeserver): `Tuple`
+* [InvokeClient](#invokeclient): `Tuple`
+
+</details>
+
+<details>
+<summary><b>Callbacks</b></summary>
+Callbacks of `RemoteFunction`.
+<br><br>
+
+* [OnServerInvoke](#onserverinvoke): `Connection`
+* [OnClientInvoke](#onclientinvoke): `Connection`
+
+</details>
+
+## Overview
+
 Differently from [RemoteEvents](./remote-event.md), `RemoteFunctions` allows data to be computed inside a function call and returned with the computed values. `InvokeAllClients` does not exist, since yielding until every player returns a value is not guaranteed.
 
-### Example
+## Code Samples
 
-```luau
--- server
-
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-
-local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
-
--- Roblox-style targeting example; see the Vortex notes below.
-local activePlayers = Players:GetPlayers()
-local random_player = activePlayers[math.random(1, #activePlayers)]
-local pi = GetPiFromDigits:InvokeClient(random_player, 5)
-
-print(random_player.Name .. " replied with: " .. pi)
-```
+`RemoteFunction` in `ReplicatedStorage`
 
 ```luau
 -- LocalScript
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
+local remoteFunction = game:GetService('ReplicatedStorage').RemoteFunction
 
-function compute_pi(digits)
-    -- magic
-    local col = math.floor(digits * 10 / 3)
-    local array = {}
-    for i = 1, col, 1 do table.insert(array, 2) end
-    local output = {}
+local var1,var2,var3,var4 = remoteFunction:InvokeServer('hello server!')
+```
 
-    for _ = 1, digits, 1 do
-        local carry = 0
-        for i = col - 1, 0, -1 do
-            local num = array[i] * 10 + carry
-            local denom = i * 2 + 1
-            arr[i] = num % denom
-            carry = math.floor(num / denom)
-        end
+```luau
+-- Script
 
-        num = arr[1] * 10 + carry
-        arr[1] = num % 10
-        output.append(tostring(math.floor(num / 10)))
-    end
+local removeFunction = game:GetService('ReplicatedStorage').RemoteFunction
 
-    local result = output[1] .. "."
-    for i = 2, #output, 1 do
-        result ..= output[i]
-    end
-
-    return result
+local function _onServerInvoke(player: Player, arguments: Tuple)
+	print(`Callback to connection: {player} with {arguments}`)
+	return 'hi',1,true,{}
 end
 
-GetPiFromDigits.OnClientInvoke = compute_pi
+removeFunction.OnServerInvoke = _onServerInvoke
 ```
 
 ## Methods
 
-- `InvokeClient(player: Player, arguments: Tuple) : Tuple` - Invokes data from
-  the server to the client;
-- `InvokeServer(arguments: Tuple) : Tuple` - Invokes data from the client to
-  the server.
+### InvokeServer
+
+> `InvokeServer(arguments: Tuple): Tuple`
+>
+> Invokes `RemoteFunction` to get data from the server. Returns `Tuple`. **Available only in a `LocalScript`.**
+
+#### Parameters
+
+- `arguments: Tuple` — passed values.
+
+### InvokeClient
+
+> `InvokeClient(player: Player, arguments: Tuple): Tuple`
+>
+> Invokes `RemoteFunction` to get data from the client. Returns `Tuple`. **Available only in a `Script`.**
+
+#### Parameters
+
+- `player: Player` — client to invoke.
+- `arguments: Tuple` — passed values.
 
 ## Callbacks
 
-- `OnClientInvoke(arguments: Tuple) : Tuple` - Writable callback invoked from
-  the server to the client;
-- `OnServerInvoke(senderId: Number, arguments: Tuple) : Tuple` - Writable
-  callback invoked from the client to the server.
+### OnServerInvoke
+
+> `OnServerInvoke(player: Player, arguments: Tuple): Connection`
+>
+> Callback invoked from the client to the server. Returns `Connection`. **Available only in a `Script`.**
+
+#### Parameters
+
+- `player: Player` — invoked client.
+- `arguments: Tuple` — passed values.
+
+### OnClientInvoke
+
+> `OnClientInvoke(arguments: Tuple): Connection`
+>
+> Callback invoked from the server to the client. Returns `Connection`. **Available only in a `LocalScript`.**
+
+#### Parameters
+
+- `arguments: Tuple` — passed values.
 
 ## Vortex Studio 0.3.4 notes
 
-`InvokeServer` is exposed on the client and assigning `OnServerInvoke` succeeds
-in a Script for an editor-authored remote in `ReplicatedStorage`. However,
+`InvokeServer` is exposed on the client and assigning `OnServerInvoke` succeseds
+in a `Script` for an editor-authored remote in `ReplicatedStorage`. However,
+
 `InvokeServer(LocalPlayer)` is rejected before delivery because Instances cannot
 currently be sent through remotes. A successful primitive request/response
 round trip has not yet been established.
-
-The server-side `Players:GetChildren()` route remains unavailable. In 0.3.4,
-`Players:GetPlayers()` does return visible Player objects in a server Script,
-so it provides the Player target shown above in principle. `OnClientInvoke` and
-`InvokeClient` delivery are still untested.
