@@ -115,10 +115,10 @@ remoteEvent:FireServer('hi',1,true,{})
 
 ## Vortex Studio 0.8.1 notes
 
-- `FireServer` to `OnServerEvent` was confirmed for an editor-authored remote
-  in `ReplicatedStorage`.
-- Script-created remotes parented into `ReplicatedStorage` were visible to the
-  client but did not dispatch to the server handler.
-- `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed.
-- Instances, including `LocalPlayer` and the character, cannot be sent as
-  remote arguments.
+`FireServer` to `OnServerEvent` was confirmed for an editor-authored remote in `ReplicatedStorage`.
+
+Script-created remotes parented into `ReplicatedStorage` were visible to the client but did not dispatch to the server handler.
+
+`FireClient`, `FireAllClients`, and `OnClientEvent` are exposed.
+
+Instances, including `LocalPlayer` and the character, cannot be sent asremote arguments.
