@@ -48,8 +48,8 @@ Changes to these values are reflected on the leaderboard.
 
  The following value types have been tested and confirmed to work on Vortex leaderboards:
 
-* `IntValue` — Stores integer values, such as cash, points, or levels.
-* `StringValue` — Stores text values, such as titles or ranks.
-* `BoolValue` — Stores boolean values (`true` or `false`), such as whether a player is a VIP.
+* `IntValue`
+* `StringValue`
+* `BoolValue`
 
 > Choose a value type based on the kind of statistic you want to display.
