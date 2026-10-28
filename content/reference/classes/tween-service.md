@@ -32,7 +32,7 @@ Service that is used to create a tween. A tween is a smooth interpolation betwee
 
 - `instance: Instance` — The `Instance` whose properties are to be tweened.
 - `tweenInfo: TweenInfo` — The `TweenInfo` to be used.
-- `propertyTable: TweenInfo` — A dictionary of properties, and their target values, to be tweened.
+- `propertyTable: table` — A dictionary of properties, and their target values, to be tweened.
 
 ## Testing Notes
 
