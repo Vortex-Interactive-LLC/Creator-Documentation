@@ -10,7 +10,8 @@ description: One way communication between the server and clients.
 A `RemoteEvent` enables one-way communication between the server and clients. It doesn't wait for a response and has no return value. It's built for telling the other side what happened, not asking the other side for a result. For a call that needs a response, use [RemoteFunction](./remote-functions.md) instead.
 
 The primary parent container for remote events is `ReplicatedStorage`, as both the server and client can see and access it.
-> ⚠ **Security note:** never trust arguments a client sends via `FireServer` at
+> [!WARNING]
+> **Security note:** never trust arguments a client sends via `FireServer` at
 > face value - a modified client can call it with anything. Re-validate
 > any arguments on the server before acting on them.
 
