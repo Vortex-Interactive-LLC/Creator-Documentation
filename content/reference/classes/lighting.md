@@ -16,10 +16,7 @@ Written by KingTasaz on August 28th, 2026
 
 ## Runtime availability
 
-In Vortex Studio 0.3.4, `game:GetService("Lighting")` fails with
-`"Lighting" is not a valid service` in both Script and LocalScript. The
-editor-facing Lighting controls documented below therefore do not currently
-have a confirmed runtime scripting surface.
+In Vortex Studio 0.3.4, `game:GetService("Lighting")` fails with `"Lighting" is not a valid service` in both Script and LocalScript. The editor-facing Lighting controls documented below therefore do not currently have a confirmed runtime scripting surface.
 
 There are two main controls in Lighting's properties:
 - `Ambient` is the general lighting that every object receives regardless of its position or rotation.
@@ -60,8 +57,7 @@ Properties of Lighting, in the order they appear in Vortex Studio.
 ### Ambient Color
 > [`Color3`](../datatypes/color3.md) \
 \
-Determines the visible color of the `Part`.
-It will also affect the Part's [`Material`]() color.
+Determines the visible color of the `Part`. It will also affect the Part's [`Material`]() color.
 
 <br/>
 
@@ -85,6 +81,7 @@ This value has `no effect`.
 > [`Vector3`](../datatypes/vector3.md) \
 \
 Determines the angle at which sunlight hits objects and, as such, the dimensions of shadows.
+
 <br/>
 
 
@@ -105,15 +102,13 @@ Determines the brightness value of the `sun`.
 ### Sun Color
 > [`Color3`](../datatypes/color3.md) \
 \
-Determines the color of sunlight that hits objects.
-It will blend with the ambient color.
+Determines the color of sunlight that hits objects. It will blend with the ambient color.
 
 <br/>
 
 ### Sun Shadows
 > `Boolean` \
 \
-Toggles shadows from the sun globally.
-Currently, there are no other types of lights that create shadows, so this setting controls all shadows in the game.
+Toggles shadows from the sun globally. Currently, there are no other types of lights that create shadows, so this setting controls all shadows in the game.
 
 <br/>

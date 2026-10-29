@@ -109,8 +109,7 @@ Methods of a `Color3`.
 
 ## Examples
 
-Use `fromRGB` when working with familiar `0` to `255` color values. Use `new`
-when the components are already normalized from `0` to `1`:
+Use `fromRGB` when working with familiar `0` to `255` color values. Use `new` when the components are already normalized from `0` to `1`:
 
 ```luau
 local orangeFromRGB = Color3.fromRGB(255, 128, 0)
@@ -122,8 +121,7 @@ if part then
 end
 ```
 
-`Lerp` creates a color between two endpoints. An `alpha` of `0` returns the
-starting color, `1` returns the target, and `0.5` returns the midpoint:
+`Lerp` creates a color between two endpoints. An `alpha` of `0` returns the starting color, `1` returns the target, and `0.5` returns the midpoint:
 
 ```luau
 local red = Color3.fromRGB(255, 0, 0)
@@ -133,10 +131,6 @@ local purple = red:Lerp(blue, 0.5)
 
 ## Testing Notes
 
-The previously listed `Color3.fromHSV` and `Color3.fromHex` constructors were
-removed from this reference because they are not exposed in Vortex Studio
-0.3.4. Runtime availability may change in later releases.
+The previously listed `Color3.fromHSV` and `Color3.fromHex` constructors were removed from this reference because they are not exposed in Vortex Studio 0.3.4. Runtime availability may change in later releases.
 
-The examples above were revalidated in Vortex Studio 0.3.8.
-`Color3.fromRGB(255, 128, 0)` produced approximately `(1, 0.502, 0)`, and the
-red-to-blue midpoint produced `(0.5, 0, 0.5)`.
+The examples above were revalidated in Vortex Studio 0.3.8. `Color3.fromRGB(255, 128, 0)` produced approximately `(1, 0.502, 0)`, and the red-to-blue midpoint produced `(0.5, 0, 0.5)`.

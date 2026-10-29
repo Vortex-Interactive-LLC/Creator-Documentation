@@ -16,5 +16,4 @@ local info = TweenInfo.new(
 )
 ```
 
-Set the `repeatCount` argument to `-1` to repeat forever. See the full
-[TweenInfo datatype reference](../datatypes/tween-info.md).
+Set the `repeatCount` argument to `-1` to repeat forever. See the full [TweenInfo datatype reference](../datatypes/tween-info.md).

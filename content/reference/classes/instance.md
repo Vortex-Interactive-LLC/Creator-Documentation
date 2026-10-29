@@ -11,10 +11,7 @@ Written by Kindtracker on August 28th, 2026
 -->
 
 > [!IMPORTANT]
-> Vortex Studio 0.3.4 does not expose a uniform set of Instance methods on 
-> every engine-backed value. The members below describe ordinary Instance-like
-> objects. Use the concrete class reference and the availability matrix on this
-> page before calling a method.
+> Vortex Studio 0.3.4 does not expose a uniform set of Instance methods on every engine-backed value. The members below describe ordinary Instance-like objects. Use the concrete class reference and the availability matrix on this page before calling a method.
 
 ## Summary
 

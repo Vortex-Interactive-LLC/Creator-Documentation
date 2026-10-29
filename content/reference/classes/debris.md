@@ -24,7 +24,8 @@ Methods available on `Debris`.
 
 ## Overview
 
-`Debris` is a service that allows instances that may lose utility after a set period of time to be removed without yielding
+`Debris` is a service that allows instances that may lose utility after a set period of time to be removed without yielding.
+
 ```lua
 local Debris = game:GetService("Debris")
 
@@ -61,10 +62,6 @@ Debris:AddItem(part, 5)
 
 ## Testing Notes
 
-The exposed methods were revalidated in Vortex Studio 0.3.4; detailed
-method behavior may differ in later releases.
+The exposed methods were revalidated in Vortex Studio 0.3.4; detailed method behavior may differ in later releases.
 
-`AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`.
-Calling `Debris:AddItem(part, 0)` removed an unparented temporary `Part` within
-two scheduler ticks. The held Lua reference then reported `ClassName` as
-`Instance` and an empty `Name`.
+`AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`. Calling `Debris:AddItem(part, 0)` removed an unparented temporary `Part` within two scheduler ticks. The held Lua reference then reported `ClassName` as `Instance` and an empty `Name`.

@@ -25,8 +25,7 @@ Runtime task scheduling helpers.
 task.defer(callback: Function, ...: any)
 ```
 
-Queues `callback` to run in a later scheduler cycle without yielding the
-calling thread. Extra arguments are passed to `callback`.
+Queues `callback` to run in a later scheduler cycle without yielding the calling thread. Extra arguments are passed to `callback`.
 
 #### Parameters
 
@@ -39,8 +38,7 @@ calling thread. Extra arguments are passed to `callback`.
 task.delay(duration: Number, callback: Function, ...: any)
 ```
 
-Queues `callback` to run after `duration` seconds. Extra arguments are passed
-to `callback`.
+Queues `callback` to run after `duration` seconds. Extra arguments are passed to `callback`.
 
 #### Parameters
 
@@ -54,8 +52,7 @@ to `callback`.
 task.spawn(callback: Function, ...: any)
 ```
 
-Schedules `callback` to run as soon as possible without yielding the calling
-thread. Extra arguments are passed to `callback`.
+Schedules `callback` to run as soon as possible without yielding the calling thread. Extra arguments are passed to `callback`.
 
 #### Parameters
 
@@ -68,9 +65,7 @@ thread. Extra arguments are passed to `callback`.
 task.wait(duration: Number?): Number
 ```
 
-Yields the current thread until the scheduler resumes it, or until at least
-`duration` seconds have elapsed when a duration is supplied. Returns the
-elapsed time.
+Yields the current thread until the scheduler resumes it, or until at least `duration` seconds have elapsed when a duration is supplied. Returns the elapsed time.
 
 #### Parameters
 
@@ -78,18 +73,12 @@ elapsed time.
 
 ## Verified runtime compatibility
 
-`task.defer`, `task.delay`, `task.spawn`, and `task.wait` were present in both
-`Script` and `LocalScript` in Vortex Studio 0.3.4.
+`task.defer`, `task.delay`, `task.spawn`, and `task.wait` were present in both `Script` and `LocalScript` in Vortex Studio 0.3.4.
 
-The initial capability probe verifies function presence; the dedicated behavior
-probe records the scheduling details below.
+The initial capability probe verifies function presence; the dedicated behavior probe records the scheduling details below.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
-releases.
+These observations are from Vortex Studio 0.3.4 and may differ in later releases.
 
-`task.cancel`, `task.desynchronize`, and `task.synchronize` are not exposed.
-`task.spawn` completes during the scheduling call itself. `task.defer` and
-`task.delay(0, callback)` are still pending after one `task.wait()` and
-complete during the second wait cycle. `task.wait()` returns a number.
+`task.cancel`, `task.desynchronize`, and `task.synchronize` are not exposed. `task.spawn` completes during the scheduling call itself. `task.defer` and `task.delay(0, callback)` are still pending after one `task.wait()` and complete during the second wait cycle. `task.wait()` returns a number.

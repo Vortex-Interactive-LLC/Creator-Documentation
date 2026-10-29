@@ -4,37 +4,27 @@ description: Standard-library functions verified in Vortex.
 ---
 
 > [!Summary]
-> This page documents standard-library functions verified in Vortex Studio 0.3.4.
-> It lists tested `coroutine`, `math`, `string`, and `table` functions, along with observed behavior and unavailable library features.
+> This page documents standard-library functions verified in Vortex Studio 0.3.4. It lists tested `coroutine`, `math`, `string`, and `table` functions, along with observed behavior and unavailable library features.
 
 ## Verified runtime compatibility
 
-The following standard-library functions were called by the deterministic
-behavior probe in both `Script` and `LocalScript` in Vortex Studio 0.3.4.
-Every call listed below succeeded with the documented result.
+The following standard-library functions were called by the deterministic behavior probe in both `Script` and `LocalScript` in Vortex Studio 0.3.4. Every call listed below succeeded with the documented result.
 
 ### coroutine
 
-`close`, `create`, `isyieldable`, `resume`, `running`, `status`, `wrap`,
-`yield`
+`close`, `create`, `isyieldable`, `resume`, `running`, `status`, `wrap`, `yield`
 
 ### math
 
-`abs`, `acos`, `asin`, `atan`, `atan2`, `ceil`, `clamp`, `cos`, `cosh`,
-`deg`, `exp`, `floor`, `fmod`, `frexp`, `ldexp`, `lerp`, `log`, `log10`,
-`map`, `max`, `min`, `modf`, `noise`, `pow`, `rad`, `random`, `randomseed`,
-`round`, `sign`, `sin`, `sinh`, `sqrt`, `tan`, `tanh`
+`abs`, `acos`, `asin`, `atan`, `atan2`, `ceil`, `clamp`, `cos`, `cosh`, `deg`, `exp`, `floor`, `fmod`, `frexp`, `ldexp`, `lerp`, `log`, `log10`, `map`, `max`, `min`, `modf`, `noise`, `pow`, `rad`, `random`, `randomseed`, `round`, `sign`, `sin`, `sinh`, `sqrt`, `tan`, `tanh`
 
 ### string
 
-`byte`, `char`, `find`, `format`, `gmatch`, `gsub`, `len`, `lower`, `match`,
-`pack`, `packsize`, `rep`, `reverse`, `split`, `sub`, `unpack`, `upper`
+`byte`, `char`, `find`, `format`, `gmatch`, `gsub`, `len`, `lower`, `match`, `pack`, `packsize`, `rep`, `reverse`, `split`, `sub`, `unpack`, `upper`
 
 ### table
 
-`clear`, `clone`, `concat`, `create`, `find`, `foreach`, `foreachi`,
-`freeze`, `getn`, `insert`, `isfrozen`, `maxn`, `move`, `pack`, `remove`,
-`sort`, `unpack`
+`clear`, `clone`, `concat`, `create`, `find`, `foreach`, `foreachi`, `freeze`, `getn`, `insert`, `isfrozen`, `maxn`, `move`, `pack`, `remove`, `sort`, `unpack`
 
 ## Observed deterministic behavior
 
@@ -43,13 +33,9 @@ These are observations for the exact inputs tested through a local script, rathe
 ### coroutine
 
 - `close` on a suspended coroutine returned `true` and left it `dead`.
-- `create` returned a `thread`; `isyieldable()` returned `true`; a fresh
-  coroutine reported `suspended`.
-- `resume` returned `true, 42` for a coroutine that added one to `41`; `wrap`
-  returned `42` for a coroutine that doubled `21`; and `yield` returned
-  `true, "yielded"` from its first `resume`.
-- Inside a coroutine, `running()` returned a `thread` and a `nil` main-thread
-  flag.
+- `create` returned a `thread`; `isyieldable()` returned `true`; a fresh coroutine reported `suspended`.
+- `resume` returned `true, 42` for a coroutine that added one to `41`; `wrap` returned `42` for a coroutine that doubled `21`; and `yield` returned `true, "yielded"` from its first `resume`.
+- Inside a coroutine, `running()` returned a `thread` and a `nil` main-thread flag.
 
 ### table
 
@@ -101,7 +87,4 @@ These are observations for the exact inputs tested through a local script, rathe
 
 ## Testing Notes
 
-The unavailable compatibility surface was also revalidated in 0.3.4 in both
-Script and LocalScript: `bit32`, `buffer`, `debug`, `os`, `utf8`, `vector`,
-and `shared` are `nil`. `math.isfinite`, `math.isinf`, `math.isnan`,
-`task.cancel`, `task.desynchronize`, and `task.synchronize` are also `nil`.
+The unavailable compatibility surface was also revalidated in 0.3.4 in both Script and LocalScript: `bit32`, `buffer`, `debug`, `os`, `utf8`, `vector`, and `shared` are `nil`. `math.isfinite`, `math.isinf`, `math.isnan`, `task.cancel`, `task.desynchronize`, and `task.synchronize` are also `nil`.

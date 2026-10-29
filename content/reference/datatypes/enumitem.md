@@ -51,8 +51,7 @@ Properties of an `EnumItem`.
 
 ## Example
 
-Enum items are named values. Compare the item itself in game logic, and use
-its properties when displaying or inspecting it:
+Enum items are named values. Compare the item itself in game logic, and use its properties when displaying or inspecting it:
 
 ```luau
 local key = Enum.KeyCode.R
@@ -66,5 +65,4 @@ if key == Enum.KeyCode.R then
 end
 ```
 
-Avoid depending on a numeric `Value` when an enum item is available. The named
-item is clearer and does not require the number to remain unchanged.
+Avoid depending on a numeric `Value` when an enum item is available. The named item is clearer and does not require the number to remain unchanged.

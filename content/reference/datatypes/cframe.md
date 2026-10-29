@@ -452,8 +452,7 @@ Methods of a `CFrame`.
 
 ## Position and rotation example
 
-A CFrame stores position and rotation together. Angles use radians, so
-`math.rad` makes degree values easier to read:
+A CFrame stores position and rotation together. Angles use radians, so `math.rad` makes degree values easier to read:
 
 ```luau
 local position = CFrame.new(0, 5, 0)
@@ -466,8 +465,7 @@ if part then
 end
 ```
 
-Multiplication composes transforms. In this example, the Part is placed five
-studs above the origin and rotated 90 degrees around the Y axis.
+Multiplication composes transforms. In this example, the Part is placed five studs above the origin and rotated 90 degrees around the Y axis.
 
 ## Operators
 
@@ -480,19 +478,14 @@ cframe * otherCFrame
 cframe * vector3
 ```
 
-Addition and subtraction translate the CFrame. Multiplication composes two
-CFrames or transforms a `Vector3` point.
+Addition and subtraction translate the CFrame. Multiplication composes two CFrames or transforms a `Vector3` point.
 
 ## Testing Notes
 
-These observations were revalidated in both Script and LocalScript in Vortex
-Studio 0.3.4.
+These observations were revalidated in both Script and LocalScript in Vortex Studio 0.3.4.
 
-`CFrame.fromMatrix` requires all three basis vectors. Calling it without `vZ`
-fails because the current implementation indexes the missing argument.
+`CFrame.fromMatrix` requires all three basis vectors. Calling it without `vZ` fails because the current implementation indexes the missing argument.
 
-The lowercase aliases `components`, `toEulerAnglesXYZ`, and
-`toEulerAnglesYXZ` are also exposed; this reference uses the canonical names.
+The lowercase aliases `components`, `toEulerAnglesXYZ`, and `toEulerAnglesYXZ` are also exposed; this reference uses the canonical names.
 
-The position-and-rotation example was revalidated in Vortex Studio 0.3.8. It
-produced position `(0, 5, 0)` and a LookVector of approximately `(-1, 0, 0)`.
+The position-and-rotation example was revalidated in Vortex Studio 0.3.8. It produced position `(0, 5, 0)` and a LookVector of approximately `(-1, 0, 0)`.

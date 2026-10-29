@@ -3,17 +3,14 @@ title: Remote Events
 description: One way communication between the server and clients.
 ---
 > [!Summary]
-> RemoteEvents send one-way messages between the server and clients for events like input, state changes, or game actions.
-> Use `FireServer` from the client and `OnServerEvent` on the server, or use `FireClient`/`FireAllClients` from the server and handle `OnClientEvent` on the client.
+> RemoteEvents send one-way messages between the server and clients for events like input, state changes, or game actions. Use `FireServer` from the client and `OnServerEvent` on the server, or use `FireClient`/`FireAllClients` from the server and handle `OnClientEvent` on the client.
 
 # Remote Events
 A `RemoteEvent` enables one-way communication between the server and clients. It doesn't wait for a response and has no return value. It's built for telling the other side what happened, not asking the other side for a result. For a call that needs a response, use [RemoteFunction](./remote-functions.md) instead.
 
 The primary parent container for remote events is `ReplicatedStorage`, as both the server and client can see and access it.
 > [!WARNING]
-> **Security note:** never trust arguments a client sends via `FireServer` at
-> face value - a modified client can call it with anything. Re-validate
-> any arguments on the server before acting on them.
+> **Security note:** never trust arguments a client sends via `FireServer` at face value - a modified client can call it with anything. Re-validate any arguments on the server before acting on them.
 
 ## Example
 In this example, pressing `E` changes a part named `ColorBlock` to a random color. Key presses can only be detected on the client, but the color change needs to happen on the server so every player sees the same result, which is what the remote event is for.
@@ -63,14 +60,7 @@ end)
 
 ## Vortex Studio 0.3.4 notes
 
-- Create RemoteEvents in `ReplicatedStorage` through the editor before play.
-  Editor-authored remotes dispatch from `FireServer` to `OnServerEvent`;
-  script-created remotes were visible to clients but did not dispatch in the
-  tested runtime.
-- The first `OnServerEvent` value is currently a numeric connection ID, not a
-  `Player`. The server can enumerate Players through `GetPlayers()`, but no
-  public mapping from this ID to the corresponding Player, Character, or Humanoid is known.
-- Remote arguments cannot currently contain Instances, including `LocalPlayer`
-  or a Character.
-- `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed, but their
-  delivery remains unconfirmed.
+- Create RemoteEvents in `ReplicatedStorage` through the editor before play. Editor-authored remotes dispatch from `FireServer` to `OnServerEvent`; script-created remotes were visible to clients but did not dispatch in the tested runtime.
+- The first `OnServerEvent` value is currently a numeric connection ID, not a `Player`. The server can enumerate Players through `GetPlayers()`, but no public mapping from this ID to the corresponding Player, Character, or Humanoid is known.
+- Remote arguments cannot currently contain Instances, including `LocalPlayer` or a Character.
+- `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed, but their delivery remains unconfirmed.

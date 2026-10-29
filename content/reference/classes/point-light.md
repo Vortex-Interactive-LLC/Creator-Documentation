@@ -17,16 +17,9 @@ There is currently no on/off switch for lights, but setting any of the color, br
 
 ## Runtime scripting limitation
 
-In Vortex Studio 0.3.4, `Instance.new("PointLight")` succeeds in both Script
-and LocalScript contexts, but produces a non-functional class shell. It exposes generic
-Instance methods and a connectable `Changed` signal, while the tested
-light-specific fields initially read as `nil`.
+In Vortex Studio 0.3.4, `Instance.new("PointLight")` succeeds in both Script and LocalScript contexts, but produces a non-functional class shell. It exposes generic Instance methods and a connectable `Changed` signal, while the tested light-specific fields initially read as `nil`.
 
-`Brightness`, `Range`, `Enabled`, and `Shadows` are not settable. `Color`
-accepts and retains a `Color3` value, but assigning `Parent` to a temporary
-Part succeeds without establishing a parent-child relationship or adding a child. 
-Consequently, tthere is no confirmed scripting method for configuring or attaching a rendered
-PointLight in the current runtime.
+`Brightness`, `Range`, `Enabled`, and `Shadows` are not settable. `Color` accepts and retains a `Color3` value, but assigning `Parent` to a temporary Part succeeds without establishing a parent-child relationship or adding a child. Consequently, there is no confirmed scripting method for configuring or attaching a rendered PointLight in the current runtime.
 
 <details>
 <summary><b>Properties</b></summary>
@@ -64,8 +57,7 @@ The emission brightness of the light. It does not affect the range.
 ### Color
 > [`Color3`](../datatypes/color3.md) \
 \
-Determines the color of the emitted light.
-Darker colors have the same effect as turning off the light.
+Determines the color of the emitted light. Darker colors have the same effect as turning off the light.
 
 <br/>
 
@@ -81,7 +73,6 @@ The name of the `Pointlight` and its label in the explorer.
 ### Range
 > `Float` \
 \
-The maximum spherical range of the light.
-This controls the brightness falloff over distance but does not increase the brightness.
+The maximum spherical range of the light. This controls the brightness falloff over distance but does not increase the brightness.
 
 <br/>

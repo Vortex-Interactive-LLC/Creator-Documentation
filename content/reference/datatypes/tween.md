@@ -56,10 +56,7 @@ Methods of a `Tween`.
 >
 > The current state of the tween.
 > 
-> #### Examples:
-> * `Enum.PlaybackState.Playing` - When the tween is active.
-> * `Enum.PlaybackState.Cancelled` - If the tween was cancelled before it finished.
-> * Reference `Enum.PlaybackState` for more states.
+> #### Examples: * `Enum.PlaybackState.Playing` - When the tween is active. * `Enum.PlaybackState.Cancelled` - If the tween was cancelled before it finished. * Reference `Enum.PlaybackState` for more states.
 
 <br/>
 
@@ -89,19 +86,10 @@ Methods of a `Tween`.
 
 ### .Completed(playbackState: `Enum.PlaybackState`)
 
-> Fires when the tween finishes, whether it completed naturally or was
-> stopped early with [`Cancel()`](#cancel).
+> Fires when the tween finishes, whether it completed naturally or was stopped early with [`Cancel()`](#cancel).
 >
-> The connected function receives one argument: the resulting
-> `Enum.PlaybackState`, either `Completed` or `Cancelled`.
+> The connected function receives one argument: the resulting `Enum.PlaybackState`, either `Completed` or `Cancelled`.
 >
-> ```luau
-> -- Example of the `Completed` signal being used.
-> myTween.Completed:Connect(function(playbackState)
->     if playbackState == Enum.PlaybackState.Completed then
->         print("Tween finished naturally")
->     end
-> end)
-> ```
+> ```luau -- Example of the `Completed` signal being used. myTween.Completed:Connect(function(playbackState) if playbackState == Enum.PlaybackState.Completed then print("Tween finished naturally") end end) ```
 
 <br/>

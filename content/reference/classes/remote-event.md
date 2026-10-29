@@ -5,11 +5,9 @@ description: An event that sends information between clients and the server.
 
 ## Summary
 
-A `RemoteEvent` can be used to communicate from the server to a client (or all clients)
-and vice versa.
+A `RemoteEvent` can be used to communicate from the server to a client (or all clients) and vice versa.
 
-For additional information, see
-[RemoteFunction](./remote-function.md).
+For additional information, see [RemoteFunction](./remote-function.md).
 
 ### Example
 
@@ -52,27 +50,18 @@ MyRemote.OnClientEvent:Connect(received_msg)
 ## Methods
 
 - `FireAllClients(arguments: Tuple) : ()` - Sends data to all clients;
-- `FireClient(player: Player, arguments: Tuple) : ()` - Sends data from the
-   server to a client;
-- `FireServer(arguments: Tuple) : ()` - FSends data from the client to the
-  server.
+- `FireClient(player: Player, arguments: Tuple) : ()` - Sends data from the server to a client;
+- `FireServer(arguments: Tuple) : ()` - Sends data from the client to the server.
+
 ## Events
 
-- `OnClientEvent(arguments: Tuple) : Signal` - Fires when the client receives
-   data from the server
-- `OnServerEvent(senderId: Number, arguments: Tuple) : Signal` - Fires when
-   the server receives data from the client.
+- `OnClientEvent(arguments: Tuple) : Signal` - Fires when the client receives data from the server;
+- `OnServerEvent(senderId: Number, arguments: Tuple) : Signal` - Fires when the server receives data from the client.
 
 ## Vortex Studio 0.3.4 notes
 
-- `FireServer` to `OnServerEvent` delivery was confirmed for an editor-authored remote
-  in `ReplicatedStorage`.
-- Script-created remotes parented to `ReplicatedStorage` were visible to the
-  client but did not dispatch to the server handler.
-- `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed, but their
-  delivery has not yet been established.
-- The server can enumerate Player objects through `Players:GetPlayers()`, but
-  cannot map `senderId` to a specific Player, Character, or Humanoid. Normal
-  Roblox-style targeting of the caller therefore does not currently apply.
-- Instances, including `LocalPlayer` and the character, cannot be sent as
-  remote arguments.
+- `FireServer` to `OnServerEvent` delivery was confirmed for an editor-authored remote in `ReplicatedStorage`.
+- Script-created remotes parented to `ReplicatedStorage` were visible to the client but did not dispatch to the server handler.
+- `FireClient`, `FireAllClients`, and `OnClientEvent` are exposed, but their delivery has not yet been established.
+- The server can enumerate Player objects through `Players:GetPlayers()`, but cannot map `senderId` to a specific Player, Character, or Humanoid. Normal Roblox-style targeting of the caller therefore does not currently apply.
+- Instances, including `LocalPlayer` and the character, cannot be sent as remote arguments.

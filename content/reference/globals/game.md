@@ -78,8 +78,7 @@ Services of `game`.
 
 > [`Players`](../classes/players.md)
 >
-> A direct alias for the Players service. In Vortex Studio 0.3.4 it is a
-> distinct proxy table from `game:GetService("Players")`.
+> A direct alias for the Players service. In Vortex Studio 0.3.4 it is a distinct proxy table from `game:GetService("Players")`.
 
 <br/>
 
@@ -155,16 +154,12 @@ Services of `game`.
 
 > Unavailable in the tested runtime
 >
-> `game:GetService("Lighting")` rejects this service in both Script and
-> LocalScript in Vortex Studio 0.3.4. [Lighting](../classes/lighting.md)
+> `game:GetService("Lighting")` rejects this service in both Script and LocalScript in Vortex Studio 0.3.4. [Lighting](../classes/lighting.md)
 
 <br/>
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
-releases.
+These observations are from Vortex Studio 0.3.4 and may differ in later releases.
 
-`game.Workspace` and `game:GetService("Workspace")` both report `ClassName`
-and `Name` as `Workspace`. `game.OnClose` starts as `nil`; assigning a
-function succeeds, but callback delivery has not been established.
+`game.Workspace` and `game:GetService("Workspace")` both report `ClassName` and `Name` as `Workspace`. `game.OnClose` starts as `nil`; assigning a function succeeds, but callback delivery has not been established.

@@ -12,8 +12,7 @@ local tweenService = TweenService
 local tweenService = game:GetService("TweenService")
 ```
 
-See the [TweenService reference](../classes/tween-service.md)
-for `Create` and the current Vortex Studio behavior notes.
+See the [TweenService reference](../classes/tween-service.md) for `Create` and the current Vortex Studio behavior notes.
 
 TweenService allows you to smoothly change supported properties of an object over a specified amount of time. You can also control how the property changes using different easing styles and directions.
 

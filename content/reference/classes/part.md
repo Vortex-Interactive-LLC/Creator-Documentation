@@ -122,8 +122,7 @@ The runtime class name of the `Part`.
 ### Cast Shadow
 > `Boolean` \
 \
-Controls whether or not the `Part` will cast a shadow.
-This can be used to improve performance for parts whose shadows cannot be seen, or for glass parts that would not realistically cast a shadow.
+Controls whether or not the `Part` will cast a shadow. This can be used to improve performance for parts whose shadows cannot be seen, or for glass parts that would not realistically cast a shadow.
 
 <br/>
 
@@ -131,8 +130,7 @@ This can be used to improve performance for parts whose shadows cannot be seen, 
 ### Color
 > [`Color3`](../datatypes/color3.md) \
 \
-Determines the visible color of the `Part`.
-It will also affect the part's [`Material`]() color.
+Determines the visible color of the `Part`. It will also affect the part's [`Material`]() color.
 
 <br/>
 
@@ -140,8 +138,7 @@ It will also affect the part's [`Material`]() color.
 ### Material
 > [`Enum.Material`](../datatypes/enumitem.md) \
 \
-Determines which `Material` type to apply when rendering the `Part`.
-Currently, this only has a visual effect.
+Determines which `Material` type to apply when rendering the `Part`. Currently, this only has a visual effect.
 
 <br/>
 
@@ -197,8 +194,7 @@ The size of the `Part` in each dimension (width, height, depth).
 ### Transparency
 > `Float` \
 \
-Sets the `transparency` of the part from `0` (opaque) to `1` (invisible).
-When drawing shadows, all parts are treated as opaque regardless of their `transparency`, unless it is set to `1`, , in which case the part does not render at all.
+Sets the `transparency` of the part from `0` (opaque) to `1` (invisible). When drawing shadows, all parts are treated as opaque regardless of their `transparency`, unless it is set to `1`, in which case the part does not render at all.
 
 <br/>
 
@@ -233,8 +229,7 @@ Destroys the `Part`.
 \
 `part:FindFirstChild(name: string)` \
 \
-Returns the first direct child with the supplied `name`, or `nil` when none is
-found.
+Returns the first direct child with the supplied `name`, or `nil` when none is found.
 
 <br/>
 
@@ -244,8 +239,7 @@ found.
 \
 `part:FindFirstChildOfClass(className: string)` \
 \
-Returns the first direct child whose class matches `className`, or `nil` when
-none is found.
+Returns the first direct child whose class matches `className`, or `nil` when none is found.
 
 <br/>
 
@@ -309,8 +303,7 @@ Returns an event associated with changes to the supplied property.
 \
 `part:IsA(className: string)` \
 \
-Returns whether the `part` is an instance of `className` or one of its
-ancestor classes.
+Returns whether the `part` is an instance of `className` or one of its ancestor classes.
 
 <br/>
 
@@ -361,23 +354,12 @@ An event associated with the end of physical contact with the `part`.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
-releases.
+These observations are from Vortex Studio 0.3.4 and may differ in later releases.
 
 > [!WARNING]
-> After `child.Parent = part` succeeds, `child.Parent == part` is `false`.
-> `WaitForChild(childName)` resolves the child, but `FindFirstChild`,
-> `FindFirstChildOfClass`, `GetChildren`, and `GetDescendants` do not expose
-> it.
+> After `child.Parent = part` succeeds, `child.Parent == part` is `false`. `WaitForChild(childName)` resolves the child, but `FindFirstChild`, `FindFirstChildOfClass`, `GetChildren`, and `GetDescendants` do not expose it.
 
-`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` expose
-connectable events, but changing the corresponding property or attribute does not trigger 
-callbacks. `Touched` and `TouchEnded` are connectable; their event
-delivery has not been established.
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` expose connectable events, but changing the corresponding property or attribute does not trigger callbacks. `Touched` and `TouchEnded` are connectable; their event delivery has not been established.
 
 > [!NOTE]
-> A server Script can read a player's
-> [`Character.HumanoidRootPart`](./humanoid-root-part.md), but assigning its
-> current `Position` or `Size` is rejected as client-side, server-authoritative
-> character state. This restriction applies to the live character root part; it
-> does not change the tested behavior of ordinary script-created Parts.
+> A server Script can read a player's [`Character.HumanoidRootPart`](./humanoid-root-part.md), but assigning its current `Position` or `Size` is rejected as client-side, server-authoritative character state. This restriction applies to the live character root part; it does not change the tested behavior of ordinary script-created Parts.

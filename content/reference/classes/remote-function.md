@@ -5,8 +5,7 @@ description: A function that can be invoked between the server and client and re
 
 ## Summary
 
-Unlike [RemoteEvents](./remote-event.md), `RemoteFunctions` allow data to be computed during a function call and return the computed values.
-`InvokeAllClients` does not exist because waiting for every player to return a value cannot be guaranteed
+Unlike [RemoteEvents](./remote-event.md), `RemoteFunctions` allow data to be computed during a function call and return the computed values. `InvokeAllClients` does not exist because waiting for every player to return a value cannot be guaranteed.
 
 ### Example
 
@@ -66,27 +65,16 @@ GetPiFromDigits.OnClientInvoke = compute_pi
 
 ## Methods
 
-- `InvokeClient(player: Player, arguments: Tuple) : Tuple` - Invokes a function
-  on the client from the server and returns the result;
-- `InvokeServer(arguments: Tuple) : Tuple` - Invokes a function on
-   the server from the client and returns the result.
+- `InvokeClient(player: Player, arguments: Tuple) : Tuple` - Invokes a function on the client from the server and returns the result;
+- `InvokeServer(arguments: Tuple) : Tuple` - Invokes a function on the server from the client and returns the result.
 
 ## Callbacks
 
-- `OnClientInvoke(arguments: Tuple) : Tuple` - A writable callback invoked
-   on the client by the server;
-- `OnServerInvoke(senderId: Number, arguments: Tuple) : Tuple` - A writable
-   callback invoked on the server by the client.
+- `OnClientInvoke(arguments: Tuple) : Tuple` - A writable callback invoked on the client by the server;
+- `OnServerInvoke(senderId: Number, arguments: Tuple) : Tuple` - A writable callback invoked on the server by the client.
 
 ## Vortex Studio 0.3.4 notes
 
-`InvokeServer` is exposed on the client and assigning `OnServerInvoke` succeeds
-in a Script for an editor-authored remote in `ReplicatedStorage`. However,
-`InvokeServer(LocalPlayer)` is rejected before delivery because Instances cannot
-currently be sent through remotes.A successful primitive request-response
-round trip has not yet been established.
+`InvokeServer` is exposed on the client and assigning `OnServerInvoke` succeeds in a Script for an editor-authored remote in `ReplicatedStorage`. However, `InvokeServer(LocalPlayer)` is rejected before delivery because Instances cannot currently be sent through remotes. A successful primitive request-response round trip has not yet been established.
 
-The server-side `Players:GetChildren()` route remains unavailable. In 0.3.4,
-`Players:GetPlayers()` does return visible Player objects in a server Script,
-so, in principle, it provides the Player target shown above. `OnClientInvoke` and
-`InvokeClient` delivery are still untested.
+The server-side `Players:GetChildren()` route remains unavailable. In 0.3.4, `Players:GetPlayers()` does return visible Player objects in a server Script, so, in principle, it provides the Player target shown above. `OnClientInvoke` and `InvokeClient` delivery are still untested.

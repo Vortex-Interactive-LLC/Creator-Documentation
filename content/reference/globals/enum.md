@@ -4,8 +4,7 @@ description: The runtime enum namespace.
 ---
 
 > [!Summary]
-> `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`.
-> In Vortex Studio 0.3.4, all 119 documented enum items were verified in both Script and LocalScript and convert to their `Enum.<group>.<item>` string form.
+> `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. In Vortex Studio 0.3.4, all 119 documented enum items were verified in both Script and LocalScript and convert to their `Enum.<group>.<item>` string form.
 
 ### EasingDirection
 
@@ -13,20 +12,11 @@ description: The runtime enum namespace.
 
 ### EasingStyle
 
-`Back`, `Bounce`, `Circular`, `Cubic`, `Elastic`, `Exponential`, `Linear`,
-`Quad`, `Quart`, `Quint`, `Sine`
+`Back`, `Bounce`, `Circular`, `Cubic`, `Elastic`, `Exponential`, `Linear`, `Quad`, `Quart`, `Quint`, `Sine`
 
 ### KeyCode
 
-`A`, `B`, `BackSlash`, `Backquote`, `Backspace`, `C`, `Comma`, `D`, `Delete`,
-`Down`, `E`, `Eight`, `Equals`, `Escape`, `F`, `F1`, `F10`, `F11`, `F12`,
-`F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `Five`, `Four`, `G`, `H`,
-`I`, `J`, `K`, `L`, `Left`, `LeftAlt`, `LeftBracket`, `LeftControl`,
-`LeftShift`, `LeftSuper`, `M`, `Minus`, `N`, `Nine`, `O`, `One`, `P`,
-`Period`, `Q`, `Quote`, `R`, `Return`, `Right`, `RightAlt`, `RightBracket`,
-`RightControl`, `RightShift`, `RightSuper`, `S`, `Semicolon`, `Seven`, `Six`,
-`Slash`, `Space`, `T`, `Tab`, `Three`, `Two`, `U`, `Unknown`, `Up`, `V`, `W`,
-`X`, `Y`, `Z`, `Zero`
+`A`, `B`, `BackSlash`, `Backquote`, `Backspace`, `C`, `Comma`, `D`, `Delete`, `Down`, `E`, `Eight`, `Equals`, `Escape`, `F`, `F1`, `F10`, `F11`, `F12`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `Five`, `Four`, `G`, `H`, `I`, `J`, `K`, `L`, `Left`, `LeftAlt`, `LeftBracket`, `LeftControl`, `LeftShift`, `LeftSuper`, `M`, `Minus`, `N`, `Nine`, `O`, `One`, `P`, `Period`, `Q`, `Quote`, `R`, `Return`, `Right`, `RightAlt`, `RightBracket`, `RightControl`, `RightShift`, `RightSuper`, `S`, `Semicolon`, `Seven`, `Six`, `Slash`, `Space`, `T`, `Tab`, `Three`, `Two`, `U`, `Unknown`, `Up`, `V`, `W`, `X`, `Y`, `Z`, `Zero`
 
 ### Material
 
@@ -42,8 +32,7 @@ description: The runtime enum namespace.
 
 ### UserInputType
 
-`Focus`, `Gamepad1`, `Keyboard`, `MouseButton1`, `MouseButton2`,
-`MouseButton3`, `MouseMovement`, `MouseWheel`, `None`, `Touch`
+`Focus`, `Gamepad1`, `Keyboard`, `MouseButton1`, `MouseButton2`, `MouseButton3`, `MouseMovement`, `MouseWheel`, `None`, `Touch`
 
 ## EnumType Methods
 
@@ -55,8 +44,7 @@ Each enum group, such as `Enum.KeyCode`, exposes these lookup methods.
 >
 > `enumType:FromName(name: string)`
 >
-> Returns the item with the given name, or `nil` when the name is not part of
-> the enum group.
+> Returns the item with the given name, or `nil` when the name is not part of the enum group.
 
 ### FromValue()
 

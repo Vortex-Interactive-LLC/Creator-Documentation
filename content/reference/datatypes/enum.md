@@ -61,8 +61,7 @@ if jumpKey == Enum.KeyCode.Space then
 end
 ```
 
-An unknown name returns `nil`, so check user-supplied names before using the
-result:
+An unknown name returns `nil`, so check user-supplied names before using the result:
 
 ```luau
 local key = Enum.KeyCode:FromName("NotAKey")
@@ -80,5 +79,4 @@ for _, material in ipairs(Enum.Material:GetEnumItems()) do
 end
 ```
 
-In Vortex Studio 0.3.8, `FromName("R")` returned `Enum.KeyCode.R` and an
-unknown name returned `nil`.
+In Vortex Studio 0.3.8, `FromName("R")` returned `Enum.KeyCode.R` and an unknown name returned `nil`.

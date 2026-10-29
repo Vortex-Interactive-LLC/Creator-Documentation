@@ -3,16 +3,9 @@ title: InputObject
 description: Describes one client input delivered by UserInputService.
 ---
 
-An `InputObject` is a table describing one client input. Scripts do not
-construct it directly. A client
-[`LocalScript`](../classes/localscript.md) receives it from
-[`UserInputService`](../classes/user-input-service.md) signals such as
-`InputBegan` and `InputEnded`.
+An `InputObject` is a table describing one client input. Scripts do not construct it directly. A client [`LocalScript`](../classes/localscript.md) receives it from [`UserInputService`](../classes/user-input-service.md) signals such as `InputBegan` and `InputEnded`.
 
-The signal callback also receives `gameProcessed`, a Boolean that reports
-whether the engine already handled the input. Gameplay controls commonly
-return early when it is `true`, which prevents typing in chat or using an
-engine control from also triggering the game action.
+The signal callback also receives `gameProcessed`, a Boolean that reports whether the engine already handled the input. Gameplay controls commonly return early when it is `true`, which prevents typing in chat or using an engine control from also triggering the game action.
 
 ## Properties
 
@@ -22,8 +15,7 @@ engine control from also triggering the game action.
 >
 > The keyboard key associated with the input.
 
-Keyboard input supplies the matching `Enum.KeyCode` item. Mouse buttons use
-`Enum.KeyCode.Unknown`, so use `UserInputType` to distinguish mouse buttons.
+Keyboard input supplies the matching `Enum.KeyCode` item. Mouse buttons use `Enum.KeyCode.Unknown`, so use `UserInputType` to distinguish mouse buttons.
 
 ### UserInputType
 
@@ -31,8 +23,7 @@ Keyboard input supplies the matching `Enum.KeyCode` item. Mouse buttons use
 >
 > The device action that produced the input.
 
-Examples include `Enum.UserInputType.Keyboard`, `MouseButton1`, and
-`MouseButton2`.
+Examples include `Enum.UserInputType.Keyboard`, `MouseButton1`, and `MouseButton2`.
 
 ### Position
 
@@ -65,19 +56,12 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 end)
 ```
 
-Compare enum items directly. Do not compare `KeyCode` or `UserInputType` with
-strings such as `"E"` or `"MouseButton1"`.
+Compare enum items directly. Do not compare `KeyCode` or `UserInputType` with strings such as `"E"` or `"MouseButton1"`.
 
 ## Vortex Studio 0.3.8 notes
 
-`InputBegan` delivered InputObjects as tables in a LocalScript. Keyboard input
-reported `Enum.UserInputType.Keyboard` and its actual `KeyCode`. Left and right
-mouse buttons reported `MouseButton1` and `MouseButton2`, with
-`Enum.KeyCode.Unknown`.
+`InputBegan` delivered InputObjects as tables in a LocalScript. Keyboard input reported `Enum.UserInputType.Keyboard` and its actual `KeyCode`. Left and right mouse buttons reported `MouseButton1` and `MouseButton2`, with `Enum.KeyCode.Unknown`.
 
-`Position` and `Delta` were exposed as `Vector3` values, but both remained
-`(0, 0, 0)` for the tested keyboard and mouse-button inputs. Do not treat them
-as confirmed mouse-cursor coordinates in this release.
+`Position` and `Delta` were exposed as `Vector3` values, but both remained `(0, 0, 0)` for the tested keyboard and mouse-button inputs. Do not treat them as confirmed mouse-cursor coordinates in this release.
 
-`UserInputState`, `Changed`, and `IsModifierKeyDown` read as `nil`. Touch and
-gamepad InputObjects were not tested.
+`UserInputState`, `Changed`, and `IsModifierKeyDown` read as `nil`. Touch and gamepad InputObjects were not tested.

@@ -6,6 +6,7 @@ description: A container inside the "StarterPlayer" service that stores client-s
 # What is StarterPlayerScripts?
 
 **StarterPlayerScripts** is a container inside the `StarterPlayer` service that stores client-side scripts. These scripts are automatically copied to a player's `PlayerScripts` container when the player joins the game.
+
 > [!CAUTION]
 > Do not confuse `StarterPlayerScripts` with `StarterCharacterScripts`. Although they are similar, they serve different purposes.
 

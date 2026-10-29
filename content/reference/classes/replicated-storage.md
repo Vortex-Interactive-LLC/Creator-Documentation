@@ -5,9 +5,7 @@ description: Contains instances that are loaded by both the server and the clien
 
 ## Summary
 
-ReplicatedStorage is a container for items that should be visible to both the
-server and the client. Items placed here will automatically have their
-properties synchronized from the server.
+ReplicatedStorage is a container for items that should be visible to both the server and the client. Items placed here will automatically have their properties synchronized from the server.
 
 <details>
 <summary><b>Properties</b></summary>
@@ -66,8 +64,7 @@ The service name shown by the runtime.
 \
 `ReplicatedStorage:FindFirstChild(name: string)` \
 \
-Returns the first direct child with the supplied `name`, or `nil` when none is
-found.
+Returns the first direct child with the supplied `name`, or `nil` when none is found.
 
 #### Parameters
 
@@ -100,9 +97,6 @@ Waits for and returns a direct child with the supplied `name`.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
-releases.
+These observations are from Vortex Studio 0.3.4 and may differ in later releases.
 
-A temporary `Part` can have its `Parent` set to `ReplicatedStorage`, and
-`WaitForChild` resolves it. `FindFirstChild` returns `nil` and `GetChildren`
-omits it.
+A temporary `Part` can have its `Parent` set to `ReplicatedStorage`, and `WaitForChild` resolves it. `FindFirstChild` returns `nil` and `GetChildren` omits it.

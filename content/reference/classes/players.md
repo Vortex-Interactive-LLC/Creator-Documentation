@@ -5,8 +5,7 @@ description: A container that holds all currently connected players as Player ob
 
 ## Summary
 
-A service representing connected clients as
-[Player](./player.md) instances.
+A service representing connected clients as [Player](./player.md) instances.
 
 ### Example
 
@@ -40,11 +39,6 @@ local player = Players.LocalPlayer
 
 ## Vortex Studio 0.3.4 notes
 
-`GetPlayers()` returns the current player in a `LocalScript`. In a confirmed
-server `Script`, it also returned a list containing the live `Player` object;
-the returned `Player`'s `Character` is readable. `LocalPlayer` remains `nil` on the
-server.
+`GetPlayers()` returns the current player in a `LocalScript`. In a confirmed server `Script`, it also returned a list containing the live `Player` object; the returned `Player`'s `Character` is readable. `LocalPlayer` remains `nil` on the server.
 
-The numeric connection ID passed as the first `OnServerEvent` argument still
-has no known public mapping back to a particular Player. Numeric and string-based service
-indexing, along with the tested player lookup methods, does not provide that mapping.
+The numeric connection ID passed as the first `OnServerEvent` argument still has no known public mapping back to a particular Player. Numeric and string-based service indexing, along with the tested player lookup methods, does not provide that mapping.

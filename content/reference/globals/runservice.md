@@ -75,12 +75,8 @@ Signals of `RunService`.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later
-releases.
+These observations are from Vortex Studio 0.3.4 and may differ in later releases.
 
-`IsClient()` returned `true` in a `LocalScript` and `false` in a `Script`.
-`IsServer()` returned the inverse. `IsStudio()` returned `true` in both
-contexts.
+`IsClient()` returned `true` in a `LocalScript` and `false` in a `Script`. `IsServer()` returned the inverse. `IsStudio()` returned `true` in both contexts.
 
-`Heartbeat` supports `Connect`, `Once`, and `Wait`. Its observed `deltaTime`
-varied between updates, so it should not be treated as a fixed interval.
+`Heartbeat` supports `Connect`, `Once`, and `Wait`. Its observed `deltaTime` varied between updates, so it should not be treated as a fixed interval.

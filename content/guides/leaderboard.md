@@ -3,8 +3,7 @@ title: Leaderboards
 description: Learn how to create and update player leaderboards using leaderstats.
 ---
 
-> Leaderboards display player statistics using a `Folder` named `leaderstats` parented to a player.
-> Value objects such as `IntValue`, `StringValue`, and `BoolValue` can be placed inside this folder to display stats on the built-in leaderboard.
+> Leaderboards display player statistics using a `Folder` named `leaderstats` parented to a player. Value objects such as `IntValue`, `StringValue`, and `BoolValue` can be placed inside this folder to display stats on the built-in leaderboard.
 
 The leaderboard is a built-in feature that lists all players and their stats.
 
