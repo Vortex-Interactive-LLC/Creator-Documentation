@@ -24,8 +24,8 @@ Properties of a `TweenInfo`.
 <br><br>
 
 * [Time](#time): `Number`
-* [EasingStyle](/reference/globals/enum/#easingstyle): `Enum.EasingStyle`
-* [EasingDirection](/reference/globals/enum/#easingdirection): `Enum.EasingDirection`
+* [EasingStyle](../globals/enum.md#easingstyle): `Enum.EasingStyle`
+* [EasingDirection](../globals/enum.md#easingdirection): `Enum.EasingDirection`
 * [RepeatCount](#repeatcount): `Number`
 * [Reverses](#reverses): `Boolean`
 * [DelayTime](#delaytime): `Number`
@@ -38,7 +38,7 @@ Properties of a `TweenInfo`.
 
 > `TweenInfo`
 >
-> Returns a `TweenInfo` data container to be fed into [TweenService](/reference/classes/tween-service/).
+> Returns a `TweenInfo` data container to be fed into [TweenService](../classes/tween-service.md).
 > 
 > Note that `time` is in seconds.
 > 

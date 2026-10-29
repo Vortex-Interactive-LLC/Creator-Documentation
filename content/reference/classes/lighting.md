@@ -20,7 +20,7 @@ Written by KingTasaz on August 28th, 2026
 
 There are two main controls in Lighting's properties:
 - `Ambient` is the general lighting that every object receives regardless of its position or rotation.
-- `Sun` is the light that illuminates object faces directly exposed to itself. If shadows are enabled, then parts of a face can be blocked from sunlight.
+- `Sun` is the light that illuminates object faces that are directly exposed to the sun. If shadows are enabled, then parts of a face can be blocked from sunlight.
 <br><br>
 
 <details>
@@ -57,7 +57,7 @@ Properties of Lighting, in the order they appear in Vortex Studio.
 ### Ambient Color
 > [`Color3`](../datatypes/color3.md) \
 \
-Determines the visible color of the `Part`. It will also affect the Part's [`Material`]() color.
+Determines the color of the ambient light that every object receives, regardless of its position or rotation.
 
 <br/>
 
@@ -95,7 +95,7 @@ This value is `read-only` and has `no effect`.
 ### Sun Brightness
 > `Float` \
 \
-Determines the brightness value of the `sun`.
+Determines how bright the sunlight is.
 
 <br/>
 

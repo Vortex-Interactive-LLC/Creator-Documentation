@@ -96,9 +96,7 @@ When `false`, the part will experience gravity and forces from other parts.
 ### CanCollide
 > `Boolean` \
 \
-Determines whether the `Part` has physics collisions enabled or can phase through other parts. \
-\
-**Note:** A `Part` cannot be unanchored while collision is disabled.
+Determines whether the `Part` has physics collisions enabled or can phase through other parts.
 
 <br/>
 

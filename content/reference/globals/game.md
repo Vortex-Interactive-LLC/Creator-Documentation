@@ -48,6 +48,10 @@ Services of `game`.
 * [ReplicatedStorage](../classes/replicated-storage.md)
 * [StarterPlayerScripts](../classes/starter-player-scripts.md)
 * [ServerScriptService](../classes/server-script-service.md)
+* [StarterGui](../classes/starter-gui.md)
+* [StarterPack](../classes/starter-pack.md)
+* [DataStoreService](../classes/data-store-service.md) (server only)
+* [MarketplaceService](../classes/marketplace-service.md) (server only)
 * [Lighting](../classes/lighting.md) (editor-facing; not a valid service for `game:GetService`)
 * [Debris](../classes/debris.md)
 * [RunService](./runservice.md)
@@ -126,7 +130,7 @@ Services of `game`.
 
 > `Instance`
 >
-> Stub. [StarterPlayerScripts](../classes/starter-player-scripts.md)
+> A container for scripts that run on each client. [StarterPlayerScripts](../classes/starter-player-scripts.md)
 
 <br/>
 
@@ -135,6 +139,38 @@ Services of `game`.
 > `Instance`
 >
 > ServerScriptService contains [Scripts](../classes/script.md) that run when the server starts. [ServerScriptService](../classes/server-script-service.md)
+
+<br/>
+
+### StarterGui
+
+> `Instance`
+>
+> [StarterGui](../classes/starter-gui.md)
+
+<br/>
+
+### StarterPack
+
+> `Instance`
+>
+> [StarterPack](../classes/starter-pack.md)
+
+<br/>
+
+### DataStoreService
+
+> `Instance`
+>
+> Available in server Scripts only. [DataStoreService](../classes/data-store-service.md)
+
+<br/>
+
+### MarketplaceService
+
+> `Instance`
+>
+> Available in server Scripts only. [MarketplaceService](../classes/marketplace-service.md)
 
 <br/>
 
