@@ -16,7 +16,7 @@ Written by KingTasaz on August 28th, 2026
 
 ## Runtime availability
 
-In Vortex Studio 0.3.4, `game:GetService("Lighting")` fails with `"Lighting" is not a valid service` in both Script and LocalScript. The editor-facing Lighting controls documented below therefore do not currently have a confirmed runtime scripting surface.
+`game:GetService("Lighting")` fails with `"Lighting" is not a valid service` in both Script and LocalScript. The editor-facing Lighting controls documented below therefore do not currently have a confirmed runtime scripting surface.
 
 There are two main controls in Lighting's properties:
 - `Ambient` is the general lighting that every object receives regardless of its position or rotation.

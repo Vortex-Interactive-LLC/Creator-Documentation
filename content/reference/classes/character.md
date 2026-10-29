@@ -18,11 +18,11 @@ local character = player and player.Character
 
 ## Confirmed public projection
 
-In Vortex Studio 0.3.4, the live Character reports `ClassName == "Model"`. The observed public fields are `ClassName`, `Name`, `Position`, [`Humanoid`](./humanoid.md), and [`HumanoidRootPart`](./humanoid-root-part.md). `Parent` reads as `nil`.
+The live Character reports `ClassName == "Model"`. Its public fields are `ClassName`, `Name`, `Position`, [`Humanoid`](./humanoid.md), and [`HumanoidRootPart`](./humanoid-root-part.md). `Parent` reads as `nil`.
 
-The tested generic Instance methods are available, including `GetChildren`, `GetDescendants`, `FindFirstChild`, `FindFirstChildOfClass`, `WaitForChild`, `IsA`, and the attribute/property-signal methods. The tested hierarchy and lifecycle signals on the Character are unavailable; its `Changed` signal is connectable. Model pivot and primary-part APIs are unavailable.
+The generic Instance methods are available, including `GetChildren`, `GetDescendants`, `FindFirstChild`, `FindFirstChildOfClass`, `WaitForChild`, `IsA`, `Clone`, `Destroy`, and the attribute methods. `MoveTo` and `PivotTo` move the character. `PrimaryPart` is not available.
 
-`Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` resolve the same direct values as the public fields. The tested standard R6/R15 limb names are absent from this public projection.
+`Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` resolve the same direct values as the public fields. The standard R6/R15 limb names are not children of the character.
 
 ## Write-only visual rotation
 
@@ -32,9 +32,9 @@ The tested generic Instance methods are available, including `GetChildren`, `Get
 character.Orientation = Vector3.new(0, 90, 0)
 ```
 
-After the visual turn, `Orientation`, `Rotation`, and `CFrame` remained `nil` on Player, Character, the public root, Humanoid, Scene, Armature, visual root, Torso, limbs, and Head. The exposed visual hierarchy supplies `Position` values only; it does not expose the resulting yaw for readback.
+After the turn, `Character.Orientation` still reads `nil`. The exposed visual hierarchy supplies `Position` values only; it does not expose the resulting yaw for readback.
 
-This differs from `Player.Orientation`, which retains an assigned value but has no verified visible turn effect, and from the public [`HumanoidRootPart`](./humanoid-root-part.md), which rejects the write.
+This differs from the public [`HumanoidRootPart`](./humanoid-root-part.md), which rejects the write.
 
 ## Visual Scene projection
 
@@ -67,6 +67,6 @@ The tested visual `HumanoidRootPart` and `Torso` also ignore an `Orientation` wr
 
 The tested `R7Body.Material` does not have any working properties (Position, size, etc.), the only working property found during testing is :Destroy().
 
-## Lifecycle limitation
+## Lifecycle
 
-The Player's standard `CharacterAdded` signal is not exposed in the tested runtime: it remained `nil` in both Script and LocalScript for a dedicated 15-second observation. Poll `Player.Character` and the visual Scene route instead of waiting for that signal.
+`Player.CharacterAdded` and `Player.CharacterRemoving` fire when a character spawns or is removed. When a character's Humanoid dies, the player respawns with a new character. A newly spawned character has a `ForceField` child for a few seconds.

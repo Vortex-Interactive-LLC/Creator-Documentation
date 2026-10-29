@@ -352,14 +352,11 @@ An event associated with the end of physical contact with the `part`.
 
 <br/>
 
-## Testing Notes
+## Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
+Instances parented to a `Part` become its children: `child.Parent == part` is `true`, and `FindFirstChild`, `FindFirstChildOfClass`, `GetChildren`, `GetDescendants`, and `WaitForChild` all find them.
 
-> [!WARNING]
-> After `child.Parent = part` succeeds, `child.Parent == part` is `false`. `WaitForChild(childName)` resolves the child, but `FindFirstChild`, `FindFirstChildOfClass`, `GetChildren`, and `GetDescendants` do not expose it.
-
-`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` expose connectable events, but changing the corresponding property or attribute does not trigger callbacks. `Touched` and `TouchEnded` are connectable; their event delivery has not been established.
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when the corresponding property or attribute changes on a part that is parented into the game. `Touched` and `TouchEnded` fire for contact with other parts that have `CanTouch` enabled.
 
 > [!NOTE]
-> A server Script can read a player's [`Character.HumanoidRootPart`](./humanoid-root-part.md), but assigning its current `Position` or `Size` is rejected as client-side, server-authoritative character state. This restriction applies to the live character root part; it does not change the tested behavior of ordinary script-created Parts.
+> A server Script can read a player's [`Character.HumanoidRootPart`](./humanoid-root-part.md), but its `Size` and `Orientation` are read-only. This restriction applies to the live character root part; it does not change the behavior of ordinary script-created Parts.

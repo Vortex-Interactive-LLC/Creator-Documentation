@@ -49,6 +49,6 @@ Sets the texture to render on the selected face. Currently, the only options are
 
 ## Testing Notes
 
-In Vortex Studio 0.3.4, `Instance.new("Texture")`, `Instance.new("Decal")`, and `Instance.new("SurfaceAppearance")` all fail in both Script and LocalScript contexts. A script-created `Part` also has no readable `Texture`, `TextureID`, `SurfaceAppearance`, or `Decal` field.
+`Instance.new("Texture")`, `Instance.new("Decal")`, and `Instance.new("SurfaceAppearance")` all fail in both Script and LocalScript contexts. A script-created `Part` also has no readable `Texture`, `TextureID`, `SurfaceAppearance`, or `Decal` field.
 
 Editor-authored texture behavior was not confirmed by this probe, but there is currently no confirmed script API for creating or changing textures.

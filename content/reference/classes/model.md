@@ -55,19 +55,15 @@ The position of the `model`, in world space. A model's position is automatically
 ## Images
 <img src="../../../images/examples/modelCenterExample1.png" alt="Model w/ Move Tool" width="400"/>
 
-## Testing Notes
+## Notes
 
-In Vortex Studio 0.3.4, a detached `Model` exposes the generic instance surface, including hierarchy and attribute methods, but has no readable `Position`, `PrimaryPart`, or `WorldPivot` property. This behavior is identical in both Scripts and LocalScripts.
+A `Model` exposes the generic instance surface, including hierarchy and attribute methods. Instances parented to a Model become its children: `FindFirstChild`, `GetChildren()`, `GetDescendants()`, and `WaitForChild` all find them. `GetPivot`, `PivotTo`, and `MoveTo` are available. `Position`, `PrimaryPart`, and `WorldPivot` are not readable from a script, and `GetPrimaryPartCFrame` and `SetPrimaryPartCFrame` are not available.
 
-Setting a temporary Part's `Parent` to a detached Model does not establish an observable hierarchy: the parent comparison is `false`, `FindFirstChild` returns `nil`, `GetChildren()` returns an empty table, and `WaitForChild` does not return the temporary Part.
+The live [Character](./character.md) Model is a special case. It exposes `ClassName`, `Name`, and `Position`, plus direct `Humanoid` and `HumanoidRootPart` members; `Parent` reads as `nil`. It provides the generic Instance methods, `MoveTo`, and `PivotTo`.
 
-`GetPivot`, `PivotTo`, `GetPrimaryPartCFrame`, and `SetPrimaryPartCFrame` are also unavailable (`nil`) in both contexts. Assigning `Model.PrimaryPart` is rejected as a non-settable property.
+The live Character Model is also the target for write-only visual rotation: `character.Orientation = Vector3.new(0, 90, 0)` turns the character while the field remains `nil` on readback. See [Character: Write-only visual rotation](./character.md#write-only-visual-rotation).
 
-In 0.3.4, the live [Character](./character.md) Model is a special case. In both a LocalScript and a confirmed server Script, it exposes `ClassName`, `Name`, and `Position`, plus direct `Humanoid` and `HumanoidRootPart` members; `Parent` reads as `nil`. It exposes the tested set of generic Instance methods and a connectable `Changed` signal, but its tested hierarchy/lifecycle signals are unavailable. Like a detached Model, its pivot and primary-part APIs remain unavailable.
-
-The live Character Model is also the verified target for write-only visual rotation: `character.Orientation = Vector3.new(0, 90, 0)` visibly turns the character in a server Script while the field remains `nil` on readback. See [Character: Write-only visual rotation](./character.md#write-only-visual-rotation).
-
-`Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` return the same direct members. However, `Character:GetChildren()` returns one unnamed generic `Instance`, not a reliable inventory of those two values or of the tested standard R6/R15 body parts. Character attribute values replicate in both directions between a server Script and the owning LocalScript; see the [Attributes guide](../../guides/attributes.md).
+`Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` return the same direct members. The standard R6/R15 body parts are not children of the character. Character attribute values replicate in both directions between a server Script and the owning LocalScript; see the [Attributes guide](../../guides/attributes.md).
 
 ## Transient Character visual Scene
 

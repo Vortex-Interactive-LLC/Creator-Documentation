@@ -36,6 +36,4 @@ Methods of `TweenService`.
 
 ## Testing Notes
 
-`TweenService.Create` and the returned Tween API were revalidated in Vortex Studio 0.3.4.
-
 `Create` returned a Tween in both `Script` and `LocalScript` contexts when given an unparented `Part`, `TweenInfo.new(0.1)` and `{ Transparency = 0.5 }`.

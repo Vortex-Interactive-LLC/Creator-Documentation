@@ -58,10 +58,8 @@ end)
 
 Compare enum items directly. Do not compare `KeyCode` or `UserInputType` with strings such as `"E"` or `"MouseButton1"`.
 
-## Vortex Studio 0.3.8 notes
+## Notes
 
-`InputBegan` delivered InputObjects as tables in a LocalScript. Keyboard input reported `Enum.UserInputType.Keyboard` and its actual `KeyCode`. Left and right mouse buttons reported `MouseButton1` and `MouseButton2`, with `Enum.KeyCode.Unknown`.
+`Position` and `Delta` are `Vector3` values. For mouse button inputs, `Position` is the cursor position; for keyboard inputs it is `(0, 0, 0)`. For the mouse-movement input delivered by `UserInputService.InputChanged`, `Delta` is how far the mouse moved.
 
-`Position` and `Delta` were exposed as `Vector3` values, but both remained `(0, 0, 0)` for the tested keyboard and mouse-button inputs. Do not treat them as confirmed mouse-cursor coordinates in this release.
-
-`UserInputState`, `Changed`, and `IsModifierKeyDown` read as `nil`. Touch and gamepad InputObjects were not tested.
+`UserInputState`, `Changed`, and `IsModifierKeyDown` read as `nil`. Touch and gamepad InputObjects are not available.

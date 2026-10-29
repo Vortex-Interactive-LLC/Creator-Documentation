@@ -19,26 +19,21 @@ local rootPart = player.Character.HumanoidRootPart
 
 ## Confirmed surface
 
-In Vortex Studio 0.3.4, these fields are readable in both a `LocalScript` and a confirmed server `Script`:
+These fields are readable in both a `LocalScript` and a server `Script`:
 
 - `ClassName`, with the value `"Part"`;
 - `Name`, with the value `"HumanoidRootPart"`;
 - `Parent`, the visible Character Model;
 - `Position`, a [`Vector3`](../datatypes/vector3.md);
-- `Size`, a [`Vector3`](../datatypes/vector3.md).
+- `Size`, a [`Vector3`](../datatypes/vector3.md);
+- `CFrame`, a [`CFrame`](../datatypes/cframe.md).
 
-`IsA` is the only tested method currently exposed. It returns `true` for `"Part"`, `"BasePart"`, and `"Instance"`, despite the narrow projection surface described below.
+`IsA` is the only method exposed. It returns `true` for `"Part"` and `"BasePart"`.
 
-The tested ordinary Part fields are unavailable: `Anchored`, `CanCollide`, `CastShadow`, `CFrame`, `Color`, `Material`, `Orientation`, `Rotation`, `Transparency`, and the tested velocity, mass, collision-query, touch, and root-priority fields all read as `nil`.
+Ordinary Part fields such as `Anchored` and `CanCollide` read as `nil`, and the Instance methods other than `IsA` (hierarchy, `Clone`, `Destroy`, attributes, and property signals) are not available.
 
-The tested Instance, Part, and physics members—including hierarchy, cloning, destruction, attributes, property signals, joints, impulses, mass, and network ownership methods—also read as `nil`. `Changed`, `Touched`, `TouchEnded`, and the tested hierarchy/lifecycle signals read as `nil`; none is connectable.
+## Writing
 
-## Character-state authority
+`HumanoidRootPart.Size` and `HumanoidRootPart.Orientation` are read-only: assigning them raises an error saying that character state is server-authoritative. Assigning `Position` or `CFrame` from a server `Script` is accepted. To move a character, use `Character:MoveTo()` or `Character:PivotTo()`.
 
-Writing `HumanoidRootPart.Position`, `HumanoidRootPart.Size`, or `HumanoidRootPart.Orientation` is rejected in both a `LocalScript` and a confirmed server `Script`. The current error describes the property as read-only in a LocalScript and says character state is server-authoritative, even when `RunService:IsServer()` reports `true`.
-
-Consequently, do not use the visible character root part as a target for server-side teleportation, resizing, or movement control in the current runtime. This is a restriction of the live Character projection; it does not describe ordinary script-created Parts, whose tested transform properties remain writable.
-
-## Testing Notes
-
-These observations were verified in Vortex Studio 0.3.4; untested members may exist in later runtime releases.
+This applies to the live character root part only; ordinary script-created Parts have writable transform properties.

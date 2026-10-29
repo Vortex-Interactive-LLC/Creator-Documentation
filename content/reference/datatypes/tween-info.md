@@ -119,6 +119,6 @@ Properties of a `TweenInfo`.
 
 ## Testing Notes
 
-`TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)` returned a TweenInfo table in both `Script` and `LocalScript` in Vortex Studio 0.3.4. Runtime availability may differ in later releases.
+`TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)` returns a TweenInfo table in both `Script` and `LocalScript`.
 
 `repeatCount = -1` is treated as an infinite repeat count.

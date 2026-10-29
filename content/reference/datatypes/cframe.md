@@ -482,10 +482,8 @@ Addition and subtraction translate the CFrame. Multiplication composes two CFram
 
 ## Testing Notes
 
-These observations were revalidated in both Script and LocalScript in Vortex Studio 0.3.4.
-
 `CFrame.fromMatrix` requires all three basis vectors. Calling it without `vZ` fails because the current implementation indexes the missing argument.
 
 The lowercase aliases `components`, `toEulerAnglesXYZ`, and `toEulerAnglesYXZ` are also exposed; this reference uses the canonical names.
 
-The position-and-rotation example was revalidated in Vortex Studio 0.3.8. It produced position `(0, 5, 0)` and a LookVector of approximately `(-1, 0, 0)`.
+The position-and-rotation example produces position `(0, 5, 0)` and a LookVector of approximately `(-1, 0, 0)`.

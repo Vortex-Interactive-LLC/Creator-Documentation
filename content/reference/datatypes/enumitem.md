@@ -57,7 +57,7 @@ Enum items are named values. Compare the item itself in game logic, and use its 
 local key = Enum.KeyCode.R
 
 print(key.Name)     -- R
-print(key.Value)    -- 114 in Vortex Studio 0.3.8
+print(key.Value)    -- 114
 print(key.EnumType) -- Enum.KeyCode
 
 if key == Enum.KeyCode.R then
