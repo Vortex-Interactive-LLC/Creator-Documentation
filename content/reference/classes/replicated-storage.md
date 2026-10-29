@@ -6,8 +6,8 @@ description: Contains instances that are loaded by both the server and the clien
 ## Summary
 
 ReplicatedStorage is a container for items that should be visible to both the
-server and the client. Items placed here will automatically get their
-properties synced from the server.
+server and the client. Items placed here will automatically have their
+properties synchronized from the server.
 
 <details>
 <summary><b>Properties</b></summary>
@@ -32,7 +32,7 @@ Methods of `ReplicatedStorage`.
 
 ## Parenting
 
-Assign a `Part` by setting its `Parent` to `ReplicatedStorage`:
+Place a `Part` in `ReplicatedStorage` by setting its `Parent` to `ReplicatedStorage`:
 
 ```luau
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -71,7 +71,7 @@ found.
 
 #### Parameters
 
-- `name`: `string` — the child name to find.
+- `name`: `string` — the name of the child to find.
 
 <br/>
 
@@ -93,7 +93,7 @@ Waits for and returns a direct child with the supplied `name`.
 
 #### Parameters
 
-- `name`: `string` — the child name to wait for.
+- `name`: `string` — the name of the child to wait for.
 
 <br/>
 
@@ -103,6 +103,6 @@ Waits for and returns a direct child with the supplied `name`.
 These observations are from Vortex Studio 0.3.4 and may differ in later
 releases.
 
-A temporary `Part` can be parented to `ReplicatedStorage`, and
+A temporary `Part` can have its `Parent` set to `ReplicatedStorage`, and
 `WaitForChild` resolves it. `FindFirstChild` returns `nil` and `GetChildren`
 omits it.

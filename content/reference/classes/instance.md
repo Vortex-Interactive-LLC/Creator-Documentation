@@ -11,8 +11,8 @@ Written by Kindtracker on August 28th, 2026
 -->
 
 > [!IMPORTANT]
-> Vortex Studio 0.3.4 does not expose one uniform Instance method set on every
-> engine-backed value. The members below describe ordinary Instance-like
+> Vortex Studio 0.3.4 does not expose a uniform set of Instance methods on 
+> every engine-backed value. The members below describe ordinary Instance-like
 > objects. Use the concrete class reference and the availability matrix on this
 > page before calling a method.
 
@@ -63,7 +63,7 @@ Common methods of an `Instance`-like object.
 
 > `Instance` 
 >
-> Create a copy of the `Instance` and return copy.
+> Creates a copy of the `Instance` and returns the copy.
 
 <br/>
 
@@ -71,7 +71,7 @@ Common methods of an `Instance`-like object.
 
 > `nil` 
 >
-> Destroy the `Instance` and children.
+> Destroys the `Instance` and its children.
 
 <br/>
 
@@ -79,7 +79,7 @@ Common methods of an `Instance`-like object.
 
 > `{ Instance }` 
 >
-> Return children of the `Instance`.
+> Returns children of the `Instance`.
 
 <br/>
 
@@ -98,6 +98,6 @@ The following matrix records whether each member is exposed as a function on the
 | [`Player`](./player.md) | No | No | No | No | No | No | No | No |
 | [`Humanoid`](./humanoid.md) | No | No | No | No | No | No | No | No |
 
-A `Players` service can still provide its class-specific `GetPlayers()` method, and a `Humanoid` can provide `IsDead()`, even though the generic methods above are absent.
+The `Players` service can still provide its class-specific `GetPlayers()` method, and a `Humanoid` can provide `IsDead()`, even though the generic methods above are absent.
 
 These observations were made in Vortex Studio 0.3.4 and may change in later versions.

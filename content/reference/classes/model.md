@@ -1,6 +1,6 @@
 ---
 title: Model
-description: A collection of explorer items, grouped into one object
+description: A collection of Explorer items grouped into one object.
 ---
 
 <!-- 
@@ -12,15 +12,16 @@ Written by KingTasaz on August 28th, 2026
 
 ## Summary
 Models are a very simple way to group [`parts`](./part.md) together.
-Creating a model requires at least `2` parts selected, but otherwise the second part can be deleted. Parts in a model are not truly connected, but only grouped in the explorer. Models currently have no purpose other than organization.
+Creating a model requires at least `2` selected parts, but the second part can be deleted afterward. 
+Parts in a model are not truly connected; they are only grouped in the Explorer. Models currently have no purpose other than organization.
 
 A model with no children is still shown in the explorer, but does not exist in the world and has no transform controls.
 
-The basic transform tools (Move, Rotate) work more or less as expected when used on a model, except for scaling which currently is not properly supported.
+The basic transform tools (Move, Rotate) work more or less as expected when used on a model, except for scaling, which is currently not properly supported.
 
 <details>
 <summary><b>Properties</b></summary>
-Properties of a Model, in the order they appear on Vortex Studio.
+Properties of a Model, in the order they appear in Vortex Studio
 <br><br>
 <ul>
 
@@ -41,7 +42,7 @@ Properties of a Model, in the order they appear on Vortex Studio.
 ### Name
 > `string` \
 \
-The name of the `model`, and its label in the explorer.
+The name of the `model` and its label in the Explorer.
 
 <br/>
 
@@ -49,8 +50,8 @@ The name of the `model`, and its label in the explorer.
 ### Position
 > [`Vector3`](../datatypes/vector3.md) \
 \
-The position of the `model`, in World-space.
-A model's position is automatically set to the mathematical average of all its children's positions. (See [Images](#images))
+The position of the `model`, in world space.
+A model's position is automatically set to the mathematical average of the positions of all its children. (See [Images](#images))
 
 <br/>
 
@@ -61,11 +62,11 @@ A model's position is automatically set to the mathematical average of all its c
 
 In Vortex Studio 0.3.4, a detached `Model` exposes the generic instance
 surface, including hierarchy and attribute methods, but has no readable
-`Position`, `PrimaryPart`, or `WorldPivot` property. This is identical in
-both Script and LocalScript.
+`Position`, `PrimaryPart`, or `WorldPivot` property. This behavior is identical
+in both Scripts and LocalScripts.
 
 Setting a temporary Part's `Parent` to a detached Model does not establish an
-observable hierarchy: parent equality is `false`, `FindFirstChild` returns
+observable hierarchy: the parent comparison is `false`, `FindFirstChild` returns
 `nil`, `GetChildren()` returns an empty table, and `WaitForChild` does not
 return the temporary Part.
 
@@ -76,12 +77,12 @@ rejected as a non-settable property.
 In 0.3.4, the live [Character](./character.md) Model is a special case. In both a LocalScript and
 a confirmed server Script, it exposes `ClassName`, `Name`, and `Position`, plus
 direct `Humanoid` and `HumanoidRootPart` members; `Parent` reads as `nil`.
-It exposes the tested generic Instance method surface and a connectable
+It exposes the tested set of generic Instance methods and a connectable
 `Changed` signal, but its tested hierarchy/lifecycle signals are unavailable.
 Like a detached Model, its pivot and primary-part APIs remain unavailable.
 
-The live Character Model is also the verified write-only visual rotation
-target: `character.Orientation = Vector3.new(0, 90, 0)` visibly turns the
+The live Character Model is also the verified target for write-only visual 
+rotation: `character.Orientation = Vector3.new(0, 90, 0)` visibly turns the
 character in a server Script while the field remains `nil` on readback. See
 [Character: Write-only visual rotation](./character.md#write-only-visual-rotation).
 
@@ -98,8 +99,8 @@ server Script and the owning LocalScript; see the
 The unnamed child returned by `Character:GetChildren()` can expose a `Scene`
 member after the visual character finishes loading. This is a separate,
 transient render hierarchy; it is not part of the stable public Character
-projection above. Code that needs it must poll for the route and re-resolve it
-after every replacement:
+projection above. Code that needs it must poll until the path is available 
+and re-resolve it after every replacement:
 
 ```luau
 local function getCharacterScene(character)
@@ -168,16 +169,16 @@ Character (Model)
             └── R7Body.Material.*          six observed render-material nodes
 ```
 
-The named accessory and material leaves are a concrete test-avatar capture,
-not a guaranteed hierarchy. The repeated unnamed attachment nodes are the
-stable structural pattern: they are direct children of `Torso` or `Head`, and
+The named accessory and material leaves come from a specific test-avatar capture
+and are not guaranteed to appear in every hierarchy The repeated unnamed attachment nodes 
+are the stable structural pattern: they are direct children of `Torso` or `Head`, and
 their nested `Scene` contains the rendered attachment content.
 
 All of these visual nodes report `ClassName == "Instance"`. The observed
 surface is the generic hierarchy and attribute method set, plus readable
 `Name`, `Parent`, `Position`, and `Size`. `Changed`, `Touched`, and
-`TouchEnded` can be connected, but no delivery was observed while a limb's
-`Position` updated. The live limb transforms are therefore readable render
+`TouchEnded` can be connected, no delivery was observed when a limb's 
+`Position` changed. The live limb transforms are therefore readable render
 state, not a replacement for the public `HumanoidRootPart` projection.
 
 Visual rig and attachment nodes also accept numeric `Transparency` writes in
@@ -190,16 +191,16 @@ render-opacity control. In contrast, the public
 in both contexts.
 
 The hierarchy changes during loading. In one verified run, unnamed attachment
-nodes appeared below `Torso` and `Head`, then each exposed a nested `Scene`.
+nodes appeared below `Torso` and `Head`, and each then exposed a nested `Scene`.
 Their visual content included `Angel wings`, `Spike Sword`, hair, and a
 `PaperPlane Hat`. Those names are avatar-specific examples, not guaranteed
-children. Later, Vortex replaced the complete `Scene` and `Armature.001` with
+children. Later, replaced the entire `Scene` and `Armature.001` with
 a fresh base hierarchy; a direct `Cube` node also appeared on the replacement
-Scene in the observed run. Retain no visual-node reference across frames or
-loading phases—reacquire `Scene`, `Armature.001`, and any limb or attachment
+Scene in the observed run. Do not retain visual-node references across frames
+or loading phases reacquire `Scene`, `Armature.001`, and any limb or attachment
 from the current Character hierarchy.
 
-Replacement destroys the old visual nodes rather than simply detaching them.
+A replacement destroys the old visual nodes rather than simply detaching them.
 After a replacement, trying to reparent a stored accessory node into the new
 visual rig failed with `Instance no longer exists`. A script can restore a
 node that was manually reparented during its current Scene generation, but it
