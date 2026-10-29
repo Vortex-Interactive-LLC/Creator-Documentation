@@ -7,7 +7,7 @@ description: Schedule work with Vortex task helpers.
 
 ## Available helpers
 
-Vortex Studio 0.3.4 provides `task.spawn`, `task.defer`, `task.delay`, and `task.wait` in both Script and LocalScript. See the full [`task`](/content/reference/globals/task.md) reference.
+Vortex provides `task.spawn`, `task.defer`, `task.delay`, `task.wait`, and `task.cancel` in both Script and LocalScript. See the full [`task`](/content/reference/globals/task.md) reference.
 
 ```lua
 task.spawn(function()
@@ -25,6 +25,6 @@ end)
 
 ## Scheduling behavior
 
-`task.spawn` completed during the scheduling call in the tested runtime. `task.defer` and `task.delay(0, callback)` remained pending after the first `task.wait()` and completed during the second scheduler cycle. `task.wait()` returns an elapsed-time number.
+`task.spawn` runs the function immediately, before the calling code continues. `task.defer` and `task.delay(0, callback)` run on the next scheduler cycle, before a following `task.wait()` returns. `task.wait()` returns the elapsed time in seconds.
 
-`task.cancel`, `task.desynchronize`, and `task.synchronize` are unavailable.
+`task.cancel(thread)` cancels a thread returned by `task.delay` before it runs. `task.desynchronize` and `task.synchronize` are not available.

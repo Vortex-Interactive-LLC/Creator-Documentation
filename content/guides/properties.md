@@ -15,7 +15,7 @@ print(part.Transparency) -- 0.5
 part:Destroy()
 ```
 
-Temporary Parts in Vortex Studio 0.3.4 have writable appearance, transform, collision, anchoring, and name properties. A live character's Humanoid health and the root part's transform state are not writable, even from a server Script.
+Parts have writable appearance, transform, collision, anchoring, and name properties. A live character is more restricted: the root part's `Size` and `Orientation` are read-only, and some character state is server-authoritative, so client writes to it are rejected.
 
 ## Checking optional properties
 
@@ -33,4 +33,4 @@ end
 
 ## Change signals
 
-`Changed`, `GetPropertyChangedSignal`, and attribute-change signals can be present and connectable without firing after a property write. Poll the property when correct behavior depends on observing a change. See [Signals](/content/reference/datatypes/signal.md) and [Attributes](/content/guides/attributes.md).
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when a property or attribute changes on an instance that is parented into the game. Instances with no parent do not fire them. See [Signals](/content/reference/datatypes/signal.md) and [Attributes](/content/guides/attributes.md).

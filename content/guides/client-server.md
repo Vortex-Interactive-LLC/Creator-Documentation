@@ -25,8 +25,6 @@ Whenever handling `Client → Server` remotes, make sure to properly validate th
   - Bad: Player clicks a buy button. On their client, they subtract their own money, give themselves the item, then inform the server of the transaction that occurred.
   - Good: Player clicks a buy button. The client informs the server of its intent. The server validates whether the player has enough money and, if they do, changes their money and gives them the item.
 
-## Vortex Studio 0.3.4 notes
+## Identifying the player
 
-Client-to-server intent is currently the confirmed remote direction, but the server receives a numeric connection ID rather than a `Player` object. A server Script can enumerate active Players through `Players:GetPlayers()` and read their Characters, but there is no known public way to map that sender ID to one of those Players. Server logic can process an allowed request, but cannot yet reliably use the normal Roblox `player.Character` targeting pattern for the specific caller.
-
-Server visibility is not the same as authority: a server Script confirmed through testing, writing the visible character Humanoid's `Health` is still rejected.
+When a client fires a [`RemoteEvent`](../reference/classes/remote-event.md), the server's `OnServerEvent` handler receives that client's `Player` as its first argument. Use it to target the caller, for example `player.Character`. Remote arguments cannot be Instances, so send names, ids, or other primitive values instead.

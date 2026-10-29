@@ -4,11 +4,11 @@ description: Standard-library functions verified in Vortex.
 ---
 
 > [!Summary]
-> This page documents standard-library functions verified in Vortex Studio 0.3.4. It lists tested `coroutine`, `math`, `string`, and `table` functions, along with observed behavior and unavailable library features.
+> This page documents standard-library functions available in Vortex. It lists tested `coroutine`, `math`, `string`, and `table` functions, along with observed behavior and unavailable library features.
 
 ## Verified runtime compatibility
 
-The following standard-library functions were called by the deterministic behavior probe in both `Script` and `LocalScript` in Vortex Studio 0.3.4. Every call listed below succeeded with the documented result.
+The following standard-library functions are available in both `Script` and `LocalScript`.
 
 ### coroutine
 
@@ -87,4 +87,4 @@ These are observations for the exact inputs tested through a local script, rathe
 
 ## Testing Notes
 
-The unavailable compatibility surface was also revalidated in 0.3.4 in both Script and LocalScript: `bit32`, `buffer`, `debug`, `os`, `utf8`, `vector`, and `shared` are `nil`. `math.isfinite`, `math.isinf`, `math.isnan`, `task.cancel`, `task.desynchronize`, and `task.synchronize` are also `nil`.
+The following are not available in Script or LocalScript and read as `nil`: `bit32`, `buffer`, `debug`, `utf8`, `vector`, and `shared`. The `os` library only provides `os.time`, `os.clock`, `os.date`, and `os.difftime`. `math.isfinite`, `math.isinf`, `math.isnan`, `task.desynchronize`, and `task.synchronize` are also `nil`.

@@ -113,12 +113,12 @@ UserInputService.InputEnded:Connect(function(Input, GameProcessedEvent)
 end)
 ```
 
-## Vortex Studio 0.3.4 notes
+## Notes
 
-The service is available in a `LocalScript` and absent in a normal server `Script`. `InputBegan:Once` and `InputBegan:Wait` both delivered a right-mouse button input in a LocalScript. Ordinary `InputBegan:Connect` delivered keyboard keys (`S`, `A`, `W`, and `Space`) and mouse buttons; mouse buttons use `Enum.KeyCode.Unknown`. Both processed and unprocessed input were observed.
+The service is only available in a `LocalScript`; `game:GetService("UserInputService")` raises an error in a server `Script`.
 
-`IsKeyDown` is available. It returned `true` for the keyboard key currently being pressed and `false` for mouse-button events.
+`InputBegan` and `InputEnded` deliver keyboard keys and mouse buttons, and support `Connect`, `Once`, and `Wait`. Mouse button inputs use `Enum.KeyCode.Unknown`, and carry the cursor position. `InputChanged` fires for mouse movement with `Delta` set to the movement. Both processed and unprocessed input are delivered.
 
-The tested 0.3.4 client reported `KeyboardEnabled=true`, `MouseEnabled=true`, `GamepadEnabled=false`, and `TouchEnabled=false`.
+`IsKeyDown` returns `true` for a keyboard key that is currently held, and `false` for mouse buttons. `GetMouseLocation()` returns the cursor position as a `Vector2`.
 
-`InputEnded` is connectable in a LocalScript and delivered both keyboard and mouse-button releases. `InputChanged` reads as `nil` and cannot be connected. `GetMouseLocation` is unavailable, while `MouseBehavior` and `MouseIconEnabled` read as `nil`. These results were revalidated in 0.3.4.
+`KeyboardEnabled` and `MouseEnabled` are `true`, and `GamepadEnabled` and `TouchEnabled` are `false`. `MouseBehavior` and `MouseIconEnabled` read as `nil`.

@@ -3,8 +3,30 @@ title: BoolValue
 description: An unsupported Roblox-compatible boolean value container.
 ---
 
-## Runtime support
+## Summary
 
-`Instance.new("BoolValue")` is not supported in Vortex Studio 0.3.4. It fails in both `Script` and `LocalScript` with an "unable to create instance" error.
+`BoolValue` stores a boolean `Value`. It can be constructed in both `Script` and `LocalScript` and does not need a parent for its value to be read or written.
 
-Use a regular Lua boolean or an [`IntValue`](./int-value.md) with a documented `0`/`1` convention, when you need to store boolean state.
+## Properties
+
+### Name
+
+> `string`
+
+The name of the instance. A new value is named `BoolValue`.
+
+### Value
+
+> `boolean`
+
+A new `BoolValue` starts at `false`.
+
+```lua
+local flag = Instance.new("BoolValue")
+flag.Value = true
+print(flag.Value) -- true
+```
+
+## Change notifications
+
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned, once the `BoolValue` is parented into the game.

@@ -72,17 +72,13 @@ part.Position = Vector3.new(0, 10, 0)
 part.Anchored = true
 ```
 
-> In Vortex Studio 0.3.4, assigning `Parent` or passing this second argument is accepted, but script-created children are not reliably listed by a service's `GetChildren` or `FindFirstChild`. Do not rely on it to add runtime objects to the editor-authored Workspace hierarchy.
-
 ## Default state
 
-> In Vortex Studio 0.3.4, a freshly created `Part` is **anchored**, collidable, and casts shadows. It has the name `Part`, position and rotation `(0, 0, 0)`, an identity `CFrame`, size `(4, 1, 2)`, transparency `0`, and an approximately `(0.64, 0.64, 0.64)` color. Any property you do not set yourself holds the runtime default.
+> A freshly created `Part` is **anchored**, collidable, and casts shadows. It has the name `Part`, position and rotation `(0, 0, 0)`, an identity `CFrame`, size `(4, 1, 2)`, transparency `0`, and an approximately `(0.64, 0.64, 0.64)` color. Any property you do not set yourself holds the runtime default.
 
-## Testing Notes
+## Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
-
-- `Instance.fromExisting` is not exposed (`nil`) in either Script or LocalScript in 0.3.4.
-- Common creatable classes include [`Part`](../classes/part.md), [`Model`](../classes/model.md), [`Folder`](../classes/folder.md), [`Script`](../classes/script.md), [`LocalScript`](../classes/localscript.md), [`ModuleScript`](../classes/modulescript.md), [`IntValue`](../classes/int-value.md), [`StringValue`](../classes/string-value.md), [`BindableEvent`](../classes/bindable-event.md), [`RemoteEvent`](../classes/remote-event.md), [`RemoteFunction`](../classes/remote-function.md), [`PointLight`](../classes/point-light.md), and [`SpotLight`](../classes/spot-light.md). `SpawnLocation`, `Texture`, `Decal`, and `SurfaceAppearance` are not constructible in the tested runtime.
+- `Instance.fromExisting` is not exposed (`nil`) in either Script or LocalScript.
+- Common creatable classes include [`Part`](../classes/part.md), [`Model`](../classes/model.md), [`Folder`](../classes/folder.md), [`Script`](../classes/script.md), [`LocalScript`](../classes/localscript.md), [`ModuleScript`](../classes/modulescript.md), [`IntValue`](../classes/int-value.md), [`StringValue`](../classes/string-value.md), [`BindableEvent`](../classes/bindable-event.md), [`RemoteEvent`](../classes/remote-event.md), [`RemoteFunction`](../classes/remote-function.md), [`PointLight`](../classes/point-light.md), and [`SpotLight`](../classes/spot-light.md). `SpawnLocation`, `Texture`, `Decal`, and `SurfaceAppearance` are not constructible.
 
 <br/>

@@ -3,15 +3,22 @@ title: BindableEvent
 description: A partially exposed local-event instance.
 ---
 
-## Runtime support
+## Summary
 
-`BindableEvent` can be constructed in Vortex Studio 0.3.4 in both `Script` and `LocalScript`. It exposes an `Event` table.
+A `BindableEvent` is a custom event that scripts on the same side of the game can fire and listen to. It can be constructed in both `Script` and `LocalScript`, and cannot send anything between the client and the server. Use a [`RemoteEvent`](./remote-event.md) for that.
 
-However, the instance has no `Fire` method, so scripts cannot trigger that signal. It therefore cannot currently be used as an in-process event bus.
+## Members
+
+- `Event` - a [`Signal`](../datatypes/signal.md). Connect to it to receive the arguments passed to `Fire`.
+- `Fire(...)` - fires `Event`, passing the arguments to every connected function.
 
 ```lua
 local event = Instance.new("BindableEvent")
-print(event.Event) -- signal table
-print(event.Fire)  -- nil
+
+event.Event:Connect(function(a, b)
+    print(a, b) --> 1 2
+end)
+
+event:Fire(1, 2)
 event:Destroy()
 ```

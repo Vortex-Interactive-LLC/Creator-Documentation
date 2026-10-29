@@ -20,33 +20,36 @@ Written by Kindtracker on September 19, 2026
 Properties of a `RaycastParams`.
 <br><br>
 
-* [ExcludeInstances](#excludeinstances): `{Instance}?`
-* [IncludeInstances](#includeinstances): `{Instance}?`
-* [FilterType](#filtertype): `Enum.RaycastFilterType`
+* [FilterDescendantsInstances](#filterdescendantsinstances): `{Instance}?`
+* [FilterType](#filtertype): `string`
+
 </details>
 
 ## Properties
 
-### ExcludeInstances
+### FilterDescendantsInstances
 
 > `{Instance}?`
 >
-> A list of instances that should be excluded from the raycast.
-
-<br/>
-
-### IncludeInstances
-
-> `{Instance}?`
->
-> A list of instances that should be included in the raycast.
+> A list of instances the filter applies to. Each listed instance and all of its descendants are affected.
 
 <br/>
 
 ### FilterType
 
-> `Enum.RaycastFilterType`
+> `string`
 >
-> Determines how the raycast filter is applied to the instances specified by `ExcludeInstances` or `IncludeInstances`.
+> Either `"Exclude"` or `"Include"`. With `"Exclude"`, the listed instances are ignored by the raycast. With `"Include"`, only the listed instances can be hit.
 
 <br/>
+
+## Example
+
+```lua
+local params = {
+    FilterDescendantsInstances = { workspace.Wall },
+    FilterType = "Exclude",
+}
+
+local result = workspace:Raycast(Vector3.new(0, 5, 10), Vector3.new(0, 0, -40), params)
+```

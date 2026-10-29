@@ -85,7 +85,7 @@ Casts a ray from the specified origin in the specified direction. The function r
 
 - `origin`: `Vector3` — The origin point of the ray.
 - `direction`: `Vector3` — The directional vector of the ray.
-- `raycastParams`: An optional object used to specify hit eligibility during the raycast operation.
+- `raycastParams`: An optional [`RaycastParams`](../datatypes/raycast-params.md) table used to specify hit eligibility during the raycast operation.
 
 <br/>
 
@@ -106,8 +106,4 @@ Waits for and returns a direct child with the supplied `name`.
 
 ## Testing Notes
 
-The hierarchy observations below were revalidated in Vortex Studio 0.3.4 and may differ in later releases.
-
-0.3.4. A temporary `Part` can be parented to `Workspace`, and `WaitForChild` resolves it. `FindFirstChild` returns `nil` and `GetChildren` omits it.
-
-For existing authored children, repeated `GetChildren()` calls can return new Lua wrapper tables for the same underlying Instance. Do not use a returned wrapper as a persistent table key between frames; use a unique authored name or another stable identifier instead.
+A `Part` or other instance parented to `Workspace` is found by `FindFirstChild`, `WaitForChild`, and `GetChildren`.

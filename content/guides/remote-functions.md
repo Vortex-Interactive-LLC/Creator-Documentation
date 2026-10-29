@@ -3,14 +3,14 @@ title: Remote Functions
 description: Current RemoteFunction support and limitations in Vortex.
 ---
 > [!Summary]
-> RemoteFunctions let a client request information or a result from the server. Use them for request-response flows, but note that Instance arguments and some runtime behaviors are still limited in Vortex.
+> RemoteFunctions let a client request information or a result from the server. Use them for request-response flows. Instance arguments are not supported.
 
 ## Current support
 
 An editor-authored [`RemoteFunction`](../reference/classes/remote-function.md) in `ReplicatedStorage` exposes `InvokeServer` to a LocalScript. A server Script can assign `OnServerInvoke`.
 
-Instance arguments are not supported: invoking with `LocalPlayer` fails before delivery with an "Instances cannot be sent" runtime error. A successful primitive request-response round trip has not yet been established in Vortex Studio 0.3.4.
+Instance arguments are not supported: invoking with `LocalPlayer` fails before delivery with an "Instances cannot be sent" runtime error.
 
 ## Practical guidance
 
-Do not use RemoteFunctions for critical gameplay paths yet. Prefer an editor-authored [`RemoteEvent`](../reference/classes/remote-event.md) with primitive payloads when one-way client-to-server communication is sufficient RemoteEvent delivery has been observed; the sender value received by the server is a numeric identifier, not a Player instance.
+Prefer an editor-authored [`RemoteEvent`](../reference/classes/remote-event.md) with primitive payloads when one-way client-to-server communication is sufficient. The `OnServerEvent` handler of a `RemoteEvent` receives the `Player` who fired it as its first argument.

@@ -15,4 +15,4 @@ Written by ElectroTato on the 30th of August, 2026
 
 You can create a new `Instance` using the [`Instance.new`](../reference/globals/instance-new.md) method in a script by passing the `Instance`'s `ClassName` as the first argument.
 
-Vortex does not currently expose one universal base API on every engine-backed value. For example, `Part` exposes common hierarchy methods while `Player` and `Humanoid` do not. Check the concrete class reference before using a method. The [Instance reference](../reference/classes/instance.md) contains the availability matrix tested in Vortex Studio 0.3.4
+Most instances share a common set of hierarchy, attribute, and signal members, described in the [Instance reference](../reference/classes/instance.md). A few engine-backed values, such as `Humanoid`, expose only a limited set of members, so check the concrete class reference before using a method.

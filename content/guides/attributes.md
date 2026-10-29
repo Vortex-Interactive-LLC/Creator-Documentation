@@ -1,8 +1,6 @@
 ---
 title: Attributes
-description: Attributes are basically custom properties that can be given to an Instance. These properties can be any of the supported Variant data types.
-
-Note: Variant = Any type.
+description: Attributes are custom properties that can be given to an Instance. A value can be a boolean, number, or string.
 ---
 > [!Summary]
 > Attributes let you store custom metadata on an Instance using name-value pairs. Use `SetAttribute` to create or update values, `GetAttribute` to read one value, and `GetAttributes` to inspect all stored attributes on the object.
@@ -12,7 +10,7 @@ ___________________
 ### SetAttribute
 Creates, updates, or removes an attribute value.
 ```
-Instance:SetAttribute(Attribute: string, Value: Variant)
+Instance:SetAttribute(Attribute: string, Value: boolean | number | string | nil)
 ```
 #### Parameters
 
@@ -21,7 +19,7 @@ Attribute: string
 The name of the attribute being set.
 ```
 ```
-Value: Variant
+Value: boolean | number | string | nil
 The value to set the specified attribute to.
 ```
 
@@ -41,7 +39,7 @@ ___________________
 ### GetAttribute
 
 ```
-Instance:GetAttribute(Attribute: string): Variant
+Instance:GetAttribute(Attribute: string): boolean | number | string | nil
 ```
 #### Parameters
 
@@ -51,7 +49,7 @@ The name of the attribute being retrieved.
 ```
 #### Returns
 ```
-Variant
+boolean | number | string | nil
 The value assigned to the specified attribute. If no value has been assigned to the attribute, nil is returned.
 ```
 The GetAttribute method is used for retrieving the value assigned to the specified attribute.
@@ -97,14 +95,14 @@ part:SetAttribute("Id", nil)     -- remove
 
 Use `GetAttributes()` when several current values are needed; it returns a table keyed by attribute name.
 
-## Vortex Studio 0.3.4 notes
+## Supported value types
 
-`SetAttribute`, `GetAttribute`, `GetAttributes`, and removal through `SetAttribute(name, nil)` are confirmed to work on  `Part` instances. `GetAttributes` returns a table containing the current values.
+An attribute value must be `nil`, a `boolean`, a `number`, or a `string`. Other values, such as `Vector3`, `Color3`, and tables, raise an error. Attribute names cannot be empty.
 
-`GetAttributeChangedSignal` returns a connectable signal, but setting or removing a Part attribute did not trigger the callback in the tested runtime. Do not rely on that signal for game logic until callback delivery is confirmed.
+## Behavior
 
-`Player` instances do not support attributes in 0.3.4: `GetAttribute`, `GetAttributes`, `SetAttribute`, and `GetAttributeChangedSignal` all read as `nil` in both client and server contexts.
+`SetAttribute`, `GetAttribute`, `GetAttributes`, and removal through `SetAttribute(name, nil)` work on any instance, including `Player` objects. `GetAttributes` returns a table containing the current values.
 
-The current player's `Character` model is an important exception to the client/server boundary: a confirmed server Script set a temporary Character attribute to `42`, then `25`; a LocalScript observed both values by polling `LocalPlayer.Character:GetAttribute`. Server-to-client Character attribute replication is therefore confirmed. Use polling rather than `GetAttributeChangedSignal`, whose callback delivery remains unconfirmed.
+`GetAttributeChangedSignal` fires when an attribute is set on an instance that is parented into the game. It does not fire for instances that have no parent.
 
-Client-to-server Character attribute replication is also confirmed for value changes: a LocalScript set the value to `42`, then `25`, and a server Script observed both transitions through `Players:GetPlayers()[1].Character:GetAttribute`. Do not treat these attributes as trusted client input; a client can write values that the server sees.
+A player's `Character` is an exception to the client/server boundary: attributes set on it replicate in both directions. A server Script can set an attribute that a LocalScript then reads through `LocalPlayer.Character:GetAttribute`, and a LocalScript can set one that a server Script reads through `Players:GetPlayers()[1].Character:GetAttribute`. Do not treat these attributes as trusted client input; a client can write values that the server sees.
