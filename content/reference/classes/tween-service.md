@@ -30,9 +30,17 @@ Methods of `TweenService`.
 
 > [`Tween`](/content/reference/datatypes/tween.md)
 > 
-> Returns a tween based on the given instance, tween information, and goals. The tween can be played with `Tween:Play()`.
+> Returns a tween based on the given instance, tween information, and goals. The tween can be played with `Tween:Play()`. 
 > 
-> An example of the `goals` table: ```luau -- This table uses interpolatable property names as the keys -- and the values are the desired values of those properties. local goals = { Position = part.Position + Vector3.new(0, 10, 0), Color = Color3.fromRGB(255, 100, 0), } ```
+> An example of the `goals` table:
+> ```luau
+> -- This table uses interpolatable property names as the keys
+> -- and the values are the desired values of those properties.
+> local goals = {
+>   Position = part.Position + Vector3.new(0, 10, 0),
+>   Color = Color3.fromRGB(255, 100, 0),
+> }
+> ```
 
 ## Testing Notes
 
