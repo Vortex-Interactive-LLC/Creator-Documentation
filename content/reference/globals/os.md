@@ -17,4 +17,4 @@ print(os.difftime(10, 5))    -- 5
 - `os.date(format?, time?)` - formats a time. Start the format with `!` for UTC, or use `"*t"` to get a table;
 - `os.difftime(t2, t1)` - returns `t2 - t1`.
 
-`os.getenv`, `os.exit`, `os.execute`, `os.remove` and the rest of the operating system library are not available.
+`os.getenv`, `os.exit`, `os.execute`, `os.remove`, and the rest of the operating system library are not available.

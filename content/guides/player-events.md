@@ -1,6 +1,6 @@
 ---
 title: Players Joining & Leaving
-description: React to players joining, spawning, dying and leaving.
+description: React to players joining, spawning, dying, and leaving.
 ---
 The [`Players`](../reference/classes/players.md) service tells a server `Script` when players join and leave, and each [`Player`](../reference/classes/player.md) tells you when their character spawns or is removed.
 

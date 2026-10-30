@@ -93,7 +93,7 @@ Signals of the `Humanoid`.
 >
 > `humanoid:GetState()`
 >
-> Returns the Humanoid's current state. On a server `Script` this is `Running`, `Freefall`, `Climbing`, `Seated` or `Dead`, taken from what the player's client reports.
+> Returns the Humanoid's current state. On a server `Script` this is `Running`, `Freefall`, `Climbing`, `Seated`, or `Dead`, taken from what the player's client reports.
 
 ## Signals
 

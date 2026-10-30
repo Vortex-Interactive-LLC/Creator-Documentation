@@ -1,6 +1,6 @@
 ---
 title: Humanoids & Characters
-description: Read and change a player's health, speed and position from a script.
+description: Read and change a player's health, speed, and position from a script.
 ---
 Each player's body in the world is a [`Character`](../reference/classes/character.md), and its [`Humanoid`](../reference/classes/humanoid.md) holds health and movement settings. Get the character from `player.Character`, or from the `CharacterAdded` signal. See [Players Joining & Leaving](player-events.md).
 
@@ -59,7 +59,7 @@ humanoid.WalkSpeed = 30
 humanoid.JumpPower = 80
 ```
 
-`StateChanged`, `Jumping`, `FreeFalling`, `Running` and `Seated` are available as signals.
+`StateChanged`, `Jumping`, `FreeFalling`, `Running`, and `Seated` are available as signals.
 
 ## Moving a character
 

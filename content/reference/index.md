@@ -1,6 +1,6 @@
 ---
 title: API Reference
-description: Every global, class and datatype available to scripts.
+description: Every global, class, and datatype available to scripts.
 ---
 
 The reference describes what scripts can use. For explanations and examples, start with the guides.

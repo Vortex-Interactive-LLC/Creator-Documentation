@@ -17,8 +17,8 @@ list.Parent = frame
 ## Properties
 
 - `FillDirection` - `Enum.FillDirection`: `Vertical` or `Horizontal`. Defaults to `Vertical`;
-- `HorizontalAlignment` - `Enum.HorizontalAlignment`: `Left`, `Center` or `Right`. Defaults to `Left`;
-- `VerticalAlignment` - `Enum.VerticalAlignment`: `Top`, `Center` or `Bottom`. Defaults to `Top`;
+- `HorizontalAlignment` - `Enum.HorizontalAlignment`: `Left`, `Center`, or `Right`. Defaults to `Left`;
+- `VerticalAlignment` - `Enum.VerticalAlignment`: `Top`, `Center`, or `Bottom`. Defaults to `Top`;
 - `SortOrder` - `Enum.SortOrder`: `LayoutOrder` sorts by each child's `LayoutOrder`, `Name` sorts by name. Defaults to `LayoutOrder`;
 - `Padding` - [`UDim`](../datatypes/udim.md), the gap between children. Defaults to `0, 0`;
 - `Name`, `ClassName`, `Parent`.

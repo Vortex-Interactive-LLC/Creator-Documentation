@@ -16,8 +16,8 @@ print(typeof(Enum.Material.Plastic)) -- EnumItem
 | --- | --- |
 | numbers, strings, booleans, `nil`, functions, tables, threads | `number`, `string`, `boolean`, `nil`, `function`, `table`, `thread` |
 | `Vector2`, `Vector3`, `CFrame`, `Color3`, `UDim`, `UDim2` | the datatype name |
-| any Instance, including `workspace`, `game` and services such as `Players` and `ReplicatedStorage` | `Instance` |
-| `RunService`, `TweenService` and `Debris` | `table` |
+| any Instance, including `workspace`, `game`, and services such as `Players` and `ReplicatedStorage` | `Instance` |
+| `RunService`, `TweenService`, and `Debris` | `table` |
 | an enum item, such as `Enum.Material.Plastic` | `EnumItem` |
 | an enum, such as `Enum.Material` | `Enum` |
 | `TweenInfo` | `table` |

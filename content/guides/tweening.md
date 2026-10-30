@@ -20,7 +20,7 @@ tween:Play()
 
 `TweenInfo.new(time, easingStyle, easingDirection, repeatCount, reverses, delayTime)` describes how the tween plays. Every argument is optional. The defaults are one second with `Enum.EasingStyle.Quad` and `Enum.EasingDirection.Out`. See [`TweenInfo`](../reference/datatypes/tween-info.md) and the available styles in [`Enum`](../reference/globals/enum.md).
 
-The goal table lists the properties to change and the values to reach. `Position`, `Size`, `CFrame`, `Transparency` and `Color` are supported on parts.
+The goal table lists the properties to change and the values to reach. `Position`, `Size`, `CFrame`, `Transparency`, and `Color` are supported on parts.
 
 ## Controlling a tween
 
@@ -31,7 +31,7 @@ tween:Play()    -- resumes from where it paused
 tween:Cancel()  -- stops where it is
 ```
 
-`tween.PlaybackState` is an `Enum.PlaybackState`: `Begin` before it has played, `Playing`, `Paused`, `Completed` and `Cancelled`.
+`tween.PlaybackState` is an `Enum.PlaybackState`: `Begin` before it has played, `Playing`, `Paused`, `Completed`, and `Cancelled`.
 
 ## Waiting for the end
 

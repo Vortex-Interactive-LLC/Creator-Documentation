@@ -25,4 +25,4 @@ frame.Position = UDim2.fromScale(0.5, 0.5)
 
 ## Operators
 
-`+`, `-` and `==` between two `UDim2`s, and a `Lerp` method.
+`+`, `-`, and `==` between two `UDim2`s, and a `Lerp` method.

@@ -33,4 +33,4 @@ All other members are read-only; writing one raises an error.
 
 ## Signals
 
-`Button1Down`, `Button1Up`, `Button2Down`, `Button2Up` and `Move`.
+`Button1Down`, `Button1Up`, `Button2Down`, `Button2Up`, and `Move`.

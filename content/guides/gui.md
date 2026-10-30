@@ -79,7 +79,7 @@ A click needs the button to be pressed and released on the same object. Releasin
 
 ## GUIs in the world
 
-A [`BillboardGui`](../reference/classes/billboard-gui.md) inside a part shows its contents on screen at that part's position in the world. A [`SurfaceGui`](../reference/classes/surface-gui.md) inside a part draws its contents on one face of the part. Both have `Active`, `Enabled`, `AlwaysOnTop` and `MaxDistance`.
+A [`BillboardGui`](../reference/classes/billboard-gui.md) inside a part shows its contents on screen at that part's position in the world. A [`SurfaceGui`](../reference/classes/surface-gui.md) inside a part draws its contents on one face of the part. Both have `Active`, `Enabled`, `AlwaysOnTop`, and `MaxDistance`.
 
 ## Setting properties
 

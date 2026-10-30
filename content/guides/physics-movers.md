@@ -1,6 +1,6 @@
 ---
 title: Physics Movers
-description: Push, steer and hold unanchored parts with BodyVelocity, BodyPosition, forces and torques.
+description: Push, steer, and hold unanchored parts with BodyVelocity, BodyPosition, forces, and torques.
 ---
 Physics movers are objects you place inside an unanchored `Part` to make physics push it. They are applied continuously while they are parented to the part.
 

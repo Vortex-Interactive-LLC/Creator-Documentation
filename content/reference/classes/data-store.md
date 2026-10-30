@@ -20,4 +20,4 @@ Returned by [`DataStoreService:GetDataStore`](./data-store-service.md). See the 
 - `IncrementAsync(key: string, delta: number?): number` - adds `delta` (default `1`) to a number and returns the result. A missing key starts at `0`;
 - `RemoveAsync(key: string): any` - deletes the key and returns the value it held.
 
-Keys are 1 to 50 characters, and values can be numbers, strings, booleans and tables of those up to 4 MB. All methods wait for the result and raise an error with a numeric code on failure.
+Keys are 1 to 50 characters, and values can be numbers, strings, booleans, and tables of those up to 4 MB. All methods wait for the result and raise an error with a numeric code on failure.

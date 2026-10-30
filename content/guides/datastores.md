@@ -58,7 +58,7 @@ Return `nil` from the function to cancel the update. The function must not yield
 
 ## What can be stored
 
-Numbers, strings, booleans, and tables of those can be stored, including nested tables. Instances, functions, `Vector3` and other datatypes cannot. Convert them to plain numbers and strings first. A value can be at most 4 MB, and `nil` is not a valid value to save. Use `RemoveAsync` instead.
+Numbers, strings, booleans, and tables of those can be stored, including nested tables. Instances, functions, `Vector3`, and other datatypes cannot. Convert them to plain numbers and strings first. A value can be at most 4 MB, and `nil` is not a valid value to save. Use `RemoveAsync` instead.
 
 ## Errors
 
@@ -86,7 +86,7 @@ end
 
 ## Request limits
 
-Each kind of request has a budget that refills over time and grows with the number of players. A `GetAsync`, `SetAsync`, `IncrementAsync`, `RemoveAsync` or `UpdateAsync` budget starts at 60 requests per minute plus 10 per player. Ordered store sorted reads and writes have smaller budgets. Check what is left with:
+Each kind of request has a budget that refills over time and grows with the number of players. A `GetAsync`, `SetAsync`, `IncrementAsync`, `RemoveAsync`, or `UpdateAsync` budget starts at 60 requests per minute plus 10 per player. Ordered store sorted reads and writes have smaller budgets. Check what is left with:
 
 ```luau
 local left = DataStoreService:GetRequestBudgetForRequestType(Enum.DataStoreRequestType.GetAsync)

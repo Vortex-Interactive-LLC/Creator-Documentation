@@ -23,4 +23,4 @@ print(half.Scale, half.Offset) --> 0.5 10
 
 ## Operators
 
-`+`, `-` and `==` between two `UDim`s.
+`+`, `-`, and `==` between two `UDim`s.

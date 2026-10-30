@@ -34,7 +34,7 @@ mouse.Button1Down:Connect(function()
 end)
 ```
 
-The mouse also has `Button1Up`, `Button2Down`, `Button2Up` and `Move` signals. Only `TargetFilter` and `Icon` can be set. Writing to any other member raises an error.
+The mouse also has `Button1Up`, `Button2Down`, `Button2Up`, and `Move` signals. Only `TargetFilter` and `Icon` can be set. Writing to any other member raises an error.
 
 To stop the cursor hitting your own character, or something you are dragging, set `TargetFilter`:
 

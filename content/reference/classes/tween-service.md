@@ -44,4 +44,4 @@ Methods of `TweenService`.
 
 ## Testing Notes
 
-`Create` returned a Tween in both `Script` and `LocalScript` contexts when given an unparented `Part`, `TweenInfo.new(0.1)` and `{ Transparency = 0.5 }`.
+`Create` returned a Tween in both `Script` and `LocalScript` contexts when given an unparented `Part`, `TweenInfo.new(0.1)`, and `{ Transparency = 0.5 }`.
