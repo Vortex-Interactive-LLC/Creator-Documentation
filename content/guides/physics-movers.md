@@ -27,7 +27,7 @@ Movers act on the unanchored part they are inside. The velocity and position mov
 | [`VectorForce`](../reference/classes/vector-force.md) | Applies a constant force. | `Force` (`0, 0, 0`) |
 | [`Torque`](../reference/classes/torque.md) | Applies a constant torque. | `Torque` (`0, 0, 0`) |
 
-`P` controls how strongly the mover corrects toward its target, and `D` how strongly `BodyPosition` resists motion. `MaxForce` and `MaxTorque` limit the effort per axis. A part that is heavy or fighting gravity needs a larger value. The default of `4000` is small, so raise it for large or heavy parts.
+`P` controls how strongly the mover corrects toward its target, and `D` how strongly `BodyPosition` resists motion. `MaxForce` and `MaxTorque` limit the effort per axis. 
 
 Several movers on one part add together. Removing a mover, or setting its parent to `nil`, stops its effect.
 

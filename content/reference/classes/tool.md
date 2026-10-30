@@ -24,7 +24,7 @@ end)
 - `CanBeDropped` - `Boolean`, defaults to `true`;
 - `RequiresHandle` - `Boolean`, defaults to `true`;
 - `ToolTip` - `string`, empty by default;
-- `TextureId` - the icon shown for the tool;
+- `TextureId` - `number`, defaults to `0`;
 - `Grip`, `GripPos` - how the tool is positioned in the hand;
 - `Name`, `ClassName`, `Parent`.
 

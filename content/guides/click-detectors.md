@@ -49,4 +49,4 @@ end)
 ```
 
 > [!NOTE]
-> Clicks on GUI buttons and other interface elements do not reach a `ClickDetector`. The cursor changes to a pointing hand while it is over a clickable part.
+> Clicks on GUI buttons and other interface elements do not reach a `ClickDetector`.

@@ -56,4 +56,4 @@ end)
 
 ## Properties
 
-`CanBeDropped` and `RequiresHandle` default to `true`. `ToolTip` is text and `TextureId` is the icon, both empty by default. `Grip` and `GripPos` control how the tool is held. A part named `Handle` inside the tool is moved to the character's hand while it is held, and collisions are turned off for it.
+`CanBeDropped` and `RequiresHandle` default to `true`. `ToolTip` is text and empty by default, and `TextureId` is a number that defaults to `0`. `Grip` and `GripPos` control how the tool is held. A part named `Handle` inside the tool is moved to the character's hand while it is held, and collisions are turned off for it.
