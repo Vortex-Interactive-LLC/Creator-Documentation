@@ -55,6 +55,8 @@ Services of `game`.
 * [StarterPack](../classes/starter-pack.md)
 * [DataStoreService](../classes/data-store-service.md) (server only)
 * [MarketplaceService](../classes/marketplace-service.md) (server only)
+* [TextChatService](../classes/text-chat-service.md) (server only)
+* [TextService](../classes/text-service.md)
 * [Lighting](../classes/lighting.md) (editor-facing; not a valid service for `game:GetService`)
 * [Debris](../classes/debris.md)
 * [RunService](./runservice.md)
@@ -174,6 +176,22 @@ Services of `game`.
 > `Instance`
 >
 > Available in server Scripts only. [MarketplaceService](../classes/marketplace-service.md)
+
+<br/>
+
+### TextChatService
+
+> `Instance`
+>
+> Available in server Scripts only. [TextChatService](../classes/text-chat-service.md)
+
+<br/>
+
+### TextService
+
+> `Instance`
+>
+> [TextService](../classes/text-service.md). `FilterStringAsync` is server only; the measuring methods are LocalScript only.
 
 <br/>
 
