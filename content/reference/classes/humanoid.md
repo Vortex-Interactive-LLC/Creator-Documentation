@@ -9,6 +9,7 @@ The current player's humanoid is available as `game:GetService("Players").LocalP
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of the `Humanoid`.
 <br><br>
 
@@ -21,6 +22,7 @@ Properties of the `Humanoid`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of the `Humanoid`.
 <br><br>
 
@@ -31,6 +33,7 @@ Methods of the `Humanoid`.
 
 <details>
 <summary><b>Signals</b></summary>
+
 Signals of the `Humanoid`.
 <br><br>
 

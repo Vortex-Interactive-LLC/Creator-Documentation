@@ -17,6 +17,7 @@ Written by CNK on August 30th, 2026.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of `TweenService`.
 <br><br>
 

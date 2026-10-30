@@ -9,6 +9,7 @@ A `Connection` is returned by [`Signal:Connect`](./signal.md#connect) or [`Signa
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `Connection`.
 <br><br>
 
@@ -18,6 +19,7 @@ Properties of a `Connection`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of a `Connection`.
 <br><br>
 

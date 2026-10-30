@@ -20,6 +20,7 @@ Edited by MtcLuna05 on August 30th, 2026
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of `game`.
 <br><br>
 
@@ -30,6 +31,7 @@ Properties of `game`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of `game`.
 <br><br>
 
@@ -40,6 +42,7 @@ Methods of `game`.
 
 <details>
 <summary><b>Services</b></summary>
+
 Services of `game`.
 <br><br>
 

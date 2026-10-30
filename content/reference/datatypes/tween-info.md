@@ -11,6 +11,7 @@ Expanded by CNK (Vortex IG. CNK) on Aug 30th, 2026 based on actual code.
 
 <details>
 <summary><b>Constructors</b></summary>
+
 Constructors of a `TweenInfo`.
 <br><br>
 
@@ -20,6 +21,7 @@ Constructors of a `TweenInfo`.
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `TweenInfo`.
 <br><br>
 

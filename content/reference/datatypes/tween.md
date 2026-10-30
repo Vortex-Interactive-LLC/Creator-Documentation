@@ -13,6 +13,7 @@ Written by CNK (Vortex IG. CNK) on Aug 30th, 2026 based on actual code.
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `Tween`.
 <br><br>
 
@@ -23,6 +24,7 @@ Properties of a `Tween`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of a `Tween`.
 <br><br>
 

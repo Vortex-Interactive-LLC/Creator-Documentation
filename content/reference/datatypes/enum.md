@@ -14,6 +14,7 @@ Written by Kindtracker on August 28th, 2026
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of an `Enum`.
 <br><br>
 

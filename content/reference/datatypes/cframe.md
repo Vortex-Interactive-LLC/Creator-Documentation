@@ -7,6 +7,7 @@ description: A data type that represents both a 3D position and orientation.
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `CFrame`.
 <br><br>
 
@@ -20,6 +21,7 @@ Properties of a `CFrame`.
 
 <details>
 <summary><b>Constants</b></summary>
+
 Constants of a `CFrame`.
 <br><br>
 
@@ -29,6 +31,7 @@ Constants of a `CFrame`.
 
 <details>
 <summary><b>Constructors</b></summary>
+
 Constructors of a `CFrame`.
 <br><br>
 
@@ -45,6 +48,7 @@ Constructors of a `CFrame`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of a `CFrame`.
 <br><br>
 

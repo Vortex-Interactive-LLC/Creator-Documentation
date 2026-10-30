@@ -10,7 +10,7 @@ Revision 1
 Written by Kindtracker on August 29th, 2026
 -->
 
-# Welcome to Vortex Studio
+## Welcome to Vortex Studio
 
 Vortex is a platform that lets you create everything from simple games to large, complex games using Luau.
 

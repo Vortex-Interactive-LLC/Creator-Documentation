@@ -18,6 +18,7 @@ Written by Kindtracker on August 28th, 2026
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `Color3`.
 <br><br>
 
@@ -29,6 +30,7 @@ Properties of a `Color3`.
 
 <details>
 <summary><b>Constructors</b></summary>
+
 Constructors of a `Color3`.
 <br><br>
 
@@ -39,6 +41,7 @@ Constructors of a `Color3`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of a `Color3`.
 <br><br>
 

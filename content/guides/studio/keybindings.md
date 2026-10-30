@@ -3,8 +3,6 @@ title: Studio Keybindings
 description: Keyboard shortcuts for navigating and editing in Vortex Studio.
 ---
 
-# Studio Keybindings
-
 A reference for the keyboard shortcuts and mouse controls in Vortex Studio's editor.
 
 ## File

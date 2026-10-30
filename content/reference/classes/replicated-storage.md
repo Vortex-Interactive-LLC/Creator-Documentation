@@ -9,6 +9,7 @@ ReplicatedStorage is a container for items that should be visible to both the se
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of `ReplicatedStorage`.
 <br><br>
 
@@ -19,6 +20,7 @@ Properties of `ReplicatedStorage`.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of `ReplicatedStorage`.
 <br><br>
 

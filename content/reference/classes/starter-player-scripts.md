@@ -3,7 +3,7 @@ title: StarterPlayerScripts
 description: A container inside the "StarterPlayer" service that stores client-side scripts.
 ---
 
-# What is StarterPlayerScripts?
+## What is StarterPlayerScripts?
 
 **StarterPlayerScripts** is a container inside the `StarterPlayer` service that stores client-side scripts. These scripts are automatically copied to a player's `PlayerScripts` container when the player joins the game.
 
@@ -12,7 +12,7 @@ description: A container inside the "StarterPlayer" service that stores client-s
 
 It is commonly used for scripts that control player-specific behavior and other systems that run on the player's device.
 
-# What is StarterPlayerScripts used for?
+## What is StarterPlayerScripts used for?
 
 `StarterPlayerScripts` is commonly used for:
 
@@ -25,7 +25,7 @@ It is commonly used for scripts that control player-specific behavior and other 
 - Local player movement systems
 - Client-side visual effects
 
-# How does StarterPlayerScripts work?
+## How does StarterPlayerScripts work?
 
 Scripts placed inside `StarterPlayerScripts` are automatically copied into the player's `PlayerScripts` container when the player joins the experience.
 
@@ -34,7 +34,7 @@ Scripts placed inside `StarterPlayerScripts` are automatically copied into the p
 > [!NOTE]
 > Do not place a server `Script` inside `StarterPlayerScripts` and expect it to run on the server. Server scripts do not execute there. `ModuleScripts` can be used for client-side modules when they are required by scripts running on the client. For modules that need to be accessible to both the client and the server, consider placing them in `ReplicatedStorage`.
 
-# Security Considerations
+## Security Considerations
 
 Do **not** use `StarterPlayerScripts` for server-side security or validation.
 

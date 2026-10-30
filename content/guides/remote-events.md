@@ -5,7 +5,6 @@ description: One way communication between the server and clients.
 > [!Summary]
 > RemoteEvents send one-way messages between the server and clients for events like input, state changes, or game actions. Use `FireServer` from the client and `OnServerEvent` on the server, or use `FireClient`/`FireAllClients` from the server and handle `OnClientEvent` on the client.
 
-# Remote Events
 A [`RemoteEvent`](../reference/classes/remote-event.md) enables one-way communication between the server and clients. It doesn't wait for a response and has no return value. It's built for telling the other side what happened, not asking the other side for a result. For a call that needs a response, use [RemoteFunction](./remote-functions.md) instead.
 
 The primary parent container for remote events is [`ReplicatedStorage`](../reference/classes/replicated-storage.md), as both the server and client can see and access it.

@@ -17,6 +17,7 @@ Written by Kindtracker on September 19, 2026
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of a `RaycastParams`.
 <br><br>
 

@@ -9,7 +9,7 @@ description: Learn about Instances in Vortex Studio.
 Written by ElectroTato on the 30th of August, 2026
 -->
 
-# Summary
+## Summary
 
 `Instances` are the basic building blocks of objects in a game. Each concrete class has its own [`Properties`](./properties.md) and methods.
 

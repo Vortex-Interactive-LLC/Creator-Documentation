@@ -25,6 +25,7 @@ Properties of a Workspace, in the order they appear in Vortex Studio
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of `Workspace`.
 <br><br>
 

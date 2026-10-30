@@ -14,6 +14,7 @@ Written by Kindtracker on August 28th, 2026
 
 <details>
 <summary><b>Properties</b></summary>
+
 Properties of an `EnumItem`.
 <br><br>
 

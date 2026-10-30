@@ -14,6 +14,7 @@ Written by TheJustDare on August 30th, 2026
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods available on `Debris`.
 <br><br>
 

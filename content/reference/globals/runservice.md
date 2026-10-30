@@ -9,6 +9,7 @@ description: Provides runtime-context helpers and a per-frame heartbeat signal.
 
 <details>
 <summary><b>Methods</b></summary>
+
 Methods of `RunService`.
 <br><br>
 
@@ -20,6 +21,7 @@ Methods of `RunService`.
 
 <details>
 <summary><b>Signals</b></summary>
+
 Signals of `RunService`.
 <br><br>
 
