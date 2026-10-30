@@ -61,6 +61,6 @@ A `Model` exposes the generic instance surface, including hierarchy and attribut
 
 The live [Character](./character.md) Model is a special case. It exposes `ClassName`, `Name`, and `Position`, plus direct `Humanoid` and `HumanoidRootPart` members; `Parent` reads as `nil`. It provides the generic Instance methods, `MoveTo`, and `PivotTo`.
 
-A live character's rotation cannot be set from a script. See [Character: Rotating a character](./character.md#rotating-a-character).
+A server Script can turn a live character by assigning `Character.Orientation` or using `PivotTo`. See [Character: Rotating a character](./character.md#rotating-a-character).
 
 `Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` return the same direct members. The standard R6/R15 body parts are not children of the character. Attributes a server Script sets on a character reach the owning LocalScript, but not the other way round; see the [Attributes guide](../../guides/attributes.md).

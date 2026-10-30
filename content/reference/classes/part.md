@@ -354,7 +354,7 @@ An event associated with the end of physical contact with the `part`.
 
 Instances parented to a `Part` become its children: `child.Parent == part` is `true`, and `FindFirstChild`, `FindFirstChildOfClass`, `GetChildren`, `GetDescendants`, and `WaitForChild` all find them.
 
-`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when the corresponding property or attribute changes on a part that is parented into the game. A change made in the same frame as the part was parented is not signalled. `Touched` and `TouchEnded` fire for contact with other parts that have `CanTouch` enabled.
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when the corresponding property or attribute changes, whether or not the part has a parent yet. `Touched` and `TouchEnded` fire for contact with other parts that have `CanTouch` enabled.
 
 > [!NOTE]
-> A server Script can read a player's [`Character.HumanoidRootPart`](./humanoid-root-part.md), but its `Size` and `Orientation` are read-only. This restriction applies to the live character root part; it does not change the behavior of ordinary script-created Parts.
+> A server Script can read a player's [`Character.HumanoidRootPart`](./humanoid-root-part.md), but its `Size` is read-only. This restriction applies to the live character root part; it does not change the behavior of ordinary script-created Parts.

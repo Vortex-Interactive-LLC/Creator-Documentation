@@ -26,7 +26,7 @@ The generic Instance methods are available, including `GetChildren`, `GetDescend
 
 ## Rotating a character
 
-A script cannot turn a live character. Assigning `Character.Orientation` from a server `Script` is accepted but has no effect, and the public [`HumanoidRootPart`](./humanoid-root-part.md) rejects `Orientation` writes. `Character:PivotTo(cframe)` and `Character:MoveTo(position)` only use the position they are given and ignore any rotation.
+A server `Script` can turn a character by assigning `Character.Orientation` (or `HumanoidRootPart.Orientation`) or by passing a rotated `CFrame` to `Character:PivotTo(cframe)`. Only the rotation around the Y axis is used, and the character keeps that facing until the player moves and turns them. `Character:MoveTo(position)` changes the position only.
 
 ## Lifecycle
 

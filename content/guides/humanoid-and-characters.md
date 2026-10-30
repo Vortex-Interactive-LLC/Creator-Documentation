@@ -71,7 +71,7 @@ character:PivotTo(CFrame.new(0, 10, 0))
 root.CFrame = CFrame.new(0, 10, 0)
 ```
 
-The root part's `Size` and `Orientation` are read-only, because the server controls the character's physical state. See [`HumanoidRootPart`](../reference/classes/humanoid-root-part.md).
+To turn a character, set `Character.Orientation` or `root.Orientation`, or pass a rotated `CFrame` to `PivotTo`. The root part's `Size` is read-only, because the server controls the character's physical state. See [`HumanoidRootPart`](../reference/classes/humanoid-root-part.md).
 
 ## Holding tools
 

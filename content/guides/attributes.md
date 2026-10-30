@@ -103,6 +103,6 @@ An attribute value must be `nil`, a `boolean`, a `number`, or a `string`. Other 
 
 `SetAttribute`, `GetAttribute`, `GetAttributes`, and removal through `SetAttribute(name, nil)` work on any instance, including `Player` objects. `GetAttributes` returns a table containing the current values.
 
-`GetAttributeChangedSignal` fires when an attribute is set on an instance that is parented into the game. It does not fire for instances that have no parent, and it does not fire for an attribute set in the same frame as the instance was parented. Wait a frame after setting `Parent` before connecting and setting values you want to observe.
+`GetAttributeChangedSignal` fires when the attribute changes, whether or not the instance has a parent yet. Setting an attribute to the value it already holds does not fire it.
 
 A player's `Character` is an exception to the client/server boundary: attributes a server Script sets on it reach the owning client, where a LocalScript reads them through `LocalPlayer.Character:GetAttribute`. Attributes a LocalScript sets are not sent to the server.

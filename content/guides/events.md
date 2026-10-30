@@ -21,6 +21,6 @@ connection:Disconnect()
 
 ## Delivery limits
 
-Manual `Signal:Fire(...)` delivery works for standalone signals and other supported signals. Instance change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire for instances that are parented into the game and do not fire for instances that have no parent or for a change made in the same frame as the instance was parented. Some signals only exist in one context: for example, [`UserInputService`](../reference/classes/user-input-service.md) is only available in a LocalScript, and `OnServerEvent` only fires on the server.
+Manual `Signal:Fire(...)` delivery works for standalone signals and other supported signals. Instance change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire when the property or attribute changes, whether or not the instance has a parent yet. Some signals only exist in one context: for example, [`UserInputService`](../reference/classes/user-input-service.md) is only available in a LocalScript, and `OnServerEvent` only fires on the server.
 
 See the reference page for each class to confirm which context an event fires in.

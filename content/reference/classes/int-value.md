@@ -29,4 +29,4 @@ print(score.Value) -- 42
 
 ## Change notifications
 
-`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned, once the `IntValue` is parented into the game. Fractional numbers are truncated to an integer (`3.7` becomes `3`).
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned. Fractional numbers are truncated to an integer (`3.7` becomes `3`).

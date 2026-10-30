@@ -97,6 +97,6 @@ There is no global `Signal` constructor, so `Signal.new` is not available. Use a
 
 `Connect`, `Once`, `Wait`, and `Fire` work on engine-owned signals such as `Part.Changed`, and the lowercase aliases `connect` and `fire` are also available. A signal that is fired manually delivers to its connected functions, and stops delivering to a function once it is disconnected. `ConnectParallel` is not available.
 
-The `Part` and value-object change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire when the property or attribute changes on an instance that is parented into the game.
+The `Part` and value-object change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire when the property or attribute changes, whether or not the instance has a parent yet.
 
 In a LocalScript, `UserInputService.InputBegan:Once` and `:Wait` deliver the next input. A normal Script has no `UserInputService`.

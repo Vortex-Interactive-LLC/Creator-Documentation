@@ -9,4 +9,4 @@ description: The script that is currently running.
 print(script.Name, script.Parent)
 ```
 
-Inside a `ModuleScript`, `script` is the script that called `require`, not the module. Use an explicit path such as `game.ReplicatedStorage.Helper` to find other modules.
+Inside a `ModuleScript`, `script` is the module itself.

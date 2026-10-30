@@ -31,4 +31,4 @@ Values placed in a `leaderstats` folder on a player are shown on the leaderboard
 
 ## Observing changes
 
-Once a value object is parented into the game, `Changed` and `GetPropertyChangedSignal("Value")` fire after its `Value` is assigned. These signals do not fire for objects that have no parent, and they miss a value set in the same frame as `Parent`. Wait a frame after parenting a new value object before you connect to it and change it.
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned. They work on any value object, whether or not it has a parent yet. `Changed` passes the new value. Assigning the value it already holds does not fire them.

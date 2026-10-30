@@ -29,4 +29,4 @@ print(flag.Value) -- true
 
 ## Change notifications
 
-`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned, once the `BoolValue` is parented into the game.
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned.

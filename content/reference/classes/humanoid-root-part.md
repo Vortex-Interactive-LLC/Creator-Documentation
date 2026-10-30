@@ -34,6 +34,6 @@ Ordinary Part fields such as `Anchored` and `CanCollide` read as `nil`, and the 
 
 ## Writing
 
-`HumanoidRootPart.Size` and `HumanoidRootPart.Orientation` are read-only: assigning them raises an error saying that character state is server-authoritative. Assigning `Position` or `CFrame` from a server `Script` is accepted. To move a character, use `Character:MoveTo()` or `Character:PivotTo()`.
+`HumanoidRootPart.Size` is read-only: assigning it raises an error saying that character state is server-authoritative. Assigning `Position`, `CFrame`, `Orientation` or `Rotation` from a server `Script` is accepted and moves or turns the character. You can also use `Character:MoveTo()` or `Character:PivotTo()`.
 
 This applies to the live character root part only; ordinary script-created Parts have writable transform properties.

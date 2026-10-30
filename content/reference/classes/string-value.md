@@ -29,4 +29,4 @@ print(message.Value) -- Hello, Vortex
 
 ## Change notifications
 
-`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned, once the `StringValue` is parented into the game.
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned.

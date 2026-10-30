@@ -15,7 +15,7 @@ print(part.Transparency) -- 0.5
 part:Destroy()
 ```
 
-Parts have writable appearance, transform, collision, anchoring, and name properties. A live character is more restricted: the root part's `Size` and `Orientation` are read-only, and some character state is server-authoritative, so client writes to it are rejected.
+Parts have writable appearance, transform, collision, anchoring, and name properties. A live character is more restricted: the root part's `Size` is read-only, and some character state is server-authoritative, so client writes to it are rejected.
 
 ## Checking optional properties
 
@@ -33,4 +33,4 @@ end
 
 ## Change signals
 
-`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when a property or attribute changes on an instance that is parented into the game. Instances with no parent do not fire them, and a change made in the same frame as the instance was parented is missed, so wait a frame after setting `Parent` before relying on them. See [Signals](../reference/datatypes/signal.md) and [Attributes](./attributes.md).
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when a property or attribute changes, whether or not the instance has a parent yet. Assigning the value a property already holds does not fire them. See [Signals](../reference/datatypes/signal.md) and [Attributes](./attributes.md).

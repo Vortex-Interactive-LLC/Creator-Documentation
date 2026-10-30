@@ -64,6 +64,6 @@ Counter()           -- error: attempt to call a table value
 - A module cannot require itself, directly or through a cycle.
 
 > [!NOTE]
-> Inside a module, `script` refers to the script that called `require`, not to the module. Find sibling modules with an explicit path such as `game.ReplicatedStorage.Helper`, not `script.Parent`.
+> Inside a module, `script` is the module itself, so `script.Parent.Helper` finds a sibling module.
 
 See [`require`](../reference/globals/require.md) and the [`ModuleScript`](../reference/classes/modulescript.md) reference.
