@@ -32,7 +32,8 @@ end)
 
 - `Equipped` - the tool was moved into a character;
 - `Unequipped` - the tool was moved out of a character;
-- `Activated` - the holder clicked while the tool was equipped.
+- `Activated` - the holder clicked while the tool was equipped;
+- `Changed` - a property of the tool changed.
 
 ## Notes
 

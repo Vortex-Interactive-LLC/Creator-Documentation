@@ -19,3 +19,7 @@ print(speed.Value) --> 3.7
 - `Name`, `ClassName`, `Parent`.
 
 Like the other value objects it is useful as a stat under a player's `leaderstats` folder. See [Leaderboards](../../guides/leaderboard.md).
+
+## Change notifications
+
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned.
