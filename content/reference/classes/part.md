@@ -22,7 +22,7 @@ Properties of a Part, in the order they appear in Vortex Studio.
 
 - [Color](#color): [`Color3`](../datatypes/color3.md)
 - [Transparency](#transparency): `Float`
-- [Material](#material): [`Enum.Material`](../globals/enum.md) <!-- not sure if this should link to enumitem.md or enum.md <pretty sure it's enum.md> -->
+- [Material](#material): [`Enum.Material`](../globals/enum.md#material)
 - [CastShadow](#castshadow): `Boolean`
 - [TextureID](#textureid): `number`
 
@@ -44,9 +44,9 @@ Properties of a Part, in the order they appear in Vortex Studio.
 <details>
 <summary><b>Shape</b></summary>
 
-- [CollisionFidelity](#collisionfidelity): [`Enum.CollisionFidelity`](../globals/enum.md)
+- [CollisionFidelity](#collisionfidelity): [`Enum.CollisionFidelity`](../globals/enum.md#collisionfidelity)
 - [MeshId](#meshid): `number` | `string`
-- [Shape](#shape): [`Enum.PartType`](../globals/enum.md)
+- [Shape](#shape): [`Enum.PartType`](../globals/enum.md#parttype)
 
 </details>
 
@@ -180,9 +180,9 @@ Controls whether or not the `Part` will cast a shadow. This can be used to impro
 
 
 ### CollisionFidelity
-> [`Enum.CollisionFidelity`](../globals/enum.md) \
+> [`Enum.CollisionFidelity`](../globals/enum.md#collisionfidelity) \
 \
-Controls how closely the collider of a mesh `Part` matches its visible shape. Accepts `Default`, `Hull`, `Box`, and `PreciseConvexDecomposition`.
+Controls how closely the collider of a mesh `Part` matches its visible shape. It has no effect on parts without a mesh. Accepts `Default`, `Hull`, `Box`, and `PreciseConvexDecomposition`.
 
 <br/>
 
@@ -260,7 +260,7 @@ The rotation of the `Part` along each axis.
 
 
 ### Shape
-> [`Enum.PartType`](../globals/enum.md) \
+> [`Enum.PartType`](../globals/enum.md#parttype) \
 \
 The geometric shape of the `Part`.
 

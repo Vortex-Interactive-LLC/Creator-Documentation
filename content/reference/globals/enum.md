@@ -6,6 +6,10 @@ description: The runtime enum namespace.
 > [!Summary]
 > `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. Each item converts to its `Enum.<group>.<item>` string form.
 
+### CollisionFidelity
+
+`Box`, `Default`, `Hull`, `PreciseConvexDecomposition`
+
 ### EasingDirection
 
 `In`, `InOut`, `Out`
@@ -37,6 +41,10 @@ description: The runtime enum namespace.
 ### NormalId
 
 `Back`, `Bottom`, `Front`, `Left`, `Right`, `Top`
+
+### PartType
+
+`Ball`, `Block`, `CornerWedge`, `Cylinder`, `Mesh`, `Wedge`
 
 ### PlaybackState
 
