@@ -65,24 +65,20 @@ part.Parent = workspace
 Instance.new() also accepts the parent as an optional second argument:
 
 ```lua
-local part = Instance.new("Part", Workspace)
+local part = Instance.new("Part", workspace)
 part.Name = "Platform"
 part.Size = Vector3.new(8, 1, 8)
 part.Position = Vector3.new(0, 10, 0)
 part.Anchored = true
 ```
 
-> In Vortex Studio 0.3.4, assigning `Parent` or passing this second argument is accepted, but script-created children are not reliably listed by a service's `GetChildren` or `FindFirstChild`. Do not rely on it to add runtime objects to the editor-authored Workspace hierarchy.
-
 ## Default state
 
-> In Vortex Studio 0.3.4, a freshly created `Part` is **anchored**, collidable, and casts shadows. It has the name `Part`, position and rotation `(0, 0, 0)`, an identity `CFrame`, size `(4, 1, 2)`, transparency `0`, and an approximately `(0.64, 0.64, 0.64)` color. Any property you do not set yourself holds the runtime default.
+> A freshly created `Part` is **anchored**, collidable, and casts shadows. It has the name `Part`, position and rotation `(0, 0, 0)`, an identity `CFrame`, size `(4, 1, 2)`, transparency `0`, and an approximately `(0.64, 0.64, 0.64)` color. Any property you do not set yourself holds the runtime default.
 
-## Testing Notes
+## Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
-
-- `Instance.fromExisting` is not exposed (`nil`) in either Script or LocalScript in 0.3.4.
-- Common creatable classes include [`Part`](../classes/part.md), [`Model`](../classes/model.md), [`Folder`](../classes/folder.md), [`Script`](../classes/script.md), [`LocalScript`](../classes/localscript.md), [`ModuleScript`](../classes/modulescript.md), [`IntValue`](../classes/int-value.md), [`StringValue`](../classes/string-value.md), [`BindableEvent`](../classes/bindable-event.md), [`RemoteEvent`](../classes/remote-event.md), [`RemoteFunction`](../classes/remote-function.md), [`PointLight`](../classes/point-light.md), and [`SpotLight`](../classes/spot-light.md). `SpawnLocation`, `Texture`, `Decal`, and `SurfaceAppearance` are not constructible in the tested runtime.
+- `Instance.fromExisting` is not exposed (`nil`) in either Script or LocalScript.
+- Common creatable classes include [`Part`](../classes/part.md), [`Model`](../classes/model.md), [`Folder`](../classes/folder.md), [`Script`](../classes/script.md), [`LocalScript`](../classes/localscript.md), [`ModuleScript`](../classes/modulescript.md), [`IntValue`](../classes/int-value.md), [`NumberValue`](../classes/number-value.md), [`StringValue`](../classes/string-value.md), [`BoolValue`](../classes/bool-value.md), [`BindableEvent`](../classes/bindable-event.md), [`RemoteEvent`](../classes/remote-event.md), [`RemoteFunction`](../classes/remote-function.md), [`PointLight`](../classes/point-light.md), [`SpotLight`](../classes/spot-light.md), [`WedgePart`](../classes/wedge-part.md), [`CornerWedgePart`](../classes/corner-wedge-part.md), [`Seat`](../classes/seat.md), [`Tool`](../classes/tool.md), [`ClickDetector`](../classes/click-detector.md), [`ForceField`](../classes/force-field.md), [`BodyVelocity`](../classes/body-velocity.md), [`BodyPosition`](../classes/body-position.md), [`BodyAngularVelocity`](../classes/body-angular-velocity.md), [`VectorForce`](../classes/vector-force.md), [`Torque`](../classes/torque.md), and the GUI classes ([`ScreenGui`](../classes/screen-gui.md), [`Frame`](../classes/frame.md), [`TextLabel`](../classes/text-label.md), [`TextButton`](../classes/text-button.md), [`ImageLabel`](../classes/image-label.md), [`BillboardGui`](../classes/billboard-gui.md), [`SurfaceGui`](../classes/surface-gui.md), [`UICorner`](../classes/ui-corner.md), [`UIStroke`](../classes/ui-stroke.md), [`UIListLayout`](../classes/ui-list-layout.md), and [`UIPadding`](../classes/ui-padding.md)). `SpawnLocation`, `Texture`, `Decal`, and `SurfaceAppearance` are not constructible.
 
 <br/>

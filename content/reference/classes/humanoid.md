@@ -3,7 +3,7 @@ title: Humanoid
 description: Represents the humanoid controller of a player's Character.
 ---
 
-The current player's humanoid is available as `game:GetService("Players").LocalPlayer.Character.Humanoid` in a `LocalScript`. In Vortex Studio 0.3.4, a server `Script` can also reach a visible player's character through `game:GetService("Players"):GetPlayers()[1].Character`. The character's root transform is exposed separately as a [`HumanoidRootPart`](./humanoid-root-part.md).
+The current player's humanoid is available as `game:GetService("Players").LocalPlayer.Character.Humanoid` in a `LocalScript`. A server `Script` can also reach a visible player's character through `game:GetService("Players"):GetPlayers()[1].Character`. The character's root transform is exposed separately as a [`HumanoidRootPart`](./humanoid-root-part.md).
 
 ## Summary
 
@@ -93,7 +93,7 @@ Signals of the `Humanoid`.
 >
 > `humanoid:GetState()`
 >
-> Returns the Humanoid's current state.
+> Returns the Humanoid's current state. On a server `Script` this is `Running`, `Freefall`, `Climbing`, `Seated` or `Dead`, taken from what the player's client reports.
 
 ## Signals
 
@@ -151,16 +151,12 @@ Signals of the `Humanoid`.
 
 - `health`: `Number` — the updated health value.
 
-## Testing Notes
+## Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
+A character's Humanoid starts with `Health` and `MaxHealth` of `100`. In a server `Script`, both can be assigned, and assigning `Health = 0` kills the character. The character then respawns with full health. `Died` and `HealthChanged` fire when the Humanoid dies or its health changes.
 
-The observed Character's Humanoid was a specialized table with `ClassName` and `Name` both reporting `"Humanoid"`, and `Health` and `MaxHealth` both reporting `100`. `IsDead()` was exposed and returned `false`. `Died` and `HealthChanged` exposed signals that support `Signal:Connect`.
+`humanoid:TakeDamage(amount)` reduces `Health`. A newly spawned character has a `ForceField` for a few seconds, and damage is blocked while it is present.
 
-Assigning `Health` or `MaxHealth` is rejected in both a `LocalScript` and a confirmed server `Script` (`RunService:IsServer()` returned `true`). The error still states that the value is read-only in a LocalScript and that character state is server-authoritative, so its wording does not match the observed server behavior. Server code can now enumerate a `Player`, read its `Character`, and obtain this `Humanoid`, but that projection does not currently grant authority to write to Health.
+`WalkSpeed`, `JumpPower`, `JumpHeight`, and `HipHeight` are numbers, and `AutoRotate` and `Sit` are booleans. `WalkSpeed` can be assigned from a server `Script`. `StateChanged`, `Jumping`, `FreeFalling`, `Running`, and `Seated` are available as signals.
 
-`WalkSpeed`, `JumpPower`, `JumpHeight`, and `UseJumpPower` read as `nil` on the tested server-visible Humanoid projection, so their write behavior remains unknown. `Died` and `HealthChanged` are exposed Signal references; their delivery remains unconfirmed.
-
-The confirmed server-side API exposes only `IsDead()`. The Roblox-style `TakeDamage` method, along with state/movement control, animation, and accessory methods all read as `nil`. Of the tested Roblox-style signals, only `Died` and `HealthChanged` are connectable; `Jumping`, `FreeFalling`, `Running`, `StateChanged`, `MoveToFinished`, `PlatformStanding`, `Ragdoll`, and `Seated` all read as `nil`.
-
-The specialized Humanoid has an opaque `__index` and `__newindex` metatable; `IsA` was not exposed on the value itself.
+A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). Methods such as `ChangeState`, `Move`, `MoveTo`, `LoadAnimation`, and `AddAccessory` are not available.

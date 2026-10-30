@@ -17,7 +17,6 @@ local Players = game:GetService("Players")
 
 local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
 
--- Roblox-style targeting example; see the Vortex notes below.
 local activePlayers = Players:GetPlayers()
 local random_player = activePlayers[math.random(1, #activePlayers)]
 local pi = GetPiFromDigits:InvokeClient(random_player, 5)
@@ -27,40 +26,13 @@ print(random_player.Name .. " replied with: " .. pi)
 
 ```luau
 -- LocalScript
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
 
-function compute_pi(digits)
-    -- magic
-    local col = math.floor(digits * 10 / 3)
-    local array = {}
-    for i = 1, col, 1 do table.insert(array, 2) end
-    local output = {}
-
-    for _ = 1, digits, 1 do
-        local carry = 0
-        for i = col - 1, 0, -1 do
-            local num = array[i] * 10 + carry
-            local denom = i * 2 + 1
-            arr[i] = num % denom
-            carry = math.floor(num / denom)
-        end
-
-        num = arr[1] * 10 + carry
-        arr[1] = num % 10
-        output.append(tostring(math.floor(num / 10)))
-    end
-
-    local result = output[1] .. "."
-    for i = 2, #output, 1 do
-        result ..= output[i]
-    end
-
-    return result
+GetPiFromDigits.OnClientInvoke = function(digits)
+    return string.format("%." .. digits .. "f", math.pi)
 end
-
-GetPiFromDigits.OnClientInvoke = compute_pi
 ```
 
 ## Methods
@@ -71,10 +43,11 @@ GetPiFromDigits.OnClientInvoke = compute_pi
 ## Callbacks
 
 - `OnClientInvoke(arguments: Tuple) : Tuple` - A writable callback invoked on the client by the server;
-- `OnServerInvoke(senderId: Number, arguments: Tuple) : Tuple` - A writable callback invoked on the server by the client.
+- `OnServerInvoke(player: Player, arguments: Tuple) : Tuple` - A writable callback invoked on the server by the client.
 
-## Vortex Studio 0.3.4 notes
+## Notes
 
-`InvokeServer` is exposed on the client and assigning `OnServerInvoke` succeeds in a Script for an editor-authored remote in `ReplicatedStorage`. However, `InvokeServer(LocalPlayer)` is rejected before delivery because Instances cannot currently be sent through remotes. A successful primitive request-response round trip has not yet been established.
-
-The server-side `Players:GetChildren()` route remains unavailable. In 0.3.4, `Players:GetPlayers()` does return visible Player objects in a server Script, so, in principle, it provides the Player target shown above. `OnClientInvoke` and `InvokeClient` delivery are still untested.
+- Create RemoteFunctions in `ReplicatedStorage` through the editor before play.
+- `OnServerInvoke` receives the `Player` who invoked the function as its first argument.
+- Arguments and return values cannot be Instances: invoking with `LocalPlayer` fails before delivery because Instances cannot be sent through remotes.
+- If a client invokes a RemoteFunction that has no `OnServerInvoke` assigned on the server, the call fails with an error.

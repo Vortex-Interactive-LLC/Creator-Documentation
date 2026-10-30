@@ -35,10 +35,10 @@ local player = Players.LocalPlayer
 * `PlayerAdded(): Signal` - Fires when a player joins the server, signaling a player has joined the server.
 * `PlayerRemoving(): Signal` - Fires when a player leaves the server, signaling a player has left the server.
 
-`GetChildren` is not exposed by the current Vortex Players service.
+`GetChildren` and `FindFirstChild` are also available, and a player can be looked up by name with `Players[name]`.
 
-## Vortex Studio 0.3.4 notes
+## Notes
 
-`GetPlayers()` returns the current player in a `LocalScript`. In a confirmed server `Script`, it also returned a list containing the live `Player` object; the returned `Player`'s `Character` is readable. `LocalPlayer` remains `nil` on the server.
+`GetPlayers()` returns the connected players in both a `LocalScript` and a server `Script`. `LocalPlayer` is `nil` on the server.
 
-The numeric connection ID passed as the first `OnServerEvent` argument still has no known public mapping back to a particular Player. Numeric and string-based service indexing, along with the tested player lookup methods, does not provide that mapping.
+The `Player` that fired a [`RemoteEvent`](./remote-event.md) is passed as the first argument to its `OnServerEvent` handler, so there is no need to look it up from the `Players` service.

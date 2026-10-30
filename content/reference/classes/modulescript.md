@@ -5,6 +5,6 @@ description: A non-executable runtime module shell.
 
 ## Runtime support
 
-`ModuleScript` can be constructed in Vortex Studio 0.3.4 in both `Script` and `LocalScript` contexts, but it cannot be used as a functional module at runtime. `Source`, `Disabled`, and `RunContext` read as `nil`, and assigning `Source` is rejected.
+`ModuleScript` can be constructed in both `Script` and `LocalScript` contexts. `Source`, `Disabled`, and `RunContext` read as `nil`, and assigning `Source` is rejected, so a ModuleScript created at runtime cannot hold code.
 
-The global `require` function is unavailable. Consequently, a runtime-created ModuleScript cannot provide shared executable code. Assigning it to [`ReplicatedStorage`](./replicated-storage.md) does not establish an observable parent-child relationship.
+Modules written in the editor are loaded with the global `require` function.

@@ -3,11 +3,18 @@ title: Values
 description: Store simple script-visible values in Vortex.
 ---
 > [!Summary]
-> Values are simple script-visible containers used to store small pieces of state like counters or labels. In Vortex, `IntValue` and `StringValue` are supported, while `BoolValue` is not currently constructible.
+> Values are simple containers used to store small pieces of state like counters or labels. Vortex provides `IntValue`, `NumberValue`, `StringValue`, and `BoolValue`.
 
 ## Available containers
 
-Vortex Studio 0.3.4 supports detached [`IntValue`](../reference/classes/int-value.md) and [`StringValue`](../reference/classes/string-value.md) instances. They start at `0` and `""` respectively, and their `Value` properties are readable and writable in both Script and LocalScript.
+| Class | Stores | Default |
+| --- | --- | --- |
+| [`IntValue`](../reference/classes/int-value.md) | An integer. Fractional values are truncated (`3.7` becomes `3`). | `0` |
+| `NumberValue` | Any number. | `0` |
+| [`StringValue`](../reference/classes/string-value.md) | A string. | `""` |
+| [`BoolValue`](../reference/classes/bool-value.md) | A boolean. | `false` |
+
+Their `Value` properties are readable and writable in both Script and LocalScript.
 
 ```lua
 local coins = Instance.new("IntValue")
@@ -15,10 +22,13 @@ coins.Value = 25
 
 local status = Instance.new("StringValue")
 status.Value = "ready"
+
+local isVip = Instance.new("BoolValue")
+isVip.Value = true
 ```
 
-`BoolValue` cannot currently be constructed. Use a Lua boolean for local state, or an `IntValue` with a clear `0`/`1` convention when instance-backed state is needed.
+Values placed in a `leaderstats` folder on a player are shown on the leaderboard. See [Leaderboards](./leaderboard.md).
 
 ## Observing changes
 
-The value instances expose `Changed` and `GetPropertyChangedSignal("Value")`, but neither delivered callbacks after a `Value` assignment in the tested runtime. Read or poll `Value` instead of using these signals for game logic.
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned. They work on any value object, whether or not it has a parent yet. `Changed` passes the new value. Assigning the value it already holds does not fire them.

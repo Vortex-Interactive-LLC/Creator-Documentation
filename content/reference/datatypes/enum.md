@@ -79,4 +79,4 @@ for _, material in ipairs(Enum.Material:GetEnumItems()) do
 end
 ```
 
-In Vortex Studio 0.3.8, `FromName("R")` returned `Enum.KeyCode.R` and an unknown name returned `nil`.
+`FromName("R")` returns `Enum.KeyCode.R`, and an unknown name returns `nil`.

@@ -97,6 +97,4 @@ Waits for and returns a direct child with the supplied `name`.
 
 ## Testing Notes
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
-
-A temporary `Part` can have its `Parent` set to `ReplicatedStorage`, and `WaitForChild` resolves it. `FindFirstChild` returns `nil` and `GetChildren` omits it.
+A `Part` (or any other instance) whose `Parent` is set to `ReplicatedStorage` is found by `FindFirstChild`, `WaitForChild`, and `GetChildren`.

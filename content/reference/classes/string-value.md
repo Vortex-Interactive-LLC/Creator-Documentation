@@ -5,7 +5,7 @@ description: A detached string value container.
 
 ## Summary
 
-`StringValue` can be constructed in Vortex Studio 0.3.4 in both `Script` and `LocalScript` contexts. It stores a string `Value` and does not need a parent for its value to be read or written.
+`StringValue` can be constructed in both `Script` and `LocalScript` contexts. It stores a string `Value` and does not need a parent for its value to be read or written.
 
 ## Properties
 
@@ -29,4 +29,4 @@ print(message.Value) -- Hello, Vortex
 
 ## Change notifications
 
-`Changed` and `GetPropertyChangedSignal("Value")` are present and connectable, but changing `Value` did not trigger either callback in the tested 0.3.4 runtime. Poll `Value` when a script must observe a change.
+`Changed` and `GetPropertyChangedSignal("Value")` fire after `Value` is assigned.

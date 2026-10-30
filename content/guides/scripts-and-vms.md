@@ -26,6 +26,7 @@ part.Parent = game.Workspace
 
 * `LocalScript`
 * `Script`
+* [`ModuleScript`](../reference/classes/modulescript.md)
 
 ### Luau Virtual Machine
 

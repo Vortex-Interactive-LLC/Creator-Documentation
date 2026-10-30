@@ -16,7 +16,7 @@ Written by KingTasaz on August 28th, 2026
 
 ## Runtime availability
 
-`Instance.new("SpawnLocation")` fails in both Script and LocalScript contexts in Vortex Studio 0.3.4. A descendant scan of Workspace also found no live `SpawnLocation` in the tested project, so the editor-facing behavior described below is not confirmed to be available through runtime scripting.
+`Instance.new("SpawnLocation")` fails in both Script and LocalScript contexts. SpawnLocations are placed in the editor, and the editor-facing behavior described below is not available through runtime scripting.
 
 <details>
 <summary><b>Properties</b></summary>

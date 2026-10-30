@@ -23,8 +23,8 @@ Edited by MtcLuna05 on August 30th, 2026
 Properties of `game`.
 <br><br>
 
-* [Workspace](#workspace): [`Workspace`](/content/reference/classes/workspace.md)
-* [Players](#players): [`Players`](/content/reference/classes/players.md)
+* [Workspace](#workspace): [`Workspace`](../classes/workspace.md)
+* [Players](#players): [`Players`](../classes/players.md)
 
 </details>
 
@@ -34,15 +34,7 @@ Methods of `game`.
 <br><br>
 
 * [GetService(serviceName: `string`)](#getservice): `Instance`
-
-</details>
-
-<details>
-<summary><b>Callbacks</b></summary>
-Callbacks of `game`.
-<br><br>
-
-* [OnClose](#onclose): `Function` | `nil`
+* [BindToClose(callback: `Function`)](#bindtoclose)
 
 </details>
 
@@ -56,11 +48,15 @@ Services of `game`.
 * [ReplicatedStorage](../classes/replicated-storage.md)
 * [StarterPlayerScripts](../classes/starter-player-scripts.md)
 * [ServerScriptService](../classes/server-script-service.md)
-* [Lighting](../classes/lighting.md) (editor-facing; not exposed by `game:GetService` in 0.3.4)
+* [StarterGui](../classes/starter-gui.md)
+* [StarterPack](../classes/starter-pack.md)
+* [DataStoreService](../classes/data-store-service.md) (server only)
+* [MarketplaceService](../classes/marketplace-service.md) (server only)
+* [Lighting](../classes/lighting.md) (editor-facing; not a valid service for `game:GetService`)
 * [Debris](../classes/debris.md)
 * [RunService](./runservice.md)
 * [TweenService](../classes/tween-service.md)
-* [UserInputService](./user-input-service.md)
+* [UserInputService](../classes/user-input-service.md)
 
 </details>
 
@@ -78,7 +74,7 @@ Services of `game`.
 
 > [`Players`](../classes/players.md)
 >
-> A direct alias for the Players service. In Vortex Studio 0.3.4 it is a distinct proxy table from `game:GetService("Players")`.
+> A direct alias for the Players service.
 
 <br/>
 
@@ -96,15 +92,11 @@ Services of `game`.
 
 - `serviceName`: `string` — the name of the service to retrieve.
 
-<br/>
+### BindToClose()
 
-## Callbacks
-
-### OnClose
-
-> `Function` | `nil`
+> `game:BindToClose(callback: Function)`
 >
-> An optional callback that can be assigned before the game closes.
+> Registers a callback that runs when the server is closing.
 
 <br/>
 
@@ -138,7 +130,7 @@ Services of `game`.
 
 > `Instance`
 >
-> Stub. [StarterPlayerScripts](../classes/starter-player-scripts.md)
+> A container for scripts that run on each client. [StarterPlayerScripts](../classes/starter-player-scripts.md)
 
 <br/>
 
@@ -150,16 +142,48 @@ Services of `game`.
 
 <br/>
 
-### Lighting
+### StarterGui
 
-> Unavailable in the tested runtime
+> `Instance`
 >
-> `game:GetService("Lighting")` rejects this service in both Script and LocalScript in Vortex Studio 0.3.4. [Lighting](../classes/lighting.md)
+> [StarterGui](../classes/starter-gui.md)
 
 <br/>
 
-## Testing Notes
+### StarterPack
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
+> `Instance`
+>
+> [StarterPack](../classes/starter-pack.md)
 
-`game.Workspace` and `game:GetService("Workspace")` both report `ClassName` and `Name` as `Workspace`. `game.OnClose` starts as `nil`; assigning a function succeeds, but callback delivery has not been established.
+<br/>
+
+### DataStoreService
+
+> `Instance`
+>
+> Available in server Scripts only. [DataStoreService](../classes/data-store-service.md)
+
+<br/>
+
+### MarketplaceService
+
+> `Instance`
+>
+> Available in server Scripts only. [MarketplaceService](../classes/marketplace-service.md)
+
+<br/>
+
+### Lighting
+
+> Unavailable at runtime
+>
+> `game:GetService("Lighting")` is not a valid service in either Script or LocalScript. [Lighting](../classes/lighting.md)
+
+<br/>
+
+## Notes
+
+`game.Workspace` and `game:GetService("Workspace")` are the same object, and `ClassName` and `Name` report `Workspace`. `game.Players` is the same object as `game:GetService("Players")`.
+
+`game.OnClose` is read-only. Use `game:BindToClose(callback)` to run code when the server closes.

@@ -7,7 +7,7 @@ description: Connect to and handle runtime signals in Vortex.
 
 ## Signals
 
-Events are represented by [`Signal`](/content/reference/datatypes/signal.md) values. Connect a callback with `:Connect`, keep the returned [`Connection`](/content/reference/datatypes/connection.md), and disconnect it when the listener is no longer needed.
+Events are represented by [`Signal`](../reference/datatypes/signal.md) values. Connect a callback with `:Connect`, keep the returned [`Connection`](../reference/datatypes/connection.md), and disconnect it when the listener is no longer needed.
 
 ```lua
 local connection = game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
@@ -21,6 +21,6 @@ connection:Disconnect()
 
 ## Delivery limits
 
-Manual `Signal:Fire(...)` delivery works for standalone signals and other supported signals. Some instance change signals are only partially implemented: they can be connected, but do not fire when the corresponding property or attribute is changed. `Part.Changed`, user input, Humanoid health-related signals, and remote-event signals each need to be treated according to their documented runtime behavior.
+Manual `Signal:Fire(...)` delivery works for standalone signals and other supported signals. Instance change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire when the property or attribute changes, whether or not the instance has a parent yet. Some signals only exist in one context: for example, [`UserInputService`](../reference/classes/user-input-service.md) is only available in a LocalScript, and `OnServerEvent` only fires on the server.
 
-Do not treat a connectable signal as proof that a producer exists. Confirm that the specific event delivers in the context where your code runs.
+See the reference page for each class to confirm which context an event fires in.

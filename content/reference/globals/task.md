@@ -71,14 +71,12 @@ Yields the current thread until the scheduler resumes it, or until at least `dur
 
 - `duration`: `Number?` — an optional duration to wait, in seconds.
 
-## Verified runtime compatibility
+## Availability
 
-`task.defer`, `task.delay`, `task.spawn`, and `task.wait` were present in both `Script` and `LocalScript` in Vortex Studio 0.3.4.
+`task.defer`, `task.delay`, `task.spawn`, `task.wait`, and `task.cancel` are available in both `Script` and `LocalScript`.
 
-The initial capability probe verifies function presence; the dedicated behavior probe records the scheduling details below.
+## Notes
 
-## Testing Notes
+`task.spawn` runs the callback immediately, before the calling code continues. `task.defer` and `task.delay(0, callback)` run on the next scheduler cycle, before a following `task.wait()` returns. `task.wait()` returns the elapsed time in seconds.
 
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
-
-`task.cancel`, `task.desynchronize`, and `task.synchronize` are not exposed. `task.spawn` completes during the scheduling call itself. `task.defer` and `task.delay(0, callback)` are still pending after one `task.wait()` and complete during the second wait cycle. `task.wait()` returns a number.
+`task.cancel(thread)` cancels a thread returned by `task.delay` before it runs. `task.desynchronize` and `task.synchronize` are not exposed.

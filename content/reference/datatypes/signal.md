@@ -91,16 +91,12 @@ Yields the current thread until the `Signal` fires. `Wait()` returns arguments p
 
 ### new()
 
-`Signal.new` was available in the earlier 0.3.4 tests, but the global `Signal` was `nil` in a Vortex Studio 0.3.8 server Script. Use an engine-owned signal, such as `Part.Changed`, in the current release.
+There is no global `Signal` constructor, so `Signal.new` is not available. Use an engine-owned signal, such as `Part.Changed`.
 
-## Vortex Studio 0.3.4 notes
+## Notes
 
-`Connect`, `Once`, `Wait`, and `Fire` were revalidated on `Part.Changed` in both `Script` and `LocalScript`; a manually fired signal delivered once before disconnect and not afterward. `ConnectParallel` remains absent.
+`Connect`, `Once`, `Wait`, and `Fire` work on engine-owned signals such as `Part.Changed`, and the lowercase aliases `connect` and `fire` are also available. A signal that is fired manually delivers to its connected functions, and stops delivering to a function once it is disconnected. `ConnectParallel` is not available.
 
-In a LocalScript, `UserInputService.InputBegan:Once` and `:Wait` both delivered the same right-mouse-button input. A normal Script still has no `UserInputService`.
+The `Part` and value-object change signals (`Changed`, `GetPropertyChangedSignal`, `GetAttributeChangedSignal`) fire when the property or attribute changes, whether or not the instance has a parent yet.
 
-The `Part` attribute/property-change signals used in the examples are connectable, but mutating the corresponding attribute or property still did not deliver callbacks in 0.3.4.
-
-In 0.3.4, lowercase `connect` and `fire` work on `Part.Changed`, and `Signal.new` creates a standalone signal whose `Connect` callback receives a manually fired argument. This was confirmed in both Script and LocalScript.
-
-In Vortex Studio 0.3.8, an engine-owned `Part.Changed` signal still exposed `Connect`, `Fire`, `Once`, and `Wait`. A manual `Fire("yes")` reached a connected callback once; after `Disconnect()`, a second fire did not reach it. The global `Signal` constructor was `nil` in the tested server Script.
+In a LocalScript, `UserInputService.InputBegan:Once` and `:Wait` deliver the next input. A normal Script has no `UserInputService`.

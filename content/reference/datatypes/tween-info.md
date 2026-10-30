@@ -24,8 +24,8 @@ Properties of a `TweenInfo`.
 <br><br>
 
 * [Time](#time): `Number`
-* [EasingStyle](/reference/globals/enum/#easingstyle): `Enum.EasingStyle`
-* [EasingDirection](/reference/globals/enum/#easingdirection): `Enum.EasingDirection`
+* [EasingStyle](../globals/enum.md#easingstyle): `Enum.EasingStyle`
+* [EasingDirection](../globals/enum.md#easingdirection): `Enum.EasingDirection`
 * [RepeatCount](#repeatcount): `Number`
 * [Reverses](#reverses): `Boolean`
 * [DelayTime](#delaytime): `Number`
@@ -38,11 +38,17 @@ Properties of a `TweenInfo`.
 
 > `TweenInfo`
 >
-> Returns a `TweenInfo` data container to be fed into [TweenService](/reference/classes/tween-service/).
+> Returns a `TweenInfo` data container to be fed into [TweenService](../classes/tween-service.md).
 > 
 > Note that `time` is in seconds.
 > 
-> All constructor parameters are optional, so not everything has to be specified; note the following defaults: * `TweenInfo.Time` = `1` * `TweenInfo.EasingStyle` = `Enum.EasingStyle.Quad` * `TweenInfo.EasingDirection` = `Enum.EasingDirection.Out` * `TweenInfo.RepeatCount` = `0` * `TweenInfo.Reverses` = `false` * `TweenInfo.DelayTime` = `0`
+> All constructor parameters are optional, so not everything has to be specified; note the following defaults:
+> * `TweenInfo.Time` = `1`
+> * `TweenInfo.EasingStyle` = `Enum.EasingStyle.Quad`
+> * `TweenInfo.EasingDirection` = `Enum.EasingDirection.Out`
+> * `TweenInfo.RepeatCount` = `0`
+> * `TweenInfo.Reverses` = `false`
+> * `TweenInfo.DelayTime` = `0`
 
 <br/>
 
@@ -119,6 +125,6 @@ Properties of a `TweenInfo`.
 
 ## Testing Notes
 
-`TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)` returned a TweenInfo table in both `Script` and `LocalScript` in Vortex Studio 0.3.4. Runtime availability may differ in later releases.
+`TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)` returns a TweenInfo table in both `Script` and `LocalScript`.
 
 `repeatCount = -1` is treated as an infinite repeat count.

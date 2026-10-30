@@ -1,53 +1,71 @@
 ---
 title: UserInputService
-description: A service for receiving player input in LocalScripts.
+description: A service for receiving keyboard and mouse input in LocalScripts.
 ---
-
-`UserInputService` receives keyboard input and other player input on the client. Access it through `game:GetService("UserInputService")` in a `LocalScript`.
 
 ## Summary
 
-<details>
-<summary><b>Events</b></summary>
-<br>
+`UserInputService` reports keyboard and mouse input on the player's machine. Access it with `game:GetService("UserInputService")` in a `LocalScript`; it raises an error in a server `Script`. See the [User Input guide](../../guides/user-input.md).
 
-- [InputBegan](#inputbegan): [`Signal`](../datatypes/signal.md)
-- [InputEnded](#inputended): [`Signal`](../datatypes/signal.md)
+## Properties
 
-</details>
+- `KeyboardEnabled` - `boolean`, `true`;
+- `MouseEnabled` - `boolean`, `true`;
+- `TouchEnabled` - `boolean`, `false`;
+- `GamepadEnabled` - `boolean`, `false`.
+
+`MouseBehavior` and `MouseIconEnabled` read as `nil`.
+
+## Methods
+
+### IsKeyDown
+
+> `UserInputService:IsKeyDown(keyCode: Enum.KeyCode): boolean`
+
+Returns whether a keyboard key is currently held down. It returns `false` for mouse buttons.
+
+```luau
+local UserInputService = game:GetService("UserInputService")
+
+if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
+    print("Left Shift is held")
+end
+```
+
+### GetMouseLocation
+
+> `UserInputService:GetMouseLocation(): Vector2`
+
+Returns the cursor position in pixels as a [`Vector2`](../datatypes/vector2.md).
 
 ## Events
 
+All events support `Connect`, `Once`, and `Wait`, and deliver both processed and unprocessed input.
+
 ### InputBegan
 
-> [`Signal`](../datatypes/signal.md)
->
-> `UserInputService.InputBegan`
+> `UserInputService.InputBegan(input: InputObject, gameProcessedEvent: boolean)`
 
-Fires when input begins. The callback receives an [`InputObject`](../datatypes/input-object.md); its `KeyCode` can be compared with an `Enum.KeyCode` item.
+Fires when a key or mouse button is pressed. `input` is an [`InputObject`](../datatypes/input-object.md). `gameProcessedEvent` is `true` when the game already handled the input, for example a click on a GUI button. Mouse buttons use `Enum.KeyCode.Unknown` and carry the cursor position.
 
 ```luau
-local input = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
 
-input.InputBegan:Connect(function(inputObject)
-    if inputObject.KeyCode == Enum.KeyCode.E then
-        print("E was pressed")
+    if input.KeyCode == Enum.KeyCode.R then
+        print("R pressed")
     end
 end)
 ```
 
 ### InputEnded
 
-> [`Signal`](../datatypes/signal.md)
->
-> `UserInputService.InputEnded`
+> `UserInputService.InputEnded(input: InputObject, gameProcessedEvent: boolean)`
 
-An exposed signal that fires when input ends.
+Fires when a key or mouse button is released.
 
-## Vortex Studio 0.3.4 notes
+### InputChanged
 
-`InputBegan:Once` and `InputBegan:Wait` both delivered right-mouse-button input in a LocalScript. A normal server Script has no usable UserInputService. Ordinary `InputBegan:Connect` also delivered keyboard keys (`S`, `A`, `W`, and `Space`) and mouse buttons. Keyboard events carried their KeyCode; mouse buttons used `Enum.KeyCode.Unknown`. Both `gameProcessed=false` and `gameProcessed = true were` were observed.
+> `UserInputService.InputChanged(input: InputObject, gameProcessedEvent: boolean)`
 
-`IsKeyDown` is available: it returned `true` for a keyboard key that was currently being pressed and `false` for mouse-button events. The tested 0.3.4 client reported `KeyboardEnabled=true`, `MouseEnabled=true`, `GamepadEnabled=false`, and `TouchEnabled=false`.
-
-`InputEnded` is connectable in a LocalScript and delivered both keyboard and mouse-button releases. `InputChanged` reads as `nil` and cannot be connected. `GetMouseLocation` is unavailable, while `MouseBehavior` and `MouseIconEnabled` read as `nil`. These results were revalidated in Vortex Studio 0.3.4.
+Fires when the mouse moves. `input.Delta` is how far the cursor moved.

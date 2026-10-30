@@ -4,7 +4,7 @@ description: The runtime enum namespace.
 ---
 
 > [!Summary]
-> `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. In Vortex Studio 0.3.4, all 119 documented enum items were verified in both Script and LocalScript and convert to their `Enum.<group>.<item>` string form.
+> `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. Each item converts to its `Enum.<group>.<item>` string form.
 
 ### EasingDirection
 
@@ -20,7 +20,7 @@ description: The runtime enum namespace.
 
 ### Material
 
-`Grass`, `Ice`, `Metal`, `Plastic`, `Wood`
+`Brick`, `Grass`, `Ice`, `Metal`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
 
 ### NormalId
 

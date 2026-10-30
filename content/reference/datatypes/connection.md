@@ -65,14 +65,10 @@ signal:Fire("not received")
 print(connection.Connected) -- false
 ```
 
-This uses an engine-owned Signal. The standalone `Signal.new` constructor was not available in the tested Vortex Studio 0.3.8 server Script.
+This uses an engine-owned Signal; there is no standalone `Signal.new` constructor.
 
-## Testing Notes
-
-These observations are from Vortex Studio 0.3.4 and may differ in later releases.
+## Notes
 
 Connections are represented as tables. The lowercase `disconnect` alias is also exposed; this reference uses the canonical `Disconnect` name.
 
-In both Script and LocalScript, `Connected` began as `true`, a manually fired signal delivered its callback once, and `Disconnect()` changed `Connected` to `false` and prevented later delivery. The lowercase `disconnect()` alias has the same effect.
-
-The engine-owned Signal example was revalidated in a Vortex Studio 0.3.8 server Script. The callback ran for the first manual fire, `Disconnect()` made `Connected` false, and a second fire did not run the callback.
+In both Script and LocalScript, `Connected` begins as `true`. `Disconnect()` changes `Connected` to `false` and prevents later delivery to the callback.

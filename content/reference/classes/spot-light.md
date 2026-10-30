@@ -19,9 +19,9 @@ In the `properties` tab, SpotLights visibly have Position, Rotation, and Size at
 
 ## Runtime scripting limitation
 
-In Vortex Studio 0.3.4, `Instance.new("SpotLight")` succeeds in both Script and LocalScript contexts, but produces a non-functional class shell. It exposes generic Instance methods and a connectable `Changed` signal, while the tested light-specific fields initially read as `nil`.
+`Instance.new("SpotLight")` succeeds in both Script and LocalScript contexts, but produces a class shell that scripts cannot configure. It exposes generic Instance methods and a `Changed` signal, while the light-specific fields read as `nil`.
 
-`Brightness`, `Range`, `Angle`, `Enabled`, and `Shadows` are not settable. `Color` accepts and retains a `Color3` value, but assigning `Parent` to a temporary Part succeeds without establishing a parent-child relationship or adding a child. Consequently, there is no confirmed scripting method for configuring or attaching a rendered SpotLight in the current runtime.
+`Brightness`, `Range`, `Angle`, `Enabled`, and `Shadows` are not settable. A SpotLight can be parented to a Part and is then found by the Part's `FindFirstChild` and `GetChildren`, but its light properties cannot be set from a script. Configure lights in the editor.
 
 <details>
 <summary><b>Properties</b></summary>
