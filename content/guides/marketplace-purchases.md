@@ -2,7 +2,7 @@
 title: Prompting Purchases
 description: Offer catalog items for Volts from inside your game.
 ---
-`MarketplaceService` lets a server `Script` ask a player to buy an item from the catalog without leaving the game. The player sees a confirmation window showing the item and its price in Volts, and the item is added to their inventory if they accept.
+[`MarketplaceService`](../reference/classes/marketplace-service.md) lets a server `Script` ask a player to buy an item from the [catalog](https://playvortex.io/catalog) without leaving the game. The player sees a confirmation window showing the item and its price in Volts, and the item is added to their inventory if they accept.
 
 ```luau
 -- Script

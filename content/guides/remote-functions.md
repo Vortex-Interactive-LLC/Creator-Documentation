@@ -7,7 +7,7 @@ description: Current RemoteFunction support and limitations in Vortex.
 
 ## Current support
 
-An editor-authored [`RemoteFunction`](../reference/classes/remote-function.md) in `ReplicatedStorage` exposes `InvokeServer` to a LocalScript. A server Script can assign `OnServerInvoke`.
+An editor-authored [`RemoteFunction`](../reference/classes/remote-function.md) in [`ReplicatedStorage`](../reference/classes/replicated-storage.md) exposes `InvokeServer` to a LocalScript. A server Script can assign `OnServerInvoke`.
 
 Instance arguments are not supported: invoking with `LocalPlayer` fails before delivery with an "Instances cannot be sent" runtime error.
 

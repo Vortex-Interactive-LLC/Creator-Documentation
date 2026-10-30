@@ -26,7 +26,7 @@ end)
 
 ## What touches what
 
-When a player touches a part, `hit` is one of the character's body parts. `hit.Parent` is the character, so `Players:GetPlayerFromCharacter(hit.Parent)` returns the player, and `hit.Parent:FindFirstChildOfClass("Humanoid")` returns their `Humanoid`.
+When a player touches a part, `hit` is one of the character's body parts. `hit.Parent` is the character, so `Players:GetPlayerFromCharacter(hit.Parent)` returns the player, and `hit.Parent:FindFirstChildOfClass("Humanoid")` returns their [`Humanoid`](../reference/classes/humanoid.md).
 
 `Touched` fires when contact begins, not every frame. A player standing still on a pad does not fire it again. Walking off fires `TouchEnded`, and walking back on fires `Touched` again.
 

@@ -11,6 +11,8 @@ Written by KingTasaz on August 28th, 2026
 -->
 
 ## Summary
+To use your own images and models, see [Meshes & Textures](../../guides/meshes-and-textures.md).
+
 This page describes the editor-facing Texture concept. Texture scripting is not currently available in the Vortex runtime; see the testing notes below. When a texture is added to an editor-authored [`part`](./part.md), its `Face` and name are set automatically, so six textures can cover the entire part quickly.
 <br><br>
 

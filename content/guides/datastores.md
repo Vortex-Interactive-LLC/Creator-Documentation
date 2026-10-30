@@ -2,7 +2,7 @@
 title: DataStores
 description: Save and load player data that persists between servers and sessions.
 ---
-`DataStoreService` saves data that lives beyond a single server, such as a player's coins or inventory. It is only available in server scripts. Calling `game:GetService("DataStoreService")` from a `LocalScript` raises an error.
+[`DataStoreService`](../reference/classes/data-store-service.md) saves data that lives beyond a single server, such as a player's coins or inventory. It is only available in server scripts. Calling `game:GetService("DataStoreService")` from a `LocalScript` raises an error.
 
 ```luau
 -- Script

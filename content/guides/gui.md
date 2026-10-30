@@ -18,7 +18,7 @@ GUIs are drawn and handled on the player's own machine, so script them with a `L
 
 ## Where GUIs live
 
-Put the `ScreenGui` in `StarterGui`. When a player joins, they get a [`PlayerGui`](../reference/classes/player-gui.md) containing a copy of everything in `StarterGui`, including any `LocalScript` inside it. A server `Script` cannot see a player's `PlayerGui`: `player.PlayerGui` is `nil` there. With `ResetOnSpawn` on (the default), a `ScreenGui` is replaced with a fresh copy from `StarterGui` each time the player's character respawns, so changes the script made to it are lost.
+Put the `ScreenGui` in [`StarterGui`](../reference/classes/starter-gui.md). When a player joins, they get a [`PlayerGui`](../reference/classes/player-gui.md) containing a copy of everything in `StarterGui`, including any `LocalScript` inside it. A server `Script` cannot see a player's `PlayerGui`: `player.PlayerGui` is `nil` there. With `ResetOnSpawn` on (the default), a `ScreenGui` is replaced with a fresh copy from `StarterGui` each time the player's character respawns, so changes the script made to it are lost.
 
 ## Size and position
 
@@ -41,11 +41,11 @@ label.TextSize = 24
 label.TextXAlignment = Enum.TextXAlignment.Left
 label.Font = Enum.Font.Mono
 
-image.Image = 1234567       -- the asset id of the image
+image.Image = 1234567       -- the asset id of the image (see Meshes & Textures)
 image.ScaleType = Enum.ScaleType.Fit
 ```
 
-An `ImageLabel` draws nothing until `Image` is set. `ScaleType` is `Stretch` to fill the box, `Fit` to keep the aspect ratio inside it, or `Crop` to fill it and trim the image.
+An `ImageLabel` draws nothing until `Image` is set to the asset id of an [uploaded image](meshes-and-textures.md). `ScaleType` is `Stretch` to fill the box, `Fit` to keep the aspect ratio inside it, or `Crop` to fill it and trim the image.
 
 ## Layout
 

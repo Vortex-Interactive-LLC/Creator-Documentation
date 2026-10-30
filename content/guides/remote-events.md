@@ -6,9 +6,9 @@ description: One way communication between the server and clients.
 > RemoteEvents send one-way messages between the server and clients for events like input, state changes, or game actions. Use `FireServer` from the client and `OnServerEvent` on the server, or use `FireClient`/`FireAllClients` from the server and handle `OnClientEvent` on the client.
 
 # Remote Events
-A `RemoteEvent` enables one-way communication between the server and clients. It doesn't wait for a response and has no return value. It's built for telling the other side what happened, not asking the other side for a result. For a call that needs a response, use [RemoteFunction](./remote-functions.md) instead.
+A [`RemoteEvent`](../reference/classes/remote-event.md) enables one-way communication between the server and clients. It doesn't wait for a response and has no return value. It's built for telling the other side what happened, not asking the other side for a result. For a call that needs a response, use [RemoteFunction](./remote-functions.md) instead.
 
-The primary parent container for remote events is `ReplicatedStorage`, as both the server and client can see and access it.
+The primary parent container for remote events is [`ReplicatedStorage`](../reference/classes/replicated-storage.md), as both the server and client can see and access it.
 > [!WARNING]
 > **Security note:** never trust arguments a client sends via `FireServer` at face value - a modified client can call it with anything. Re-validate any arguments on the server before acting on them.
 
@@ -16,7 +16,7 @@ The primary parent container for remote events is `ReplicatedStorage`, as both t
 In this example, pressing `E` changes a part named `ColorBlock` to a random color. Key presses can only be detected on the client, but the color change needs to happen on the server so every player sees the same result, which is what the remote event is for.
 
 ## Server Script
-- placed in `ServerScriptService`
+- placed in [`ServerScriptService`](../reference/classes/server-script-service.md)
 - Be sure to create an event named `ChangeColor` parented to `ReplicatedStorage`
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")

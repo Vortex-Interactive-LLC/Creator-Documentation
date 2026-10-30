@@ -13,7 +13,7 @@ seat.Parent = workspace
 
 ## Who is sitting
 
-`seat.Occupant` is the `Humanoid` of the character sitting in the seat, or `nil` when it is empty. The server decides who sits where, so there is never more than one occupant, and a character occupies at most one seat.
+`seat.Occupant` is the [`Humanoid`](../reference/classes/humanoid.md) of the character sitting in the seat, or `nil` when it is empty. The server decides who sits where, so there is never more than one occupant, and a character occupies at most one seat.
 
 ```luau
 seat:GetPropertyChangedSignal("Occupant"):Connect(function()

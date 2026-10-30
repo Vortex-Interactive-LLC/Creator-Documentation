@@ -6,20 +6,20 @@ Custom models and images are uploaded as assets. Each upload gets a numeric asse
 
 ## Uploading a model
 
-Upload models from the creator dashboard on the website.
+Upload models on [Vortex Create](https://create.playvortex.io/models).
 
 - File types: `.glb`, `.obj` and `.fbx`;
 - At most 20 MB and 20,000 triangles;
 - Static models only. Animated or rigged models are rejected;
 - A `.glb` must be a single self-contained file, with its textures embedded and no external files or extensions.
 
-If a model needs a texture that is not embedded, the upload asks for it as a second file. Textures are limited to 5 MB and are shrunk to fit 2048 x 2048. Uploads are reviewed before they can be used.
+A `.obj` model can be uploaded together with its `.mtl` file and texture images. If a model needs a texture that is not included, the upload asks for it. Textures are limited to 5 MB and are shrunk to fit 2048 x 2048. Uploads are reviewed before they can be used.
 
 ## Uploading an image
 
-Upload images from the same place.
+Upload images on [Vortex Create](https://create.playvortex.io/images) as well.
 
-- Any ordinary image file, but not an animated one;
+- PNG, JPG or WEBP files, but not animated ones;
 - At most 5 MB, converted to PNG and shrunk to fit 2048 x 2048;
 - Up to 50 images per account.
 

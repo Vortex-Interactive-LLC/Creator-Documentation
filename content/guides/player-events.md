@@ -59,4 +59,4 @@ end)
 - `Players.LocalPlayer` is the current player in a `LocalScript` and `nil` in a server `Script`.
 
 > [!NOTE]
-> A `RemoteEvent`'s `OnServerEvent` handler receives the `Player` that fired it as its first argument. See [Remote Events](remote-events.md).
+> A [`RemoteEvent`](../reference/classes/remote-event.md)'s `OnServerEvent` handler receives the `Player` that fired it as its first argument. See [Remote Events](remote-events.md).

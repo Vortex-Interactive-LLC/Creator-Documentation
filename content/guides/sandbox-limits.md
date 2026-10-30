@@ -15,7 +15,7 @@ Executor-style filesystem and hook globals are unavailable: `readfile`, `writefi
 
 ## No privileged game entry points
 
-`game.HttpGet`, `game.HttpPost`, `game.GetObjects`, `game.Loaded`, and `Instance.fromExisting` are unavailable. `HttpService`, `TeleportService`, and `InsertService` are not valid services in either execution context. `DataStoreService` and `MarketplaceService` are valid, but only in server Scripts.
+`game.HttpGet`, `game.HttpPost`, `game.GetObjects`, `game.Loaded`, and `Instance.fromExisting` are unavailable. `HttpService`, `TeleportService`, and `InsertService` are not valid services in either execution context. [`DataStoreService`](../reference/classes/data-store-service.md) and [`MarketplaceService`](../reference/classes/marketplace-service.md) are valid, but only in server Scripts.
 
 ## Available reflection helpers
 

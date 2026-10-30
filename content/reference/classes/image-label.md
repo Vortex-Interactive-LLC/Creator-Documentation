@@ -9,7 +9,7 @@ An `ImageLabel` is a box that draws an image. It draws nothing until `Image` is 
 
 ## Properties
 
-- `Image` - `number`, the asset id of the image. Defaults to `0`, which draws nothing;
+- `Image` - `number`, the asset id of an [uploaded image](../../guides/meshes-and-textures.md). Defaults to `0`, which draws nothing;
 - `ImageColor3` - [`Color3`](../datatypes/color3.md), tints the image. Defaults to `1, 1, 1`;
 - `ImageTransparency` - `number`, defaults to `0`;
 - `ScaleType` - `Enum.ScaleType`: `Stretch` fills the box, `Fit` keeps the aspect ratio and centres the image, `Crop` fills the box and trims the image. Defaults to `Stretch`;

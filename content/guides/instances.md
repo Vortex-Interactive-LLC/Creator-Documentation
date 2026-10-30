@@ -15,4 +15,4 @@ Written by ElectroTato on the 30th of August, 2026
 
 You can create a new `Instance` using the [`Instance.new`](../reference/globals/instance-new.md) method in a script by passing the `Instance`'s `ClassName` as the first argument.
 
-Most instances share a common set of hierarchy, attribute, and signal members, described in the [Instance reference](../reference/classes/instance.md). A few engine-backed values, such as `Humanoid`, expose only a limited set of members, so check the concrete class reference before using a method.
+Most instances share a common set of hierarchy, attribute, and signal members, described in the [Instance reference](../reference/classes/instance.md). A few engine-backed values, such as [`Humanoid`](../reference/classes/humanoid.md), expose only a limited set of members, so check the concrete class reference before using a method.
