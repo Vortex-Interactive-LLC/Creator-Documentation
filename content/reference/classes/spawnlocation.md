@@ -29,7 +29,7 @@ Properties of a SpawnLocation, in the order they appear in Vortex Studio.
 - [Color](./part.md#color): [`Color3`](../datatypes/color3.md)
 - [Transparency](./part.md#transparency): `Float`
 - [Material](./part.md#material): [`Enum.Material`](../globals/enum.md#material)
-- [Cast Shadow](./part.md#cast-shadow): `Boolean`
+- [CastShadow](./part.md#castshadow): `Boolean`
 
 </details>
 

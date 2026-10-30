@@ -134,7 +134,7 @@ Determines whether the `Part` has physics collisions enabled or can phase throug
 ### CanQuery
 > `Boolean` \
 \
-Determines whether the `Part` is hit by spatial queries such as [`Raycast`](./workspace.md). When `false`, queries pass through the part.
+Determines whether the `Part` is hit by spatial queries such as [`Raycast`](./workspace.md#raycast). When `false`, queries pass through the part.
 
 <br/>
 
@@ -204,7 +204,7 @@ The mass of the `Part`, calculated from its `Size`. This property is read-only.
 
 
 ### Material
-> [`Enum.Material`](../datatypes/enumitem.md) \
+> [`Enum.Material`](../globals/enum.md#material) \
 \
 Determines which `Material` type to apply when rendering the `Part`. Currently, this only has a visual effect.
 
