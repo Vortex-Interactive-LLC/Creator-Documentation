@@ -179,7 +179,7 @@ description: The methods and properties shared by objects in the game.
 > end)
 > ```
 >
-> The signal fires on instances that are parented into the game. It does not fire for an Instance with no parent.
+> The signal fires on instances that are parented into the game. It does not fire for an Instance with no parent, or for a change made in the same frame as the Instance was parented.
 
 ### GetPropertyChangedSignal(property: `string`)
 
@@ -193,7 +193,7 @@ description: The methods and properties shared by objects in the game.
 > end)
 > ```
 >
-> The signal fires on instances that are parented into the game. It does not fire for an Instance with no parent. A property name that does not exist does not raise an error, but its signal never fires.
+> The signal fires on instances that are parented into the game. It does not fire for an Instance with no parent, or for a change made in the same frame as the Instance was parented. A property name that does not exist does not raise an error, but its signal never fires.
 
 ### GetPivot()
 
@@ -216,7 +216,7 @@ description: The methods and properties shared by objects in the game.
 > model:PivotTo(CFrame.new(0, 20, 0))
 > ```
 >
-> It can also be called on a `Part` and on a player's character. See [`GetPivot`](#getpivot).
+> It can also be called on a `Part` and on a player's character. On a character only the position of `targetCFrame` is used and the rotation is ignored. See [`GetPivot`](#getpivot).
 
 ### MoveTo(position: [`Vector3`](../datatypes/vector3.md))
 

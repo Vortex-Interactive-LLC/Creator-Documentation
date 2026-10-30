@@ -26,7 +26,7 @@ The generic Instance methods are available, including `GetChildren`, `GetDescend
 
 ## Rotating a character
 
-Assigning `Character.Orientation`, for example `character.Orientation = Vector3.new(0, 90, 0)`, from a server `Script` is accepted. The public [`HumanoidRootPart`](./humanoid-root-part.md) rejects `Orientation` writes. To move and turn a character together, use `Character:PivotTo(cframe)`.
+A script cannot turn a live character. Assigning `Character.Orientation` from a server `Script` is accepted but has no effect, and the public [`HumanoidRootPart`](./humanoid-root-part.md) rejects `Orientation` writes. `Character:PivotTo(cframe)` and `Character:MoveTo(position)` only use the position they are given and ignore any rotation.
 
 ## Lifecycle
 

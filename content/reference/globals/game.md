@@ -23,8 +23,8 @@ Edited by MtcLuna05 on August 30th, 2026
 Properties of `game`.
 <br><br>
 
-* [Workspace](#workspace): [`Workspace`](/content/reference/classes/workspace.md)
-* [Players](#players): [`Players`](/content/reference/classes/players.md)
+* [Workspace](#workspace): [`Workspace`](../classes/workspace.md)
+* [Players](#players): [`Players`](../classes/players.md)
 
 </details>
 

@@ -17,7 +17,6 @@ local Players = game:GetService("Players")
 
 local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
 
--- Roblox-style targeting example; see the Vortex notes below.
 local activePlayers = Players:GetPlayers()
 local random_player = activePlayers[math.random(1, #activePlayers)]
 local pi = GetPiFromDigits:InvokeClient(random_player, 5)
@@ -27,40 +26,13 @@ print(random_player.Name .. " replied with: " .. pi)
 
 ```luau
 -- LocalScript
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 local GetPiFromDigits = ReplicatedStorage:WaitForChild("GetPiFromDigits")
 
-function compute_pi(digits)
-    -- magic
-    local col = math.floor(digits * 10 / 3)
-    local array = {}
-    for i = 1, col, 1 do table.insert(array, 2) end
-    local output = {}
-
-    for _ = 1, digits, 1 do
-        local carry = 0
-        for i = col - 1, 0, -1 do
-            local num = array[i] * 10 + carry
-            local denom = i * 2 + 1
-            arr[i] = num % denom
-            carry = math.floor(num / denom)
-        end
-
-        num = arr[1] * 10 + carry
-        arr[1] = num % 10
-        output.append(tostring(math.floor(num / 10)))
-    end
-
-    local result = output[1] .. "."
-    for i = 2, #output, 1 do
-        result ..= output[i]
-    end
-
-    return result
+GetPiFromDigits.OnClientInvoke = function(digits)
+    return string.format("%." .. digits .. "f", math.pi)
 end
-
-GetPiFromDigits.OnClientInvoke = compute_pi
 ```
 
 ## Methods

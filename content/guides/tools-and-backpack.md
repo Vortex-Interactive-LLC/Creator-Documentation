@@ -22,6 +22,8 @@ local copy = tool:Clone()
 copy.Parent = player.Backpack
 ```
 
+Inside a `PlayerAdded` handler `player.Backpack` is still `nil`. Use `player:WaitForChild("Backpack")` there.
+
 Anything in the player's backpack when they die is removed, and the backpack is refilled from `StarterPack` on respawn.
 
 ## Equipping

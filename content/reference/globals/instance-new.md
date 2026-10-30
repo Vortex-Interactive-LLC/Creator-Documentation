@@ -65,7 +65,7 @@ part.Parent = workspace
 Instance.new() also accepts the parent as an optional second argument:
 
 ```lua
-local part = Instance.new("Part", Workspace)
+local part = Instance.new("Part", workspace)
 part.Name = "Platform"
 part.Size = Vector3.new(8, 1, 8)
 part.Position = Vector3.new(0, 10, 0)

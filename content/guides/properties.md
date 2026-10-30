@@ -33,4 +33,4 @@ end
 
 ## Change signals
 
-`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when a property or attribute changes on an instance that is parented into the game. Instances with no parent do not fire them. See [Signals](/content/reference/datatypes/signal.md) and [Attributes](/content/guides/attributes.md).
+`Changed`, `GetPropertyChangedSignal`, and `GetAttributeChangedSignal` fire when a property or attribute changes on an instance that is parented into the game. Instances with no parent do not fire them, and a change made in the same frame as the instance was parented is missed, so wait a frame after setting `Parent` before relying on them. See [Signals](../reference/datatypes/signal.md) and [Attributes](./attributes.md).

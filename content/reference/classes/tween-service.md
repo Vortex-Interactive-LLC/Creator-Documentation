@@ -28,7 +28,7 @@ Methods of `TweenService`.
 
 ### Create(instance: `Instance`, tweenInfo: `TweenInfo?`, goals: `{[string]: any}`)
 
-> [`Tween`](/content/reference/datatypes/tween.md)
+> [`Tween`](../datatypes/tween.md)
 > 
 > Returns a tween based on the given instance, tween information, and goals. The tween can be played with `Tween:Play()`. 
 > 

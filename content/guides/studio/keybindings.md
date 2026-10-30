@@ -23,7 +23,7 @@ A reference for the keyboard shortcuts and mouse controls in Vortex Studio's edi
 | `Ctrl` + `V` | Paste copied parts |
 | `Ctrl` + `D` | Duplicate selected nodes/parts |
 | `Ctrl` + `G` | Group selected parts into a model |
-| `Shift` + `Ctrl` + `G` | Ungroup a model |
+| `Shift` + `Ctrl` + `G` ***or*** `Ctrl` + `U` | Ungroup a model |
 | `F` | Focus the view on the selected parts |
 | `Backspace` / `Delete` | Delete selected parts |
 

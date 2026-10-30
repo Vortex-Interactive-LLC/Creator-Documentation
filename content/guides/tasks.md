@@ -7,7 +7,7 @@ description: Schedule work with Vortex task helpers.
 
 ## Available helpers
 
-Vortex provides `task.spawn`, `task.defer`, `task.delay`, `task.wait`, and `task.cancel` in both Script and LocalScript. See the full [`task`](/content/reference/globals/task.md) reference.
+Vortex provides `task.spawn`, `task.defer`, `task.delay`, `task.wait`, and `task.cancel` in both Script and LocalScript. See the full [`task`](../reference/globals/task.md) reference.
 
 ```lua
 task.spawn(function()
