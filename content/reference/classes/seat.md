@@ -25,6 +25,10 @@ end)
 - `Disabled` - `Boolean`, defaults to `false`. While `true` nobody can sit, and the current occupant is removed;
 - all the properties of a [`Part`](./part.md).
 
+## Methods
+
+- `Sit(humanoid: Humanoid): nil` - seats the character that owns `humanoid`. On the server it works for any character. In a `LocalScript` it works only for the local player's own character. The seat must be in the game, and the usual occupancy rules apply.
+
 ## Notes
 
 The server decides occupancy. A seat holds one character, and a character occupies one seat. The occupant is removed if they die, and a sit request from more than about 12 studs from the seat is rejected. `Humanoid.SeatPart` and the `Humanoid.Seated` signal report the same state from the character's side.
