@@ -119,7 +119,7 @@ Signals of the `Humanoid`.
 
 > `Number`
 >
-> The height of the character's root part above the ground. Defaults to `0`.
+> Extra height, in studs, added to the character's standing height above the ground. Defaults to `0`.
 
 <br/>
 
@@ -256,7 +256,7 @@ Signals of the `Humanoid`.
 #### Parameters
 
 - `active`: `Boolean` — `true` when the character sits down, `false` when it gets up.
-- `seatPart`: [`Seat`](./seat.md) — the seat involved.
+- `seatPart`: [`Seat`](./seat.md) | `nil` — the seat the character sat in, or `nil` when it gets up.
 
 ## Notes
 

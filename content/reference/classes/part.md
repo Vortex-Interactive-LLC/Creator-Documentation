@@ -134,7 +134,7 @@ Determines whether the `Part` has physics collisions enabled or can phase throug
 ### CanQuery
 > `Boolean` \
 \
-Determines whether the `Part` is hit by spatial queries such as [`Raycast`](./workspace.md#raycast). When `false`, queries pass through the part.
+Determines whether a `Part` with `CanCollide` set to `false` is hit by [`Raycast`](./workspace.md#raycast), `Mouse.Hit` and `Mouse.Target`, and by `ClickDetector` hover. It has no effect on parts with `CanCollide` enabled, which are always hit. [`Spherecast`](./workspace.md#spherecast) and [`Blockcast`](./workspace.md#blockcast) do not hit parts with `CanCollide` set to `false`.
 
 <br/>
 
@@ -198,7 +198,7 @@ Determines the visible color of the `Part`. It will also affect the part's [`Mat
 ### Mass
 > `number` \
 \
-The mass of the `Part`, calculated from its `Size`. This property is read-only.
+The mass of the `Part`. When the part has no physics body, it is calculated from its `Size`. This property is read-only.
 
 <br/>
 
