@@ -62,5 +62,5 @@ end)
 
 - Create RemoteEvents in `ReplicatedStorage` through the editor before play. Editor-authored remotes dispatch from `FireServer` to `OnServerEvent`; remotes created by a script at runtime do not dispatch to the server handler.
 - The first value `OnServerEvent` receives is the `Player` who fired the event.
-- Remote arguments can be numbers, strings, booleans, `nil`, `Vector3`, `Color3`, and tables of those. They cannot be Instances, including a `Player` or a Character.
+- Remote arguments can be numbers, strings, booleans, `nil`, `Vector2`, `Vector3`, `Color3`, and tables of those. They cannot be Instances, including a `Player` or a Character.
 - `FireServer` can only be called from a client script.
