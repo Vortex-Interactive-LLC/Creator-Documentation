@@ -1,18 +1,12 @@
 ---
 title: script
-description: Keyword representing the current script instance
+description: The script that is currently running.
 ---
 
-<!-- 
-script
-Revision 1
+`script` is the instance of the script that is running, so you can read its `Parent` and the instances near it.
 
-Written by mezz-source on August 29th, 2026
--->
+```luau
+print(script.Name, script.Parent)
+```
 
-The `script` keyword can be used to access the instance of the current script. It can be used to index nearby instances or change the properties relating to itself.
-
-
-<!--
-stub until scripting releases
--->
+Inside a `ModuleScript`, `script` is the script that called `require`, not the module. Use an explicit path such as `game.ReplicatedStorage.Helper` to find other modules.

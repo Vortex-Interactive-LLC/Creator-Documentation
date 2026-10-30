@@ -12,6 +12,8 @@ Written by Kindtracker on September 19, 2026
 
 ## Summary
 
+The `workspace` global is this service. Instances may not exist yet while the game is loading, so use `WaitForChild` or check for `nil` before using something you look up.
+
 <details>
 <summary><b>Properties</b></summary>
 Properties of a Workspace, in the order they appear in Vortex Studio

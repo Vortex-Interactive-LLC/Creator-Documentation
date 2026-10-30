@@ -13,7 +13,7 @@ Written by CNK on August 30th, 2026.
 
 `TweenService` is a service used to create tweens. A tween is a smooth interpolation between two states over a period of time.
 
-`TweenService` is available through `game:GetService("TweenService")`.
+`TweenService` is available through `game:GetService("TweenService")`. See the [Tweening guide](../../guides/tweening.md) for a walkthrough.
 
 <details>
 <summary><b>Methods</b></summary>

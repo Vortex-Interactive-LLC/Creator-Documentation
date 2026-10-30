@@ -56,7 +56,7 @@ Services of `game`.
 * [Debris](../classes/debris.md)
 * [RunService](./runservice.md)
 * [TweenService](../classes/tween-service.md)
-* [UserInputService](./user-input-service.md)
+* [UserInputService](../classes/user-input-service.md)
 
 </details>
 

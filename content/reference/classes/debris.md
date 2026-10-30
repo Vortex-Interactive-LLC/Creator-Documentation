@@ -62,4 +62,4 @@ Debris:AddItem(part, 5)
 
 ## Testing Notes
 
-`AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`. Calling `Debris:AddItem(part, 0)` removes the `Part` almost immediately; its `Parent` becomes `nil`.
+`AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`. Calling `Debris:AddItem(part, 0)` removes the `Part` on the next scheduler tick; its `Parent` becomes `nil`.
