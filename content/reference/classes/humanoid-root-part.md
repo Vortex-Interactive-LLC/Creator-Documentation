@@ -26,7 +26,11 @@ These fields are readable in both a `LocalScript` and a server `Script`:
 - `Parent`, the visible Character Model;
 - `Position`, a [`Vector3`](../datatypes/vector3.md);
 - `Size`, a [`Vector3`](../datatypes/vector3.md);
-- `CFrame`, a [`CFrame`](../datatypes/cframe.md).
+- `CFrame`, a [`CFrame`](../datatypes/cframe.md);
+- `Orientation` and `Rotation`, a [`Vector3`](../datatypes/vector3.md) of Euler angles in degrees;
+- `Velocity`, `AssemblyLinearVelocity`, `AssemblyAngularVelocity`, and `RotVelocity`, each a [`Vector3`](../datatypes/vector3.md).
+
+The four velocity fields always read as `Vector3.new(0, 0, 0)`; the character's actual movement is not reported through them. To follow the character's motion, compare `Position` across frames.
 
 `IsA` is the only method exposed. It returns `true` for `"Part"` and `"BasePart"`.
 

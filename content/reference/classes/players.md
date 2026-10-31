@@ -29,6 +29,8 @@ local player = Players.LocalPlayer
 - `GetPlayers(): { Player }` - returns the list of currently visible players.
 * `GetPlayerByUserId(UserId: number): Player` - Returns the player with the specified UserId.
 * `GetPlayerFromCharacter(character: Character): Player` - Returns the player associated with the specified character.
+* `GetNameFromUserIdAsync(userId: number): string` - Returns the username for the specified UserId. Server `Script` only. Yields while the name is looked up.
+* `GetUserIdFromNameAsync(name: string): number` - Returns the UserId for the specified username. Server `Script` only. Yields while the id is looked up.
 
 ## Signals
 

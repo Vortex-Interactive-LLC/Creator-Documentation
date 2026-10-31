@@ -17,6 +17,13 @@ Properties of the `Humanoid`.
 * [Name](#name): `string`
 * [Health](#health): `Number`
 * [MaxHealth](#maxhealth): `Number`
+* [WalkSpeed](#walkspeed): `Number`
+* [JumpPower](#jumppower): `Number`
+* [JumpHeight](#jumpheight): `Number`
+* [HipHeight](#hipheight): `Number`
+* [AutoRotate](#autorotate): `Boolean`
+* [Sit](#sit): `Boolean`
+* [SeatPart](#seatpart): [`Seat`](./seat.md) | `nil` (read-only)
 
 </details>
 
@@ -28,6 +35,9 @@ Methods of the `Humanoid`.
 
 * [IsDead](#isdead): `Boolean`
 * [GetState](#getstate): `Enum.HumanoidStateType`
+* [TakeDamage](#takedamage): `nil`
+* [EquipTool](#equiptool): `nil`
+* [UnequipTools](#unequiptools): `nil`
 
 </details>
 
@@ -43,6 +53,7 @@ Signals of the `Humanoid`.
 * [Jumping](#jumping): [`Signal`](../datatypes/signal.md)
 * [FreeFalling](#freefalling): [`Signal`](../datatypes/signal.md)
 * [Running](#running): [`Signal`](../datatypes/signal.md)
+* [Seated](#seated): [`Signal`](../datatypes/signal.md)
 
 </details>
 
@@ -80,6 +91,62 @@ Signals of the `Humanoid`.
 
 <br/>
 
+### WalkSpeed
+
+> `Number`
+>
+> How fast the character walks, in studs per second. Defaults to `16`. Can be assigned from a server `Script`. Negative values are treated as `0`.
+
+<br/>
+
+### JumpPower
+
+> `Number`
+>
+> The upward speed of a jump. Defaults to `50`. Can be assigned from a server `Script`.
+
+<br/>
+
+### JumpHeight
+
+> `Number`
+>
+> How high a jump reaches, in studs. Defaults to about `6.4`. It is derived from `JumpPower`, so setting one changes the other.
+
+<br/>
+
+### HipHeight
+
+> `Number`
+>
+> Extra height, in studs, added to the character's standing height above the ground. Defaults to `0`.
+
+<br/>
+
+### AutoRotate
+
+> `Boolean`
+>
+> When `true`, the character turns to face the direction it is moving. Defaults to `true`.
+
+<br/>
+
+### Sit
+
+> `Boolean`
+>
+> `true` while the character is sitting in a [`Seat`](./seat.md). Setting it to `false` removes the character from its seat. Setting it to `true` does not seat the character.
+
+<br/>
+
+### SeatPart
+
+> [`Seat`](./seat.md) | `nil`
+>
+> The seat the character is sitting in, or `nil` when it is not seated. This property is read-only.
+
+<br/>
+
 ## Methods
 
 ### IsDead
@@ -89,6 +156,30 @@ Signals of the `Humanoid`.
 > `humanoid:IsDead()`
 >
 > Returns whether the Humanoid is dead.
+
+### TakeDamage
+
+> `nil`
+>
+> `humanoid:TakeDamage(amount: Number)`
+>
+> Reduces `Health` by `amount`. Server `Script` only. Does nothing while the character has a [`ForceField`](./force-field.md).
+
+### EquipTool
+
+> `nil`
+>
+> `humanoid:EquipTool(tool: Tool)`
+>
+> Moves `tool` into the character so that it is held. Server `Script` only. Raises an error if `tool` is not a [`Tool`](./tool.md), and does nothing if the character is dead.
+
+### UnequipTools
+
+> `nil`
+>
+> `humanoid:UnequipTools()`
+>
+> Moves every held tool back into the player's [`Backpack`](./backpack.md). Server `Script` only.
 
 ### GetState
 
@@ -154,12 +245,23 @@ Signals of the `Humanoid`.
 
 - `health`: `Number` — the updated health value.
 
+### Seated
+
+> [`Signal`](../datatypes/signal.md)
+>
+> `humanoid.Seated`
+>
+> Fires when the character sits down or gets up.
+
+#### Parameters
+
+- `active`: `Boolean` — `true` when the character sits down, `false` when it gets up.
+- `seatPart`: [`Seat`](./seat.md) | `nil` — the seat the character sat in, or `nil` when it gets up.
+
 ## Notes
 
 A character's Humanoid starts with `Health` and `MaxHealth` of `100`. In a server `Script`, both can be assigned, and assigning `Health = 0` kills the character. The character then respawns with full health. `Died` and `HealthChanged` fire when the Humanoid dies or its health changes.
 
 `humanoid:TakeDamage(amount)` reduces `Health`. A newly spawned character has a `ForceField` for a few seconds, and damage is blocked while it is present.
-
-`WalkSpeed`, `JumpPower`, `JumpHeight`, and `HipHeight` are numbers, and `AutoRotate` and `Sit` are booleans. `WalkSpeed` can be assigned from a server `Script`. `StateChanged`, `Jumping`, `FreeFalling`, `Running`, and `Seated` are available as signals.
 
 A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). Methods such as `ChangeState`, `Move`, `MoveTo`, `LoadAnimation`, and `AddAccessory` are not available.

@@ -34,6 +34,20 @@ A `Player` is an Instance. It provides the generic Instance methods, including `
 
 `CharacterAdded` and `CharacterRemoving` fire when the player's character spawns or is removed. `Kick` and `LoadCharacter` are not available.
 
+`Chatted(message: string)` fires in server scripts when the player sends a chat message. `message` is the filtered text other players see, so a blocked message arrives as `#` characters.
+
+```luau
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+	player.Chatted:Connect(function(message)
+		if message == "!hello" then
+			print(player.Name .. " said hello")
+		end
+	end)
+end)
+```
+
 ## Character
 
 [`Character`](./character.md), [`Humanoid`](./humanoid.md), and [`HumanoidRootPart`](./humanoid-root-part.md) are directly readable members of the character:

@@ -3,7 +3,7 @@ title: Character
 description: The runtime Model projection associated with a Player.
 ---
 
-A Character is the live [`Model`](./model.md) exposed by a player's [`Player.Character`](./player.md) field. It is not a separately constructible Vortex class. Obtain it from the local player in a LocalScript or from a Player returned by `Players:GetPlayers()` in a server Script.
+A Character is the live [`Model`](./model.md) exposed by a player's [`Player.Character`](./player.md#character) field. It is not a separately constructible Vortex class. Obtain it from the local player in a LocalScript or from a Player returned by `Players:GetPlayers()` in a server Script.
 
 ```luau
 -- LocalScript
@@ -20,7 +20,7 @@ local character = player and player.Character
 
 The live Character reports `ClassName == "Model"`. Its public fields are `ClassName`, `Name`, `Position`, [`Humanoid`](./humanoid.md), and [`HumanoidRootPart`](./humanoid-root-part.md). `Parent` reads as `nil`.
 
-The generic Instance methods are available, including `GetChildren`, `GetDescendants`, `FindFirstChild`, `FindFirstChildOfClass`, `WaitForChild`, `IsA`, `Clone`, `Destroy`, and the attribute methods. `MoveTo` and `PivotTo` move the character. `PrimaryPart` is not available.
+The generic Instance methods are available, including `GetChildren`, `GetDescendants`, `FindFirstChild`, `FindFirstChildOfClass`, `WaitForChild`, `IsA`, `Clone`, `Destroy`, and the attribute methods. `MoveTo` and `PivotTo` move the character, and `GetPivot` returns its current [`CFrame`](../datatypes/cframe.md). `PrimaryPart` is not available.
 
 `Character:FindFirstChild("Humanoid")` and `Character:FindFirstChild("HumanoidRootPart")` resolve the same direct values as the public fields. The standard R6/R15 limb names are not children of the character.
 

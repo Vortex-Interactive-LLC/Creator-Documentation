@@ -22,8 +22,9 @@ Properties of a Part, in the order they appear in Vortex Studio.
 
 - [Color](#color): [`Color3`](../datatypes/color3.md)
 - [Transparency](#transparency): `Float`
-- [Material](#material): [`Enum.Material`](../globals/enum.md) <!-- not sure if this should link to enumitem.md or enum.md <pretty sure it's enum.md> -->
-- [Cast Shadow](#cast-shadow): `Boolean`
+- [Material](#material): [`Enum.Material`](../globals/enum.md#material)
+- [CastShadow](#castshadow): `Boolean`
+- [TextureID](#textureid): `number`
 
 </details>
 
@@ -32,9 +33,30 @@ Properties of a Part, in the order they appear in Vortex Studio.
 
 - [Anchored](#anchored): `Boolean`
 - [CanCollide](#cancollide): `Boolean`
+- [CanQuery](#canquery): `Boolean`
+- [CanTouch](#cantouch): `Boolean`
 - [ClassName](#classname): `string`
 - [Parent](#parent): [`Instance`](./instance.md) | `nil`
 - [Truss](#truss): `Boolean`
+
+</details>
+
+<details>
+<summary><b>Shape</b></summary>
+
+- [CollisionFidelity](#collisionfidelity): [`Enum.CollisionFidelity`](../globals/enum.md#collisionfidelity)
+- [MeshId](#meshid): `number` | `string`
+- [Shape](#shape): [`Enum.PartType`](../globals/enum.md#parttype)
+
+</details>
+
+<details>
+<summary><b>Physics</b></summary>
+
+- [AngularVelocity](#angularvelocity): [`Vector3`](../datatypes/vector3.md)
+- [CenterOfMass](#centerofmass): [`Vector3`](../datatypes/vector3.md) (read-only)
+- [Mass](#mass): `number` (read-only)
+- [Velocity](#velocity): [`Vector3`](../datatypes/vector3.md)
 
 </details>
 
@@ -84,6 +106,14 @@ Properties of a Part, in the order they appear in Vortex Studio.
 
 ## Properties
 
+### AngularVelocity
+> [`Vector3`](../datatypes/vector3.md) \
+\
+The rotational velocity of the `Part`, in radians per second.
+
+<br/>
+
+
 ### Anchored
 > `Boolean` \
 \
@@ -97,6 +127,30 @@ When `false`, the part will experience gravity and forces from other parts.
 > `Boolean` \
 \
 Determines whether the `Part` has physics collisions enabled or can phase through other parts.
+
+<br/>
+
+
+### CanQuery
+> `Boolean` \
+\
+Determines whether a `Part` with `CanCollide` set to `false` is hit by [`Raycast`](./workspace.md#raycast), `Mouse.Hit` and `Mouse.Target`, and by `ClickDetector` hover. It has no effect on parts with `CanCollide` enabled, which are always hit. [`Spherecast`](./workspace.md#spherecast) and [`Blockcast`](./workspace.md#blockcast) do not hit parts with `CanCollide` set to `false`.
+
+<br/>
+
+
+### CanTouch
+> `Boolean` \
+\
+Determines whether [`Touched`](#touched) and [`TouchEnded`](#touchended) fire for contact with the `Part`.
+
+<br/>
+
+
+### CenterOfMass
+> [`Vector3`](../datatypes/vector3.md) \
+\
+The center of mass of the `Part`, relative to its position. This property is read-only.
 
 <br/>
 
@@ -117,10 +171,18 @@ The runtime class name of the `Part`.
 <br/>
 
 
-### Cast Shadow
+### CastShadow
 > `Boolean` \
 \
 Controls whether or not the `Part` will cast a shadow. This can be used to improve performance for parts whose shadows cannot be seen, or for glass parts that would not realistically cast a shadow.
+
+<br/>
+
+
+### CollisionFidelity
+> [`Enum.CollisionFidelity`](../globals/enum.md#collisionfidelity) \
+\
+Controls how closely the collider of a mesh `Part` matches its visible shape. It has no effect on parts without a mesh. Accepts `Default`, `Hull`, `Box`, and `PreciseConvexDecomposition`.
 
 <br/>
 
@@ -133,10 +195,26 @@ Determines the visible color of the `Part`. It will also affect the part's [`Mat
 <br/>
 
 
+### Mass
+> `number` \
+\
+The mass of the `Part`. When the part has no physics body, it is calculated from its `Size`. This property is read-only.
+
+<br/>
+
+
 ### Material
-> [`Enum.Material`](../datatypes/enumitem.md) \
+> [`Enum.Material`](../globals/enum.md#material) \
 \
 Determines which `Material` type to apply when rendering the `Part`. Currently, this only has a visual effect.
+
+<br/>
+
+
+### MeshId
+> `number` | `string` \
+\
+The asset id of the mesh to display. Accepts a number or a string such as `"vortex://123"`. Setting a non-zero id also sets [`Shape`](#shape) to `Mesh`, and setting `0` resets it to `Block`.
 
 <br/>
 
@@ -181,10 +259,26 @@ The rotation of the `Part` along each axis.
 <br/>
 
 
+### Shape
+> [`Enum.PartType`](../globals/enum.md#parttype) \
+\
+The geometric shape of the `Part`.
+
+<br/>
+
+
 ### Size
 > [`Vector3`](../datatypes/vector3.md) \
 \
 The size of the `Part` in each dimension (width, height, depth).
+
+<br/>
+
+
+### TextureID
+> `number` | `string` \
+\
+The asset id of the texture applied to the `Part`. Accepts the same formats as [`MeshId`](#meshid).
 
 <br/>
 
@@ -201,6 +295,14 @@ Sets the `transparency` of the part from `0` (opaque) to `1` (invisible). When d
 > `Boolean` \
 \
 If a `part` is a truss part, then the `Player` can climb the part by walking up to it. It is recommended to keep truss parts anchored, as they can otherwise produce unpredictable effects. `Truss` is set in Vortex Studio only: it reads as `nil` from a script, and assigning it raises an error.
+
+<br/>
+
+
+### Velocity
+> [`Vector3`](../datatypes/vector3.md) \
+\
+The linear velocity of the `Part`, in studs per second.
 
 <br/>
 

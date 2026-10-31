@@ -6,6 +6,10 @@ description: The runtime enum namespace.
 > [!Summary]
 > `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. Each item converts to its `Enum.<group>.<item>` string form.
 
+### CollisionFidelity
+
+`Box`, `Default`, `Hull`, `PreciseConvexDecomposition`
+
 ### EasingDirection
 
 `In`, `InOut`, `Out`
@@ -18,6 +22,18 @@ description: The runtime enum namespace.
 
 `A`, `B`, `BackSlash`, `Backquote`, `Backspace`, `C`, `Comma`, `D`, `Delete`, `Down`, `E`, `Eight`, `Equals`, `Escape`, `F`, `F1`, `F10`, `F11`, `F12`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `Five`, `Four`, `G`, `H`, `I`, `J`, `K`, `L`, `Left`, `LeftAlt`, `LeftBracket`, `LeftControl`, `LeftShift`, `LeftSuper`, `M`, `Minus`, `N`, `Nine`, `O`, `One`, `P`, `Period`, `Q`, `Quote`, `R`, `Return`, `Right`, `RightAlt`, `RightBracket`, `RightControl`, `RightShift`, `RightSuper`, `S`, `Semicolon`, `Seven`, `Six`, `Slash`, `Space`, `T`, `Tab`, `Three`, `Two`, `U`, `Unknown`, `Up`, `V`, `W`, `X`, `Y`, `Z`, `Zero`
 
+### Font
+
+`Bangers`, `Figtree`, `Fredoka`, `Lora`, `Mono`, `Oswald`, `Pacifico`, `PressStart2P`, `Roboto`
+
+### FontStyle
+
+`Italic`, `Normal`
+
+### FontWeight
+
+`Bold`, `ExtraBold`, `ExtraLight`, `Heavy`, `Light`, `Medium`, `Regular`, `SemiBold`, `Thin`
+
 ### Material
 
 `Brick`, `Grass`, `Ice`, `Metal`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
@@ -26,9 +42,17 @@ description: The runtime enum namespace.
 
 `Back`, `Bottom`, `Front`, `Left`, `Right`, `Top`
 
+### PartType
+
+`Ball`, `Block`, `CornerWedge`, `Cylinder`, `Mesh`, `Wedge`
+
 ### PlaybackState
 
 `Begin`, `Cancelled`, `Completed`, `Delayed`, `Paused`, `Playing`
+
+### TextFilterContext
+
+`PrivateChat`, `PublicChat`
 
 ### UserInputType
 

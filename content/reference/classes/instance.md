@@ -228,7 +228,7 @@ description: The methods and properties shared by objects in the game.
 > model:MoveTo(Vector3.new(10, 30, 10))
 > ```
 >
-> `MoveTo` is only available on models and characters. Calling it on a `Part` raises an error, so set the part's `Position` or use [`PivotTo`](#pivotto).
+> `MoveTo` is only available on models and characters. Calling it on a `Part` raises an error, so set the part's `Position` or use [`PivotTo`](#pivottotargetcframe-cframe).
 
 ## Vortex Studio Method Availability
 

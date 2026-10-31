@@ -65,9 +65,9 @@ Constructors of a `Vector3`.
 Methods of a `Vector3`.
 <br><br>
 
-* [Cross](#cross): `Vector3`
-* [Dot](#dot): `Number`
-* [Lerp](#lerp): `Vector3`
+* [Cross](#crossother-vector3): `Vector3`
+* [Dot](#dotother-vector3): `Number`
+* [Lerp](#lerpother-vector3-alpha-number): `Vector3`
 * [tostring(Vector3)](#tostringvector3): `string`
 
 </details>
