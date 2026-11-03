@@ -24,7 +24,7 @@ Choose one type when you upload. Players can wear up to three hats and one of ev
 Download the avatar template from the upload page and model your accessory around it. The accessory must stay in the same position and size as the template, because Vortex does not move it when it is worn. The avatar stands with its feet at the origin.
 
 - A single `.glb` file, at most 2 MB;
-- At most 2,000 triangles;
+- At most 4,000 triangles;
 - One texture embedded in the file, PNG or JPEG, between 16 and 1024 pixels on each side;
 - Static models only. Rigged or animated models are rejected;
 - No glTF extensions, and no external files;
