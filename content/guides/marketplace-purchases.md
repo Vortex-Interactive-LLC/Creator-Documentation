@@ -30,7 +30,7 @@ MarketplaceService.PromptPurchaseFinished:Connect(function(player, itemId, purch
 end)
 ```
 
-`MarketplaceService` is only available in server scripts. `itemId` is the id of a catalog item.
+`MarketplaceService` is only available in server scripts. `itemId` is the id of a catalog item. To sell a one-time purchase that belongs to your game, see [Gamepasses](gamepasses.md).
 
 ## Prompting
 

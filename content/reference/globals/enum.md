@@ -18,6 +18,10 @@ description: The runtime enum namespace.
 
 `Back`, `Bounce`, `Circular`, `Cubic`, `Elastic`, `Exponential`, `Linear`, `Quad`, `Quart`, `Quint`, `Sine`
 
+### InfoType
+
+`Asset`, `GamePass`
+
 ### KeyCode
 
 `A`, `B`, `BackSlash`, `Backquote`, `Backspace`, `C`, `Comma`, `D`, `Delete`, `Down`, `E`, `Eight`, `Equals`, `Escape`, `F`, `F1`, `F10`, `F11`, `F12`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `Five`, `Four`, `G`, `H`, `I`, `J`, `K`, `L`, `Left`, `LeftAlt`, `LeftBracket`, `LeftControl`, `LeftShift`, `LeftSuper`, `M`, `Minus`, `N`, `Nine`, `O`, `One`, `P`, `Period`, `Q`, `Quote`, `R`, `Return`, `Right`, `RightAlt`, `RightBracket`, `RightControl`, `RightShift`, `RightSuper`, `S`, `Semicolon`, `Seven`, `Six`, `Slash`, `Space`, `T`, `Tab`, `Three`, `Two`, `U`, `Unknown`, `Up`, `V`, `W`, `X`, `Y`, `Z`, `Zero`
