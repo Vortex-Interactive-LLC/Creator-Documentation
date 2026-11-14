@@ -28,6 +28,8 @@ frame.Parent = screenGui
 - `BackgroundTransparency` - `number`, defaults to `0`;
 - `ClipsDescendants` - `boolean`, defaults to `false`;
 - `Active` - `boolean`, whether the object receives input. Defaults to `false`;
+- `AbsolutePosition` - [`Vector2`](../datatypes/vector2.md), read-only. The top-left corner in pixels, relative to the top-left of the game view. `0, 0` while the object is hidden or not yet laid out;
+- `AbsoluteSize` - [`Vector2`](../datatypes/vector2.md), read-only. The size in pixels after `Size`, `UIListLayout` and `UIPadding` are applied;
 - `Name`, `ClassName`, `Parent`.
 
 ## Signals

@@ -51,6 +51,8 @@ An `ImageLabel` draws nothing until `Image` is set to the asset id of an [upload
 
 [`UIListLayout`](../reference/classes/ui-list-layout.md) stacks the children of a frame in a row or column, and ignores their `Position`. [`UIPadding`](../reference/classes/ui-padding.md) insets the children, [`UICorner`](../reference/classes/ui-corner.md) rounds the corners, and [`UIStroke`](../reference/classes/ui-stroke.md) draws an outline. Put them inside the object they change.
 
+A [`TextBox`](../reference/classes/text-box.md) lets the player type; read its `Text` when `FocusLost` fires. A [`ScrollingFrame`](../reference/classes/scrolling-frame.md) is a frame with a larger canvas that scrolls with the mouse wheel or its scroll bar. Set `AutomaticCanvasSize` to `Y` and add a `UIListLayout` to make a scrolling list that grows with its content.
+
 Children are clipped to their parent only when `ClipsDescendants` is `true`. Siblings are drawn in order of `ZIndex`, and in the order they were created when `ZIndex` is equal. An object with `Visible` set to `false` hides everything inside it, and so does a `ScreenGui` with `Enabled` set to `false`.
 
 ## Responding to input
