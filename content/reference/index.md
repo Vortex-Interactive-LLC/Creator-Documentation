@@ -42,6 +42,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [GetTextBoundsParams](./classes/get-text-bounds-params.md)
 - [Humanoid](./classes/humanoid.md)
 - [HumanoidRootPart](./classes/humanoid-root-part.md)
+- [ImageButton](./classes/image-button.md)
 - [ImageLabel](./classes/image-label.md)
 - [Instance](./classes/instance.md)
 - [IntValue](./classes/int-value.md)
