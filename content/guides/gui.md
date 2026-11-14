@@ -2,7 +2,7 @@
 title: Building GUIs
 description: Build on-screen and in-world interfaces and respond to clicks.
 ---
-A GUI is a tree of instances. A [`ScreenGui`](../reference/classes/screen-gui.md) is the root, and objects such as [`Frame`](../reference/classes/frame.md), [`TextLabel`](../reference/classes/text-label.md), [`TextButton`](../reference/classes/text-button.md) and [`ImageLabel`](../reference/classes/image-label.md) go inside it. Anything inside an object is drawn relative to it.
+A GUI is a tree of instances. A [`ScreenGui`](../reference/classes/screen-gui.md) is the root, and objects such as [`Frame`](../reference/classes/frame.md), [`TextLabel`](../reference/classes/text-label.md), [`TextButton`](../reference/classes/text-button.md) and [`ImageLabel`](../reference/classes/image-label.md), [`ImageButton`](../reference/classes/image-button.md) go inside it. Anything inside an object is drawn relative to it.
 
 ```text
 StarterGui
