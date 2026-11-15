@@ -4,7 +4,7 @@ Thanks for helping make Vortex Documents better! This guide explains how to cont
 
 ## Contents
 
-- [Hello and community](#hello-and-Intro)
+- [Hello and Intro](#hello-and-Intro)
 - [How to contribute](#how-to-contribute)
   - [Report an issue](#report-an-issue)
   - [Propose a change (pull request)](#propose-a-change-pull-request)
