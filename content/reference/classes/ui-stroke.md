@@ -12,5 +12,6 @@ Place a `UIStroke` inside a GUI object to outline it. On a text object it outlin
 - `Thickness` - `number`, defaults to `1`;
 - `Color` - [`Color3`](../datatypes/color3.md), defaults to `0, 0, 0`;
 - `Transparency` - `number`, defaults to `0`;
+- `Enabled` - `boolean`, defaults to `true`. When `false` the stroke is not drawn;
 - `ApplyStrokeMode` - `Enum.ApplyStrokeMode`: `Contextual` or `Border`. Defaults to `Contextual`;
 - `Name`, `ClassName`, `Parent`.
