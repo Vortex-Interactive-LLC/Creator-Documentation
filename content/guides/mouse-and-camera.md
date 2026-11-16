@@ -52,7 +52,7 @@ print(camera.CFrame.Position)
 print(camera.ViewportSize)
 ```
 
-`CurrentCamera` is a [`Camera`](../reference/classes/camera.md) with a `CFrame` and a `ViewportSize`. It is a snapshot taken when you read it, so read `workspace.CurrentCamera` again each frame if you need the camera's current position.
+`CurrentCamera` is a [`Camera`](../reference/classes/camera.md) with a `CFrame`, a `FieldOfView` and a `ViewportSize`.
 
 `camera:ScreenPointToRay(x, y, depth)` (also `ViewportPointToRay`) turns a screen position into a ray in the world. The ray's `Origin` is the camera position moved forward by `depth`, which defaults to `0`, and its `Direction` is a unit vector. Combine it with `workspace:Raycast` to find what a screen point hits:
 
@@ -64,5 +64,86 @@ if result then
 end
 ```
 
+## Moving the camera
+
+By default the camera follows the player's character. Set `CameraType` to `Scriptable` to move it yourself, then write `CFrame` and `FieldOfView`:
+
+```luau
+-- LocalScript
+local camera = workspace.CurrentCamera
+
+camera.CameraType = Enum.CameraType.Scriptable
+camera.CFrame = CFrame.lookAt(Vector3.new(0, 60, 80), Vector3.new(0, 0, 0))
+camera.FieldOfView = 50
+```
+
+Switching to `Scriptable` keeps the camera where it was until you set `CFrame`. Set `CameraType` back to `Custom` to return to the default camera.
+
+While `CameraType` is `Scriptable`, the default mouse look and zoom are off, so read the mouse yourself if you want them. Movement keys still move the character relative to where the camera faces.
+
+## Turning the camera in steps
+
+This keeps the camera behind the character and turns it 45 degrees with the comma and period keys. Holding the right mouse button and dragging looks around. `R` returns to the default camera.
+
+```luau
+-- LocalScript
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local camera = workspace.CurrentCamera
+local step = math.rad(45)
+local yaw, pitch = 0, 0.35
+local active = false
+local looking = false
+
+local function activate()
+    if active then return end
+    local look = camera.CFrame.LookVector
+    yaw = math.atan2(-look.X, -look.Z)
+    pitch = math.asin(math.clamp(-look.Y, -1, 1))
+    active = true
+    camera.CameraType = Enum.CameraType.Scriptable
+end
+
+RunService.RenderStepped:Connect(function()
+    local character = Players.LocalPlayer.Character
+    local root = character and character:FindFirstChild("HumanoidRootPart")
+    if not active or not root then return end
+
+    camera.CFrame = CFrame.new(root.Position + Vector3.new(0, 4.64, 0))
+        * CFrame.Angles(0, yaw, 0)
+        * CFrame.Angles(-pitch, 0, 0)
+        * CFrame.new(0, 0, 25.6)
+end)
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        looking = true
+    elseif input.KeyCode == Enum.KeyCode.Comma then
+        activate()
+        yaw = math.floor((yaw + step) / step + 0.5) * step
+    elseif input.KeyCode == Enum.KeyCode.Period then
+        activate()
+        yaw = math.floor((yaw - step) / step + 0.5) * step
+    elseif input.KeyCode == Enum.KeyCode.R then
+        active = false
+        camera.CameraType = Enum.CameraType.Custom
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        looking = false
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input.UserInputType ~= Enum.UserInputType.MouseMovement or not active or not looking then return end
+    yaw -= input.Delta.X * 0.002 * math.pi
+    pitch = math.clamp(pitch + input.Delta.Y * 0.0015 * math.pi, -math.rad(80), math.rad(80))
+end)
+```
+
 > [!NOTE]
-> Scripts can read the camera but cannot move it yet. Changing the values on the camera table has no effect on the view.
+> The period key also opens the emote wheel while it is held. Use `Enum.KeyCode.LeftBracket` and `Enum.KeyCode.RightBracket` to avoid that.
