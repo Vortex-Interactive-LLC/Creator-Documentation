@@ -81,6 +81,19 @@ Switching to `Scriptable` keeps the camera where it was until you set `CFrame`. 
 
 While `CameraType` is `Scriptable`, the default mouse look and zoom are off, so read the mouse yourself if you want them. Movement keys still move the character relative to where the camera faces.
 
+## Camera limits
+
+[`StarterPlayer`](../reference/classes/starter-player.md) sets how far the camera can zoom, whether the camera is locked to first person, and whether players can use shift lock. Set them in Studio, or from a `LocalScript`:
+
+```luau
+-- LocalScript
+local starter = game:GetService("StarterPlayer")
+
+starter.CameraMinZoomDistance = 8
+starter.CameraMaxZoomDistance = 40
+starter.EnableMouseLockOption = false
+```
+
 ## Turning the camera in steps
 
 This keeps the camera behind the character and turns it 45 degrees with the comma and period keys. Holding the right mouse button and dragging looks around. `R` returns to the default camera.

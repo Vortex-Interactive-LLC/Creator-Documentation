@@ -22,5 +22,3 @@ Values outside the range are clamped.
 ## Notes
 
 The settings apply to every water region in the game. A region has no look of its own.
-
-The water look is saved in the game file along with the rest of the place, and changes can be undone and are shared in a team session.

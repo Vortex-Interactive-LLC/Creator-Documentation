@@ -21,7 +21,7 @@ end
 
 In Studio, open the Part dropdown and choose `Water`. A box of water, 64 studs wide, 16 studs tall, and 64 studs deep, is added to the world. Move, rotate, and resize it like a part. Its top face is the surface and its bottom is the floor.
 
-The water box does not collide, and it has no colour of its own. A water box can be copied, duplicated, and undone like any other part.
+The water box does not collide.
 
 > [!NOTE]
 > A rotated water box is treated as the box that fits around it, so water is always level and axis aligned.
@@ -30,9 +30,7 @@ The water box does not collide, and it has no colour of its own. A water box can
 
 Select `Terrain` in the Explorer. Its properties control every body of water in the game at once: `WaterColor`, `WaterReflectance`, `WaterTransparency`, `WaterWaveSize`, and `WaterWaveSpeed`. See [`Terrain`](../reference/classes/terrain.md) for the ranges.
 
-The water is shaded from the sky and the sun, shows foam where it meets the ground, and gets darker the deeper it is. The depth is read from the parts under the water, so build the seabed with normal parts.
-
-Waves only move the surface and the top edge of the box. The bottom of the water stays flat.
+Water gets darker the deeper it is. The depth is read from the parts under the water, so build the seabed with normal parts.
 
 ## Swimming
 
@@ -40,16 +38,13 @@ A character swims when it is deep enough in water. In a `LocalScript`, `humanoid
 
 - Movement follows the camera direction, so looking down and moving swims downward;
 - The jump key swims upward;
-- At the surface the character floats and cannot swim above it;
-- The swim animation tilts toward the direction you are swimming, so swimming down points the head at the floor.
+- At the surface the character floats and cannot swim above it.
 
 Swimming is worked out on each player's own machine, and other players see the swim animation on your character. A server `Script` does not see the `Swimming` state yet.
 
 ## Floating parts
 
 Parts that are not anchored float in water. A part that is partly under the surface is pushed up and slowed down, so a crate bobs and drifts. Anchored parts do not move.
-
-Nothing needs to be added to a part for this.
 
 ## Under the surface
 

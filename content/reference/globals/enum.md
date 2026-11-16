@@ -6,6 +6,10 @@ description: The runtime enum namespace.
 > [!Summary]
 > `Enum` provides named groups of constants, such as `Enum.KeyCode` and `Enum.Material`. Each item converts to its `Enum.<group>.<item>` string form.
 
+### CameraMode
+
+`Classic`, `LockFirstPerson`
+
 ### CameraType
 
 `Custom`, `Fixed`, `Scriptable`
