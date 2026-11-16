@@ -37,7 +37,7 @@ All other members are read-only; writing one raises an error. `CameraType` accep
 
 In Studio, the `Camera` under `Workspace` in the Explorer sets the starting `CameraType` and `FieldOfView` for the game. A `Scriptable` or `Fixed` camera starts frozen at the default view until a script sets `CFrame`.
 
-The values are always current, so the camera can be kept in a variable. A write is visible to the same frame's reads, so a camera that follows something every `RenderStepped` does not lag behind it.
+A write is visible to reads in the same frame, so a camera that follows something every `RenderStepped` does not lag behind it.
 
 While `CameraType` is not `Custom`, the default mouse look and zoom do not move the camera. Movement keys still move the character relative to the direction the camera faces. Setting `CameraType` back to `Custom` returns the camera to the default one, which continues from the last direction it faced.
 

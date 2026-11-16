@@ -74,6 +74,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [SpotLight](./classes/spot-light.md)
 - [StarterGui](./classes/starter-gui.md)
 - [StarterPack](./classes/starter-pack.md)
+- [StarterPlayer](./classes/starter-player.md)
 - [StarterPlayerScripts](./classes/starter-player-scripts.md)
 - [StringValue](./classes/string-value.md)
 - [SurfaceGui](./classes/surface-gui.md)
