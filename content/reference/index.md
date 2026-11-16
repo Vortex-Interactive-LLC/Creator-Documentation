@@ -77,6 +77,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [StarterPlayerScripts](./classes/starter-player-scripts.md)
 - [StringValue](./classes/string-value.md)
 - [SurfaceGui](./classes/surface-gui.md)
+- [Terrain](./classes/terrain.md)
 - [TextBox](./classes/text-box.md)
 - [TextButton](./classes/text-button.md)
 - [TextChatService](./classes/text-chat-service.md)
