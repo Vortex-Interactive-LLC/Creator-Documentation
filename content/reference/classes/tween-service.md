@@ -42,7 +42,3 @@ Methods of `TweenService`.
 >   Color = Color3.fromRGB(255, 100, 0),
 > }
 > ```
-
-## Testing Notes
-
-`Create` returned a Tween in both `Script` and `LocalScript` contexts when given an unparented `Part`, `TweenInfo.new(0.1)`, and `{ Transparency = 0.5 }`.

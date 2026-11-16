@@ -95,8 +95,3 @@ Waits for and returns a direct child with the supplied `name`.
 - `name`: `string` — the name of the child to wait for.
 
 <br/>
-
-
-## Testing Notes
-
-A `Part` (or any other instance) whose `Parent` is set to `ReplicatedStorage` is found by `FindFirstChild`, `WaitForChild`, and `GetChildren`.

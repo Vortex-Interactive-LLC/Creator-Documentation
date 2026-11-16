@@ -153,7 +153,3 @@ Waits for and returns a direct child with the supplied `name`.
 
 
 <br/>
-
-## Testing Notes
-
-A `Part` or other instance parented to `Workspace` is found by `FindFirstChild`, `WaitForChild`, and `GetChildren`.

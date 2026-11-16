@@ -1,12 +1,12 @@
 ---
 title: Runtime standard libraries
-description: Standard-library functions verified in Vortex.
+description: The standard-library functions available to scripts.
 ---
 
 > [!Summary]
-> This page documents standard-library functions available in Vortex. It lists tested `coroutine`, `math`, `string`, and `table` functions, along with observed behavior and unavailable library features.
+> This page documents standard-library functions available in Vortex. It lists the `coroutine`, `math`, `string`, and `table` functions, example results, and unavailable library features.
 
-## Verified runtime compatibility
+## Available functions
 
 The following standard-library functions are available in both `Script` and `LocalScript`.
 
@@ -26,9 +26,7 @@ The following standard-library functions are available in both `Script` and `Loc
 
 `clear`, `clone`, `concat`, `create`, `find`, `foreach`, `foreachi`, `freeze`, `getn`, `insert`, `isfrozen`, `maxn`, `move`, `pack`, `remove`, `sort`, `unpack`
 
-## Observed deterministic behavior
-
-These are observations for the exact inputs tested through a local script, rather than a claim that the full Luau standard-library contract is implemented.
+## Example results
 
 ### coroutine
 
@@ -39,7 +37,7 @@ These are observations for the exact inputs tested through a local script, rathe
 
 ### table
 
-| Call | Observed result |
+| Call | Result |
 | --- | --- |
 | `clear({1, 2})` | length `0` |
 | `clone({value = 5})`, then mutate clone | source `5`; clone `7` |
@@ -59,7 +57,7 @@ These are observations for the exact inputs tested through a local script, rathe
 
 ### string
 
-| Call | Observed result |
+| Call | Result |
 | --- | --- |
 | `byte("A")`; `char(65, 66)` | `65`; `"AB"` |
 | `find("vortex", "tex")`; `format("%s:%d", "vortex", 7)` | `4, 6`; `"vortex:7"` |
@@ -72,7 +70,7 @@ These are observations for the exact inputs tested through a local script, rathe
 
 ### math
 
-| Call | Observed result |
+| Call | Result |
 | --- | --- |
 | `abs(-3)`, `ceil(1.2)`, `floor(1.8)`, `round(1.5)`, `sign(-5)` | `3`, `2`, `1`, `2`, `-1` |
 | `acos(0.5)`, `asin(0.5)`, `atan(1)`, `atan2(1, 1)` | `1.0471975511965979`, `0.5235987755982989`, `0.7853981633974483`, `0.7853981633974483` |
@@ -85,6 +83,6 @@ These are observations for the exact inputs tested through a local script, rathe
 | `sin(0)`, `sinh(0)`, `sqrt(9)`, `tan(0)`, `tanh(0)` | `0`, `0`, `3`, `0`, `0` |
 | `randomseed(12345)` | no return values |
 
-## Testing Notes
+## Notes
 
 The following are not available in Script or LocalScript and read as `nil`: `bit32`, `buffer`, `debug`, `utf8`, `vector`, and `shared`. The `os` library only provides `os.time`, `os.clock`, `os.date`, and `os.difftime`. `math.isfinite`, `math.isinf`, `math.isnan`, `task.desynchronize`, and `task.synchronize` are also `nil`.

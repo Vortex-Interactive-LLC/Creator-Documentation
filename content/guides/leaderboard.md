@@ -47,7 +47,7 @@ Changes to these values are reflected on the leaderboard.
 
 ### Supported Value Types
 
- The following value types have been tested and confirmed to work on Vortex leaderboards:
+ These value types work on leaderboards:
 
 * `IntValue`
 * `NumberValue`

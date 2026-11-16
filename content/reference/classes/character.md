@@ -16,7 +16,7 @@ local player = game:GetService("Players"):GetPlayers()[1]
 local character = player and player.Character
 ```
 
-## Confirmed public projection
+## Public members
 
 The live Character reports `ClassName == "Model"`. Its public fields are `ClassName`, `Name`, `Position`, [`Humanoid`](./humanoid.md), and [`HumanoidRootPart`](./humanoid-root-part.md). `Parent` reads as `nil`.
 

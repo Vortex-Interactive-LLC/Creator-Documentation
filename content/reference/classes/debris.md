@@ -61,6 +61,6 @@ Debris:AddItem(part, 5)
 
 - `maxItems`: `Number` — the maximum number of tracked items.
 
-## Testing Notes
+## Notes
 
 `AddItem` and `SetMaxItems` are exposed in both `Script` and `LocalScript`. Calling `Debris:AddItem(part, 0)` removes the `Part` on the next scheduler tick; its `Parent` becomes `nil`.

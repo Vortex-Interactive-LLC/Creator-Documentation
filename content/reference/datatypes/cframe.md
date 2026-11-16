@@ -484,10 +484,8 @@ cframe * vector3
 
 Addition and subtraction translate the CFrame. Multiplication composes two CFrames or transforms a `Vector3` point.
 
-## Testing Notes
+## Notes
 
-`CFrame.fromMatrix` requires all three basis vectors. Calling it without `vZ` fails because the current implementation indexes the missing argument.
+`CFrame.fromMatrix` requires all three basis vectors. Calling it without `vZ` fails.
 
 The lowercase aliases `components`, `toEulerAnglesXYZ`, and `toEulerAnglesYXZ` are also exposed; this reference uses the canonical names.
-
-The position-and-rotation example produces position `(0, 5, 0)` and a LookVector of approximately `(-1, 0, 0)`.
