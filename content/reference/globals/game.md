@@ -57,6 +57,7 @@ Services of `game`.
 * [MarketplaceService](../classes/marketplace-service.md) (server only)
 * [TextChatService](../classes/text-chat-service.md) (server only)
 * [TextService](../classes/text-service.md)
+* [ContentProvider](../classes/content-provider.md)
 * [Lighting](../classes/lighting.md) (editor-facing; not a valid service for `game:GetService`)
 * [Debris](../classes/debris.md)
 * [RunService](./runservice.md)
