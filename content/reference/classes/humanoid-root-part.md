@@ -17,7 +17,7 @@ local player = game:GetService("Players"):GetPlayers()[1]
 local rootPart = player.Character.HumanoidRootPart
 ```
 
-## Confirmed surface
+## Members
 
 These fields are readable in both a `LocalScript` and a server `Script`:
 

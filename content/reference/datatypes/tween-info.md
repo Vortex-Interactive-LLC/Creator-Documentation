@@ -125,8 +125,6 @@ Properties of a `TweenInfo`.
 - `reverses`: `Boolean` — whether each repeat reverses direction.
 - `delayTime`: `Number` — the delay before playback begins, in seconds.
 
-## Testing Notes
-
-`TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)` returns a TweenInfo table in both `Script` and `LocalScript`.
+## Notes
 
 `repeatCount = -1` is treated as an infinite repeat count.

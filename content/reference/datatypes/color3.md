@@ -131,9 +131,3 @@ local red = Color3.fromRGB(255, 0, 0)
 local blue = Color3.fromRGB(0, 0, 255)
 local purple = red:Lerp(blue, 0.5)
 ```
-
-## Testing Notes
-
-The previously listed `Color3.fromHSV` and `Color3.fromHex` constructors were removed from this reference because they are not exposed.
-
-In the examples above, `Color3.fromRGB(255, 128, 0)` produces approximately `(1, 0.502, 0)`, and the red-to-blue midpoint produces `(0.5, 0, 0.5)`.

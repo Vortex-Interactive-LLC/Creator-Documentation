@@ -13,7 +13,7 @@ Written by KingTasaz on August 28th, 2026
 ## Summary
 To use your own images and models, see [Meshes & Textures](../../guides/meshes-and-textures.md).
 
-This page describes the editor-facing Texture concept. Texture scripting is not currently available in the Vortex runtime; see the testing notes below. When a texture is added to an editor-authored [`part`](./part.md), its `Face` and name are set automatically, so six textures can cover the entire part quickly.
+This page describes the editor-facing Texture concept. Texture scripting is not currently available in the Vortex runtime; see the notes below. When a texture is added to an editor-authored [`part`](./part.md), its `Face` and name are set automatically, so six textures can cover the entire part quickly.
 <br><br>
 
 <details>
@@ -49,8 +49,8 @@ Sets the texture to render on the selected face. Currently, the only options are
 
 <br/>
 
-## Testing Notes
+## Notes
 
 `Instance.new("Texture")`, `Instance.new("Decal")`, and `Instance.new("SurfaceAppearance")` all fail in both Script and LocalScript contexts. A script-created `Part` also has no readable `Texture`, `TextureID`, `SurfaceAppearance`, or `Decal` field.
 
-Editor-authored texture behavior was not confirmed by this probe, but there is currently no confirmed script API for creating or changing textures.
+There is no script API for creating or changing textures.

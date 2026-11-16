@@ -75,7 +75,7 @@ Signals of `RunService`.
 
 - `deltaTime`: `Number` — elapsed time in seconds since the previous heartbeat.
 
-## Testing Notes
+## Notes
 
 `IsClient()` returns `true` in a `LocalScript` and `false` in a `Script`. `IsServer()` returns the inverse. `IsStudio()` returns `true` when the code is running inside Vortex Studio.
 
