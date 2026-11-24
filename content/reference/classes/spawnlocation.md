@@ -54,3 +54,19 @@ Properties of a SpawnLocation, in the order they appear in Vortex Studio.
 
 </ul>
 </details>
+
+## Spawn properties
+
+### Enabled
+> `Boolean` \
+\
+Defaults to `true`. Whether players can spawn at this `SpawnLocation`.
+
+<br/>
+
+### Duration
+> `number` \
+\
+Defaults to `3`. How many seconds a [`ForceField`](./force-field.md) protects a character after it spawns here.
+
+<br/>

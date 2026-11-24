@@ -24,6 +24,13 @@ Properties of the `Humanoid`.
 * [AutoRotate](#autorotate): `Boolean`
 * [Sit](#sit): `Boolean`
 * [SeatPart](#seatpart): [`Seat`](./seat.md) | `nil` (read-only)
+* [Jump](#jump): `Boolean`
+* [MoveDirection](#movedirection): [`Vector3`](../datatypes/vector3.md) (read-only)
+* [BreakJointsOnDeath](#breakjointsondeath): `Boolean`
+* [DisplayDistanceType](#displaydistancetype): `Enum.HumanoidDisplayDistanceType`
+* [NameDisplayDistance](#namedisplaydistance): `Number`
+* [HealthDisplayType](#healthdisplaytype): `Enum.HumanoidHealthDisplayType`
+* [HealthDisplayDistance](#healthdisplaydistance): `Number`
 
 </details>
 
@@ -38,6 +45,12 @@ Methods of the `Humanoid`.
 * [TakeDamage](#takedamage): `nil`
 * [EquipTool](#equiptool): `nil`
 * [UnequipTools](#unequiptools): `nil`
+* [Move](#move): `nil`
+* [ChangeState](#changestate): `nil`
+* [PlayEmote](#playemote): `Boolean`
+* [ApplyDescription](#applydescription): `nil`
+* [ApplyDescriptionAsync](#applydescriptionasync): `nil`
+* [GetAppliedDescription](#getapplieddescription): [`HumanoidDescription`](./humanoid-description.md)
 
 </details>
 
@@ -147,6 +160,62 @@ Signals of the `Humanoid`.
 
 <br/>
 
+### Jump
+
+> `Boolean`
+>
+> Whether the Humanoid is trying to jump. Set it to `true` to make the character jump.
+
+<br/>
+
+### MoveDirection
+
+> [`Vector3`](../datatypes/vector3.md) (read-only)
+>
+> The direction the Humanoid is trying to walk in, as a vector on the ground plane with a length of at most `1`. Set it with [`Move`](#move).
+
+<br/>
+
+### BreakJointsOnDeath
+
+> `Boolean`
+>
+> Defaults to `true`. Whether the character falls apart when the Humanoid dies.
+
+<br/>
+
+### DisplayDistanceType
+
+> `Enum.HumanoidDisplayDistanceType`
+>
+> Defaults to `Viewer`. Controls how the name and health bar shown over the character are displayed. `Viewer` uses the viewing player's own distance settings, `Subject` uses the Humanoid's [`NameDisplayDistance`](#namedisplaydistance) and [`HealthDisplayDistance`](#healthdisplaydistance), and `None` hides both.
+
+<br/>
+
+### NameDisplayDistance
+
+> `Number`
+>
+> Defaults to `100`. The distance in studs within which the character's name is shown. A [`Player`](./player.md) and [`StarterPlayer`](./starter-player.md) have the same property.
+
+<br/>
+
+### HealthDisplayType
+
+> `Enum.HumanoidHealthDisplayType`
+>
+> Defaults to `DisplayWhenDamaged`. `DisplayWhenDamaged` shows the health bar only when the Humanoid has lost health, `AlwaysOn` always shows it, and `AlwaysOff` never shows it.
+
+<br/>
+
+### HealthDisplayDistance
+
+> `Number`
+>
+> Defaults to `100`. The distance in studs within which the health bar is shown.
+
+<br/>
+
 ## Methods
 
 ### IsDead
@@ -188,6 +257,54 @@ Signals of the `Humanoid`.
 > `humanoid:GetState()`
 >
 > Returns the Humanoid's current state. On a server `Script` this is `Running`, `Freefall`, `Climbing`, `Seated`, or `Dead`, taken from what the player's client reports.
+
+### Move
+
+> `nil`
+>
+> `humanoid:Move(direction: Vector3, relativeToCamera: Boolean?)`
+>
+> Makes the Humanoid walk in `direction`. The vertical part of `direction` is ignored and its length is limited to `1`. When `relativeToCamera` is `true`, `direction` is rotated by the current camera's heading. Pass `Vector3.zero` to stop.
+
+### ChangeState
+
+> `nil`
+>
+> `humanoid:ChangeState(state: Enum.HumanoidStateType)`
+>
+> Asks the Humanoid to switch to `state`.
+
+### PlayEmote
+
+> `Boolean`
+>
+> `humanoid:PlayEmote(name: string)`
+>
+> Plays the emote called `name` and returns `true`. The emotes are `Wave`, `Backflip`, `Eevee`, `Sturdy`, `Penguin`, and `Headless`. The name is not case sensitive. Returns `false` if the name is not an emote or the Humanoid is dead.
+
+### ApplyDescription
+
+> `nil`
+>
+> `humanoid:ApplyDescription(description: HumanoidDescription, verification: Enum.AssetTypeVerification?)`
+>
+> Changes the character's appearance to match a [`HumanoidDescription`](./humanoid-description.md). Server `Script` only. Raises an error if the same accessory is used in more than one property of the description.
+
+### ApplyDescriptionAsync
+
+> `nil`
+>
+> `humanoid:ApplyDescriptionAsync(description: HumanoidDescription, verification: Enum.AssetTypeVerification?)`
+>
+> Does the same as [`ApplyDescription`](#applydescription).
+
+### GetAppliedDescription
+
+> [`HumanoidDescription`](./humanoid-description.md)
+>
+> `humanoid:GetAppliedDescription()`
+>
+> Returns a new `HumanoidDescription` that describes the character's current appearance.
 
 ## Signals
 
@@ -264,4 +381,4 @@ A character's Humanoid starts with `Health` and `MaxHealth` of `100`. In a serve
 
 `humanoid:TakeDamage(amount)` reduces `Health`. A newly spawned character has a `ForceField` for a few seconds, and damage is blocked while it is present.
 
-A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). Methods such as `ChangeState`, `Move`, `MoveTo`, `LoadAnimation`, and `AddAccessory` are not available.
+A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). Methods such as `MoveTo`, `LoadAnimation`, and `AddAccessory` are not available.

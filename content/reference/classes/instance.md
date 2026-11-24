@@ -10,7 +10,9 @@ description: The methods and properties shared by objects in the game.
 
 - `Name` - `string`, the name of the instance;
 - `ClassName` - `string`, the class of the instance;
-- `Parent` - `Instance | nil`, its parent in the hierarchy, or `nil` when it has none.
+- `Parent` - `Instance | nil`, its parent in the hierarchy, or `nil` when it has none;
+- `Archivable` - `boolean`, whether the instance is kept when the place is saved and copied by `Clone()`. Defaults to `true`. A `Player` cannot be made archivable;
+- `Id` - `number`, read-only, the unique number that identifies the instance.
 
 ## Methods
 
@@ -39,7 +41,7 @@ description: The methods and properties shared by objects in the game.
 >
 > `Destroy()` also disconnects connections associated with the instance and removes it from its parent.
 
-### FindFirstChild(name: `string`)
+### FindFirstChild(name: `string`, recursive: `boolean?`)
 
 > `Instance?`
 >
@@ -49,7 +51,11 @@ description: The methods and properties shared by objects in the game.
 > local part = workspace:FindFirstChild("Part")
 > ```
 >
-> If no child with the specified name is found, the method returns `nil`.
+> If no child with the specified name is found, the method returns `nil`. When `recursive` is `true`, every descendant is searched instead of only the direct children.
+>
+> ```luau
+> local handle = tool:FindFirstChild("Handle", true)
+> ```
 
 ### FindFirstChildOfClass(className: `string`)
 
@@ -63,6 +69,58 @@ description: The methods and properties shared by objects in the game.
 > ```
 >
 > Only direct children are searched.
+
+### FindFirstChildWhichIsA(className: `string`, recursive: `boolean?`)
+
+> `Instance?`
+>
+> Returns the first child that is of the class `className` or inherits from it, or `nil` if there is none. Unlike [`FindFirstChildOfClass`](#findfirstchildofclassclassname-string), inherited classes match.
+>
+> ```luau
+> local basePart = model:FindFirstChildWhichIsA("BasePart")
+> ```
+>
+> Only direct children are searched unless `recursive` is `true`, in which case every descendant is searched.
+
+### FindFirstAncestor(name: `string`)
+
+> `Instance?`
+>
+> Returns the first ancestor of the Instance whose name is `name`, or `nil` if there is none. The search starts at the parent and moves up the hierarchy.
+>
+> ```luau
+> local vehicle = wheel:FindFirstAncestor("Vehicle")
+> ```
+
+### FindFirstAncestorOfClass(className: `string`)
+
+> `Instance?`
+>
+> Returns the first ancestor whose class is exactly `className`, or `nil` if there is none.
+>
+> ```luau
+> local model = part:FindFirstAncestorOfClass("Model")
+> ```
+
+### FindFirstAncestorWhichIsA(className: `string`)
+
+> `Instance?`
+>
+> Returns the first ancestor that is of the class `className` or inherits from it, or `nil` if there is none.
+>
+> ```luau
+> local container = button:FindFirstAncestorWhichIsA("GuiObject")
+> ```
+
+### GetFullName()
+
+> `string`
+>
+> Returns the names of the Instance and each of its ancestors joined with dots, starting below the `game` root.
+>
+> ```luau
+> print(workspace.Model.Part:GetFullName()) --> Workspace.Model.Part
+> ```
 
 ### GetChildren()
 
@@ -229,6 +287,46 @@ description: The methods and properties shared by objects in the game.
 > ```
 >
 > `MoveTo` is only available on models and characters. Calling it on a `Part` raises an error, so set the part's `Position` or use [`PivotTo`](#pivottotargetcframe-cframe).
+
+## Signals
+
+### ChildAdded
+
+> [`Signal`](../datatypes/signal.md)`<Instance>`
+>
+> Fires when an Instance becomes a direct child of this one. The new child is passed to the handler.
+>
+> ```luau
+> workspace.ChildAdded:Connect(function(child)
+>     print(child.Name, "was added")
+> end)
+> ```
+
+### ChildRemoved
+
+> [`Signal`](../datatypes/signal.md)`<Instance>`
+>
+> Fires when a direct child stops being a child of this Instance, because it was reparented or destroyed. The removed child is passed to the handler.
+
+### Changed
+
+> [`Signal`](../datatypes/signal.md)`<string>`
+>
+> Fires when a property of the Instance changes. The name of the property is passed to the handler. On the value objects ([`IntValue`](./int-value.md), [`NumberValue`](./number-value.md), [`StringValue`](./string-value.md), [`BoolValue`](./bool-value.md)), the new `Value` is passed instead.
+>
+> ```luau
+> part.Changed:Connect(function(property)
+>     print(property, "changed")
+> end)
+> ```
+>
+> Use [`GetPropertyChangedSignal`](#getpropertychangedsignalproperty-string) to listen to a single property.
+
+### AttributeChanged
+
+> [`Signal`](../datatypes/signal.md)`<string>`
+>
+> Fires when any attribute is set, changed, or removed. The name of the attribute is passed to the handler. Use [`GetAttributeChangedSignal`](#getattributechangedsignalname-string) to listen to a single attribute.
 
 ## Vortex Studio Method Availability
 

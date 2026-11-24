@@ -26,11 +26,15 @@ print("Hello, " .. player.Name .. "!")
 - `ClassName` - `"Player"`;
 - `Parent` - the [`Players`](./players.md) service;
 - `Character` - the current [`Character`](./character.md) `Model`, when available;
-- `Backpack` - the player's `Backpack`.
+- `Backpack` - the player's `Backpack`;
+- `NameDisplayDistance` - `number`, defaults to `100`. How far away, in studs, other characters' names are visible to this player when their Humanoid's `DisplayDistanceType` is `Viewer`;
+- `HealthDisplayDistance` - `number`, defaults to `100`. The same for health bars. See [`Humanoid`](./humanoid.md#displaydistancetype).
 
 ## Methods and signals
 
 A `Player` is an Instance. It provides the generic Instance methods, including `GetChildren`, `FindFirstChild`, `IsA`, `Clone`, `Destroy`, and the attribute methods (see the [Attributes guide](../../guides/attributes.md)). `Player:GetMouse()` can only be called on the `LocalPlayer` from a `LocalScript`.
+
+`Move(direction: Vector3, relativeToCamera: boolean?)` makes the player's character walk, the same as [`Humanoid:Move`](./humanoid.md#move), and does nothing when the player has no character.
 
 `CharacterAdded` and `CharacterRemoving` fire when the player's character spawns or is removed. `Kick` and `LoadCharacter` are not available.
 

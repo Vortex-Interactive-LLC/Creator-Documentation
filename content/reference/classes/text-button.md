@@ -36,6 +36,7 @@ end)
 - `TextYAlignment` - `Enum.TextYAlignment`, defaults to `Center`;
 - `Font` - `Enum.Font`, defaults to `Figtree`;
 - `AutoButtonColor` - `boolean`, defaults to `true`;
+- `Modal` - `boolean`, defaults to `false`. While a visible `Modal` button is on screen, the mouse is freed from mouse lock so the player can click it;
 - every property of a [`Frame`](./frame.md), with a default `Size` of `0, 200, 0, 50`, a default `BackgroundColor3` of `0.64, 0.64, 0.65`, and `Active` set to `true`.
 
 ## Rich text

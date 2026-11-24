@@ -112,3 +112,40 @@ Determines the color of sunlight that hits objects. It will blend with the ambie
 Toggles shadows from the sun globally. Currently, there are no other types of lights that create shadows, so this setting controls all shadows in the game.
 
 <br/>
+
+## Time, sky and fog
+
+### ClockTime
+> `Float` \
+\
+The time of day in hours, from `0` to `24`. Values outside the range wrap around, so `25` is `1`. It moves the sun across the sky and changes the colour of the sky. Defaults to `14`.
+
+<br/>
+
+### GeographicLatitude
+> `Float` \
+\
+The latitude in degrees the sun's path is calculated for. It changes how high the sun rises and where it sets. Defaults to `41.733`.
+
+<br/>
+
+### FogColor
+> [`Color3`](../datatypes/color3.md) \
+\
+The colour of the fog. Until it is set, it follows the colour of the sky at the horizon as `ClockTime` changes. Once it is set, it keeps the colour that was set.
+
+<br/>
+
+### FogStart
+> `Float` \
+\
+The distance from the camera, in studs, where fog starts to appear. Defaults to `0`.
+
+<br/>
+
+### FogEnd
+> `Float` \
+\
+The distance from the camera, in studs, where the fog is at full strength. Defaults to `100000`, which leaves the fog effectively off.
+
+<br/>

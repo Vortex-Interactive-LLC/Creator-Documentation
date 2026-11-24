@@ -13,6 +13,7 @@ An `ImageLabel` is a box that draws an image. It draws nothing until `Image` is 
 - `ImageColor3` - [`Color3`](../datatypes/color3.md), tints the image. Defaults to `1, 1, 1`;
 - `ImageTransparency` - `number`, defaults to `0`;
 - `ScaleType` - `Enum.ScaleType`: `Stretch` fills the box, `Fit` keeps the aspect ratio and centres the image, `Crop` fills the box and trims the image, `Tile` repeats the image across the box, `Slice` stretches the middle and edges of the image while keeping its corners at their original size. Defaults to `Stretch`;
+- `ResampleMode` - `Enum.ResamplerMode`: `Default` smooths the image when it is scaled, and `Pixelated` keeps hard pixel edges, which suits pixel art. Defaults to `Default`;
 - `ImageRectOffset` - [`Vector2`](../datatypes/vector2.md), the top-left corner in pixels of the part of the image to draw. Defaults to `0, 0`;
 - `ImageRectSize` - [`Vector2`](../datatypes/vector2.md), the size in pixels of that part. `0, 0` draws the whole image, which is the default. The part is clamped to the image, and `ScaleType` applies to it instead of the whole image;
 - `TileSize` - [`UDim2`](../datatypes/udim2.md), the size of one repeat when `ScaleType` is `Tile`. The scale part is a fraction of the box. Defaults to `1, 0, 1, 0`, one repeat the size of the box. Tiles that would number more than 4096, or are smaller than a pixel, are drawn as `Stretch`. `Tile` ignores `UICorner`;

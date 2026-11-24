@@ -11,5 +11,6 @@ A `ScreenGui` holds GUI objects that are drawn over the game. Place one in `Star
 
 - `Enabled` - `boolean`, defaults to `true`. When `false` nothing inside it is drawn;
 - `DisplayOrder` - `number`, higher values are drawn on top and receive input first. Defaults to `0`;
+- `ZIndexBehavior` - `Enum.ZIndexBehavior`, defaults to `Sibling`. `Sibling` only compares the `ZIndex` of objects that share a parent, and `Global` compares the `ZIndex` of every object in the `ScreenGui`;
 - `ResetOnSpawn` - `boolean`, defaults to `true`. When `true` the player's copy is replaced with a fresh one from `StarterGui` each time their character respawns;
 - `Name`, `ClassName`, `Parent`.

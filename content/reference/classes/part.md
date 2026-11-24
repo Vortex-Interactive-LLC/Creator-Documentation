@@ -69,6 +69,30 @@ Properties of a Part, in the order they appear in Vortex Studio.
 - [Rotation](#rotation): [`Vector3`](../datatypes/vector3.md)
 - [Size](#size): [`Vector3`](../datatypes/vector3.md)
 - [Orientation](#orientation): [`Vector3`](../datatypes/vector3.md)
+- [PivotOffset](#pivotoffset): [`CFrame`](../datatypes/cframe.md)
+
+</details>
+
+<details>
+<summary><b>Surfaces</b></summary>
+
+- [TopSurface](#topsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+- [BottomSurface](#bottomsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+- [FrontSurface](#frontsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+- [BackSurface](#backsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+- [LeftSurface](#leftsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+- [RightSurface](#rightsurface): [`Enum.SurfaceType`](../globals/enum.md#surfacetype)
+
+</details>
+
+<details>
+<summary><b>Assembly</b></summary>
+
+- [Massless](#massless): `Boolean`
+- [RootPriority](#rootpriority): `number`
+- [AssemblyRootPart](#assemblyrootpart): `Part` (read-only)
+- [AssemblyMass](#assemblymass): `number` (read-only)
+- [AssemblyCenterOfMass](#assemblycenterofmass): [`Vector3`](../datatypes/vector3.md) (read-only)
 
 </details>
 
@@ -79,6 +103,9 @@ Properties of a Part, in the order they appear in Vortex Studio.
 <summary><b>Methods</b></summary>
 <br>
 
+- [GetRootPart](#getrootpart): `Part`
+- [GetConnectedParts](#getconnectedparts): `{ Part }`
+- [GetJoints](#getjoints): `{ Instance }`
 - [Clone](#clone): `Part`
 - [Destroy](#destroy): `nil`
 - [FindFirstChild](#findfirstchild): [`Instance`](./instance.md) | `nil`
@@ -306,7 +333,131 @@ The linear velocity of the `Part`, in studs per second.
 
 <br/>
 
+### PivotOffset
+> [`CFrame`](../datatypes/cframe.md) \
+\
+The offset of the part's pivot from its `CFrame`. `GetPivot` and `PivotTo` use the pivot, so changing this changes the point the part rotates around. Defaults to the identity `CFrame`.
+
+<br/>
+
+
+### TopSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the top face of the part: `Smooth`, `Studs`, or `Inlet`. Defaults to `Smooth`. `BottomSurface`, `FrontSurface`, `BackSurface`, `LeftSurface` and `RightSurface` do the same for the other faces.
+
+<br/>
+
+
+### BottomSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the bottom face of the part. Defaults to `Smooth`.
+
+<br/>
+
+
+### FrontSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the front face of the part. Defaults to `Smooth`.
+
+<br/>
+
+
+### BackSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the back face of the part. Defaults to `Smooth`.
+
+<br/>
+
+
+### LeftSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the left face of the part. Defaults to `Smooth`.
+
+<br/>
+
+
+### RightSurface
+> [`Enum.SurfaceType`](../globals/enum.md#surfacetype) \
+\
+The look of the right face of the part. Defaults to `Smooth`.
+
+<br/>
+
+
+### Massless
+> `Boolean` \
+\
+When `true`, the part adds no mass to the assembly it is joined to, unless it is the root of the assembly. Defaults to `false`.
+
+<br/>
+
+
+### RootPriority
+> `number` \
+\
+Decides which part of an assembly becomes its root. The part with the highest `RootPriority` is chosen. Defaults to `0`, and values below `-127` are raised to `-127`.
+
+<br/>
+
+
+### AssemblyRootPart
+> `Part` (read-only) \
+\
+The root part of the assembly the part belongs to. Parts joined by a [`WeldConstraint`](./weld-constraint.md) or a [`Weld`](./weld.md) share one assembly.
+
+<br/>
+
+
+### AssemblyMass
+> `number` (read-only) \
+\
+The total mass of the assembly the part belongs to. It is infinite for an anchored part.
+
+<br/>
+
+
+### AssemblyCenterOfMass
+> [`Vector3`](../datatypes/vector3.md) (read-only) \
+\
+The center of mass of the assembly, in world space.
+
+<br/>
+
 ## Methods
+
+### GetRootPart()
+> `Part` \
+\
+`Part:GetRootPart()` \
+\
+Returns the root part of the assembly the part belongs to. It is the same as [`AssemblyRootPart`](#assemblyrootpart).
+
+<br/>
+
+
+### GetConnectedParts()
+> `{ Part }` \
+\
+`Part:GetConnectedParts(recursive: boolean?)` \
+\
+Returns the parts joined to this one. When `recursive` is `true`, it also returns the parts joined to those, and so on, and otherwise only the parts directly joined to it.
+
+<br/>
+
+
+### GetJoints()
+> `{ Instance }` \
+\
+`Part:GetJoints()` \
+\
+Returns the [`WeldConstraint`](./weld-constraint.md) and [`Weld`](./weld.md) instances that connect the part to other parts.
+
+<br/>
 
 ### Clone()
 > `Part` \

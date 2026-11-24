@@ -21,6 +21,10 @@ Properties of a Workspace, in the order they appear in Vortex Studio
 
 - [ClassName](#classname): `string`
 - [Name](#name): `string`
+- [CurrentCamera](#currentcamera): [`Camera`](./camera.md) | `nil` (read-only)
+- [Terrain](#terrain): [`Terrain`](./terrain.md) (read-only)
+- [Gravity](#gravity): `number`
+- [ReplicationRate](#replicationrate): `number`
 </details>
 
 <details>
@@ -53,6 +57,34 @@ The runtime class name of the service.
 > `string` \
 \
 The service name shown by the runtime.
+
+<br/>
+
+### CurrentCamera
+> [`Camera`](./camera.md) | `nil` (read-only) \
+\
+The camera the local player is currently viewing the world through. See [Mouse & Camera](../../guides/mouse-and-camera.md).
+
+<br/>
+
+### Terrain
+> [`Terrain`](./terrain.md) (read-only) \
+\
+The [`Terrain`](./terrain.md) service of the game.
+
+<br/>
+
+### Gravity
+> `number` \
+\
+The downward acceleration applied to unanchored parts and characters, in studs per second squared. Defaults to `196.2`.
+
+<br/>
+
+### ReplicationRate
+> `number` \
+\
+How many times per second the server sends updates to clients. Defaults to `20` and is clamped between `15` and `60`. Higher values make remote objects look smoother and use more bandwidth.
 
 <br/>
 

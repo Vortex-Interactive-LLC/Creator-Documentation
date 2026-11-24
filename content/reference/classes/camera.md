@@ -23,6 +23,7 @@ camera.FieldOfView = 50
 - `CameraType` - `Enum.CameraType`, defaults to `Custom`. `Custom` is the default camera that follows the character. `Scriptable` and `Fixed` stop it and keep the view where it is, until a script sets `CFrame`;
 - `CFrame` - [`CFrame`](../datatypes/cframe.md), the camera position and orientation. Writing it moves the camera while `CameraType` is `Scriptable` or `Fixed`. While it is `Custom`, the default camera overwrites it;
 - `FieldOfView` - `number`, the vertical field of view in degrees. Defaults to `70`. Values are clamped to `1` to `120`;
+- `NearPlaneZ` - `number`, read-only. The distance of the near clipping plane in front of the camera, as a negative number. Anything closer than this is not drawn;
 - `ViewportSize` - [`Vector2`](../datatypes/vector2.md), the size of the game view in pixels. Read-only;
 - `Name`, `ClassName` - `"Camera"`.
 

@@ -22,6 +22,7 @@ end)
 ## Properties
 
 - `MaxActivationDistance` - `number`, how far in studs the clicking player's character can be from the clicked point. Defaults to `32`. Negative values are treated as `0`;
+- `CursorIcon` - `number`, the asset id of an image used as the cursor while it is over the parent. Defaults to `0`, which keeps the normal cursor;
 - `Name` - the name of the instance;
 - `ClassName` - `"ClickDetector"`;
 - `Parent` - the `Part` or `Model` it makes clickable.
