@@ -11,6 +11,10 @@ A `BillboardGui` inside a `Part`, or a `Model`, draws its contents at that objec
 
 - `Size` - [`UDim2`](../datatypes/udim2.md), defaults to `0, 200, 0, 50`;
 - `StudsOffset` - [`Vector3`](../datatypes/vector3.md), moves the GUI from the part, in studs. Defaults to `0, 0, 0`;
+- `StudsOffsetWorldSpace` - [`Vector3`](../datatypes/vector3.md), moves the GUI in world space instead of relative to the camera, in studs. Defaults to `0, 0, 0`;
+- `Adornee` - [`Instance`](./instance.md) | `nil`, the part or model the GUI follows. When `nil`, the object the `BillboardGui` is inside is used;
+- `ClipsDescendants` - `boolean`, defaults to `true`. When `true`, anything outside `Size` is cut off;
+- `ResetOnSpawn` - `boolean`, defaults to `true`;
 - `MaxDistance` - `number`, the furthest distance it is shown from. `0` means no limit. Defaults to `0`;
 - `AlwaysOnTop` - `boolean`, draw it over other objects. Defaults to `false`;
 - `Active` - `boolean`, defaults to `true`;

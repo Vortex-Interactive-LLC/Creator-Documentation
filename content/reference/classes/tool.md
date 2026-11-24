@@ -25,7 +25,9 @@ end)
 - `RequiresHandle` - `Boolean`, defaults to `true`;
 - `ToolTip` - `string`, empty by default;
 - `TextureId` - `number`, defaults to `0`;
-- `Grip`, `GripPos` - how the tool is positioned in the hand;
+- `Enabled` - `Boolean`, defaults to `true`; when `false` the tool cannot be activated;
+- `ManualActivationOnly` - `Boolean`, defaults to `false`; when `true` a click does not activate the tool, and only [`Activate()`](#methods) does;
+- `Grip`, `GripPos`, `GripRight`, `GripUp`, `GripForward` - how the tool is positioned in the hand. `GripPos` is the position of the grip, and the other three are its direction vectors;
 - `Name`, `ClassName`, `Parent`.
 
 ## Signals
@@ -33,7 +35,13 @@ end)
 - `Equipped` - the tool was moved into a character;
 - `Unequipped` - the tool was moved out of a character;
 - `Activated` - the holder clicked while the tool was equipped;
+- `Deactivated` - the holder released the click, or [`Deactivate()`](#methods) was called;
 - `Changed` - a property of the tool changed.
+
+## Methods
+
+- `Activate()` - `nil`, activates the tool as if the holder had clicked, firing `Activated`;
+- `Deactivate()` - `nil`, ends the activation, firing `Deactivated`.
 
 ## Notes
 

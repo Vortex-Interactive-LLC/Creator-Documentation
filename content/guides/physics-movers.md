@@ -15,7 +15,7 @@ mover.MaxForce = Vector3.new(1e6, 1e6, 1e6)
 mover.Parent = part
 ```
 
-Movers act on the unanchored part they are inside. The velocity and position movers have no effect on an anchored part, while `VectorForce` and `Torque` apply a force and torque to whatever body they are parented to.
+Movers act on the unanchored part they are inside. The velocity and position movers have no effect on an anchored part, while `VectorForce` and `Torque` apply a force and torque to the part that their `Attachment0` is inside. They do nothing until `Attachment0` is set.
 
 ## The movers
 
@@ -24,10 +24,21 @@ Movers act on the unanchored part they are inside. The velocity and position mov
 | [`BodyVelocity`](../reference/classes/body-velocity.md) | Pushes the part toward a target velocity. | `Velocity` (`0, 2, 0`), `MaxForce` (`4000, 4000, 4000`), `P` (`1250`) |
 | [`BodyPosition`](../reference/classes/body-position.md) | Pulls the part toward a world position and damps its motion. | `Position` (`0, 0, 0`), `MaxForce` (`4000, 4000, 4000`), `P` (`10000`), `D` (`1250`) |
 | [`BodyAngularVelocity`](../reference/classes/body-angular-velocity.md) | Spins the part toward a target angular velocity. | `AngularVelocity` (`0, 2, 0`), `MaxTorque` (`4000, 4000, 4000`), `P` (`1250`) |
-| [`VectorForce`](../reference/classes/vector-force.md) | Applies a constant force. | `Force` (`0, 0, 0`) |
-| [`Torque`](../reference/classes/torque.md) | Applies a constant torque. | `Torque` (`0, 0, 0`) |
+| [`VectorForce`](../reference/classes/vector-force.md) | Applies a constant force at an [`Attachment`](../reference/classes/attachment.md). | `Force` (`1000, 0, 0`), `Attachment0`, `Attachment1`, `RelativeTo`, `ApplyAtCenterOfMass`, `Enabled` |
+| [`Torque`](../reference/classes/torque.md) | Applies a constant torque on the part of an [`Attachment`](../reference/classes/attachment.md). | `Torque` (`0, 0, 0`), `Attachment0`, `Attachment1`, `RelativeTo`, `Enabled` |
 
 `P` controls how strongly the mover corrects toward its target, and `D` how strongly `BodyPosition` resists motion. `MaxForce` and `MaxTorque` limit the effort per axis. 
+
+```luau
+local attachment = Instance.new("Attachment")
+attachment.Parent = part
+
+local lift = Instance.new("VectorForce")
+lift.Attachment0 = attachment
+lift.RelativeTo = Enum.ActuatorRelativeTo.World
+lift.Force = Vector3.new(0, 5000, 0)
+lift.Parent = part
+```
 
 Several movers on one part add together. Removing a mover, or setting its parent to `nil`, stops its effect.
 

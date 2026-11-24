@@ -17,6 +17,7 @@ forceField:Destroy()
 
 ## Properties
 
+- `Visible` - `boolean`, defaults to `true`. Whether the shimmering shield is drawn around the character. A hidden `ForceField` still blocks damage;
 - `Name`, `ClassName`, `Parent`.
 
 Setting `Health` directly is not blocked by a `ForceField`.

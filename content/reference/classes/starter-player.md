@@ -27,6 +27,8 @@ starter.CameraMode = Enum.CameraMode.LockFirstPerson
 - `EnableMouseLockOption` - `boolean`, defaults to `true`. When `false`, shift lock cannot be turned on, and it is turned off if it was on;
 - `CharacterWalkSpeed` - `number` from `0` to `1000`, the starting walk speed of a character. Defaults to `16`;
 - `CharacterJumpPower` - `number` from `0` to `1000`, the starting jump power of a character. Defaults to `50`;
+- `NameDisplayDistance` - `number`, defaults to `100`, the starting `NameDisplayDistance` of every [`Player`](./player.md);
+- `HealthDisplayDistance` - `number`, defaults to `100`, the starting `HealthDisplayDistance` of every player;
 - `Name`, `ClassName` - `"StarterPlayer"`.
 
 Values outside the range are clamped, and raising `CameraMinZoomDistance` above `CameraMaxZoomDistance` raises the maximum with it. All other members are read-only; writing one raises an error.

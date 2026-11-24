@@ -22,7 +22,8 @@ local player = Players.LocalPlayer
 
 - `Name` - the name of the service;
 - `ClassName` - the runtime class name;
-- `LocalPlayer` - available in a `LocalScript`; otherwise `nil`.
+- `LocalPlayer` - available in a `LocalScript`; otherwise `nil`;
+- `RespawnTime` - `number`, defaults to `5`. How many seconds a player waits after dying before their character respawns.
 
 ## Methods
 

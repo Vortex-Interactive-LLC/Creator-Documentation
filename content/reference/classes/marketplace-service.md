@@ -20,6 +20,7 @@ MarketplaceService:PromptPurchase(player, 1234)
 - `PromptPurchase(player: Player, itemId: number)` - opens the purchase window for the player and returns immediately. `itemId` must be a whole number from 1 to 2147483647;
 - `PlayerOwnsAsset(player: Player, itemId: number): boolean` - returns whether the player owns the item. Waits for the answer;
 - `GetProductInfo(id: number, infoType: Enum.InfoType?): table` - describes a catalog item, returning `Name`, `AssetType`, `PriceInVolts`, `IsForSale`, `IsLimited`, and `Creator` (`Id`, `Name`). With `Enum.InfoType.GamePass` it describes a gamepass instead, returning `Name`, `Description`, `PriceInVolts`, `IsForSale`, `GameId`, and `Creator` (`Id`, `Name`, `CreatorType`). Raises an error if it does not exist. Waits for the answer;
+- `GetGamePassInfo(gamePassId: number): table` - describes a gamepass, returning the same table as `GetProductInfo` with `Enum.InfoType.GamePass`. Server `Script` only. Raises an error if it does not exist. Waits for the answer;
 - `PromptGamePassPurchase(player: Player, gamePassId: number)` - opens the purchase window for a gamepass and returns immediately;
 - `UserOwnsGamePassAsync(user: Player | number, gamePassId: number): boolean` - returns whether the user owns the gamepass. `user` is a user id or a player. Waits for the answer.
 

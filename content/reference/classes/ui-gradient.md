@@ -20,6 +20,7 @@ gradient.Parent = button
 - `Transparency` - [`NumberSequence`](../datatypes/number-sequence.md), defaults to `0` all the way along. Only the value of each keypoint is used, the envelope is ignored;
 - `Rotation` - `number` in degrees, defaults to `0`. At `0` the gradient runs from the left edge to the right edge, at `90` from the top edge to the bottom edge. At any angle it runs from one corner or edge of the object to the opposite one;
 - `Offset` - [`Vector2`](../datatypes/vector2.md), defaults to `0, 0`. Moves the gradient by that fraction of the size of the object along the direction of `Rotation`. Anything the gradient no longer reaches takes the colour of its nearest end;
+- `Interpolation` - `Enum.GradientInterpolation`: `Perceptual` blends colours so the steps between them look even, and `Rgb` blends each colour channel in a straight line. Defaults to `Perceptual`;
 - `Enabled` - `boolean`, defaults to `true`;
 - `Name`, `ClassName`, `Parent`.
 

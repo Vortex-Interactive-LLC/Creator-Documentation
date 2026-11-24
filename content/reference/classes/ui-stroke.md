@@ -13,5 +13,6 @@ Place a `UIStroke` inside a GUI object to outline it. On a text object it outlin
 - `Color` - [`Color3`](../datatypes/color3.md), defaults to `0, 0, 0`;
 - `Transparency` - `number`, defaults to `0`;
 - `Enabled` - `boolean`, defaults to `true`. When `false` the stroke is not drawn;
+- `LineJoinMode` - `Enum.LineJoinMode`: `Round`, `Bevel`, or `Miter`, the shape of the stroke at corners. Defaults to `Round`;
 - `ApplyStrokeMode` - `Enum.ApplyStrokeMode`: `Contextual` or `Border`. Defaults to `Contextual`;
 - `Name`, `ClassName`, `Parent`.

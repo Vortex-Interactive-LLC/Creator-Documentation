@@ -30,6 +30,8 @@ end)
 - `ClearTextOnFocus` - `boolean`, defaults to `true`. Clears `Text` when the player clicks into the box;
 - `MultiLine` - `boolean`, defaults to `false`. When `true`, Enter adds a new line instead of ending the edit;
 - `TextEditable` - `boolean`, defaults to `true`. When `false` the box cannot be focused;
+- `CursorPosition` - `number`, the position of the cursor in `Text`, counting from `1` for the position before the first character. `-1` when the box does not have focus;
+- `SelectionStart` - `number`, the position where the selection started, or `-1` when no text is selected;
 - every text property of a [`TextLabel`](./text-label.md), such as `TextColor3`, `TextSize`, `TextXAlignment` and `Font`;
 - `TextStrokeColor3`, `TextStrokeTransparency` and `TextTruncate`, as on a [`TextLabel`](./text-label.md);
 - `TextBounds` - [`Vector2`](../datatypes/vector2.md), read-only, as on a [`TextLabel`](./text-label.md);
