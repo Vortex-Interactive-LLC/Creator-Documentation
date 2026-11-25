@@ -52,6 +52,6 @@ When the camera is under water, the sky is hidden and the view is tinted and fog
 
 ## Limits
 
-- Scripts cannot create water or change the `Terrain` settings. Place water in Studio;
+- Scripts cannot create water regions. They can fill terrain cells with `Enum.TerrainMaterial.Water`, see [`Terrain`](../reference/classes/terrain.md);
 - Every water box has the same look;
 - Water does not affect `Part.Touched` or raycasts.
