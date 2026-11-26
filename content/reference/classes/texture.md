@@ -1,56 +1,32 @@
 ---
 title: Texture
-description: Textures allow special decals to be rendered on parts.
+description: Tiles an image over one face of a part.
 ---
 
-<!-- 
-Texture
-Revision 1
-
-Written by KingTasaz on August 28th, 2026
--->
-
 ## Summary
-To use your own images and models, see [Meshes & Textures](../../guides/meshes-and-textures.md).
 
-This page describes the editor-facing Texture concept. Texture scripting is not currently available in the Vortex runtime; see the notes below. When a texture is added to an editor-authored [`part`](./part.md), its `Face` and name are set automatically, so six textures can cover the entire part quickly.
-<br><br>
+A `Texture` repeats an image over one face of the part it is a child of. It works like a [`Decal`](./decal.md), but the image is tiled instead of stretched. For your own images, see [Meshes & Textures](../../guides/meshes-and-textures.md).
 
-<details>
-<summary><b>Properties</b></summary>
-Properties of a Texture, in the order they appear in Vortex Studio.
-<br><br>
-<ul>
-<details>
-<summary><b>Texture</b></summary>
-
-- [Face](#face): [`Enum.Face`](../datatypes/enumitem.md)
-- [Texture](#texture): [`Enum.Texture`](../datatypes/enumitem.md)
-
-</details>
-
-</ul>
-</details>
-
+```luau
+local texture = Instance.new("Texture")
+texture.Texture = 1234567
+texture.Face = Enum.NormalId.Top
+texture.StudsPerTileU = 4
+texture.StudsPerTileV = 4
+texture.Parent = workspace.Floor
+```
 
 ## Properties
 
-### Face
-> [`Enum.Face`](../datatypes/enumitem.md) \
-\
-Controls the face of the parent [`Part`](./part.md) on which the texture is displayed.
-
-<br/>
-
-### Texture
-> [`Enum.Texture`](../datatypes/enumitem.md) \
-\
-Sets the texture to render on the selected face. Currently, the only options are `Inlets` and `Studs`.
-
-<br/>
+- `Texture` - `number`, the asset id of an [uploaded image](../../guides/meshes-and-textures.md). Defaults to `0`, which draws nothing;
+- `Face` - [`Enum.NormalId`](../datatypes/enum.md), the face of the part the image is on. Defaults to `Front`;
+- `StudsPerTileU`, `StudsPerTileV` - `number`, how many studs one copy of the image covers across and up the face. Defaults to `2`;
+- `OffsetStudsU`, `OffsetStudsV` - `number`, shifts the tiling across the face. Defaults to `0`;
+- `Color3` - [`Color3`](../datatypes/color3.md) that multiplies the image. Defaults to white;
+- `Transparency` - `number` from `0` to `1`. Defaults to `0`;
+- `ZIndex` - `number`, defaults to `1`;
+- `Name`, `ClassName`, `Parent`.
 
 ## Notes
 
-`Instance.new("Texture")`, `Instance.new("Decal")`, and `Instance.new("SurfaceAppearance")` all fail in both Script and LocalScript contexts. A script-created `Part` also has no readable `Texture`, `TextureID`, `SurfaceAppearance`, or `Decal` field.
-
-There is no script API for creating or changing textures.
+The notes on [`Decal`](./decal.md) apply: flat faces only, lit like the part, and drawn only inside `Workspace`.

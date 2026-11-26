@@ -2,7 +2,7 @@
 title: Meshes & Textures
 description: Upload models and images, then use them in Studio.
 ---
-Custom models and images are uploaded as assets. Each upload gets a numeric asset id, which you use in Studio or in a script. Scripts cannot create meshes or textures: `Instance.new` does not support `MeshPart`, `Texture`, `Decal`, or `SurfaceAppearance`, so place models in Studio and only change their other properties from scripts.
+Custom models and images are uploaded as assets. Each upload gets a numeric asset id, which you use in Studio or in a script. Scripts cannot create meshes or textures: `Instance.new` does not support `MeshPart`, so place models in Studio and only change their other properties from scripts. A [`SurfaceAppearance`](../reference/classes/surface-appearance.md) inside a mesh part replaces its texture.
 
 ## Uploading a model
 
@@ -41,4 +41,4 @@ imageLabel.Image = 1234567
 
 ## Textures on parts
 
-A `Texture` added to a part in Studio draws a pattern on one of its faces. Only the built-in `Inlets` and `Studs` patterns are available. See [`Texture`](../reference/classes/texture.md).
+A `Decal` draws an image on one face of a part, and a `Texture` tiles an image over a face. Set their `Texture` property to an image asset id, and `Face` to pick the side. See [`Decal`](../reference/classes/decal.md) and [`Texture`](../reference/classes/texture.md).
