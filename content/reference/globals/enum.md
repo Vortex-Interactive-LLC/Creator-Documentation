@@ -58,6 +58,10 @@ description: The runtime enum namespace.
 
 `Box`, `Default`, `Hull`, `PreciseConvexDecomposition`, `Tunable`
 
+### ConsumableDecision
+
+`Granted`, `NotProcessedYet`
+
 ### ControlMode
 
 `Classic`, `MouseLockSwitch`
@@ -116,7 +120,7 @@ description: The runtime enum namespace.
 
 ### InfoType
 
-`Asset`, `GamePass`
+`Asset`, `Consumable`, `GamePass`, `Product`
 
 ### KeyCode
 
@@ -149,6 +153,10 @@ description: The runtime enum namespace.
 ### PreferredTextSize
 
 `Large`, `Larger`, `Largest`, `Medium`
+
+### ProductPurchaseDecision
+
+`NotProcessedYet`, `PurchaseGranted`
 
 ### ProximityPromptExclusivity
 
