@@ -21,6 +21,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 
 ## Classes
 
+- [Accessory](./classes/accessory.md)
 - [Atmosphere](./classes/atmosphere.md)
 - [Backpack](./classes/backpack.md)
 - [BillboardGui](./classes/billboard-gui.md)
@@ -30,6 +31,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [BloomEffect](./classes/bloom-effect.md)
 - [BlurEffect](./classes/blur-effect.md)
 - [BodyAngularVelocity](./classes/body-angular-velocity.md)
+- [BodyColors](./classes/body-colors.md)
 - [BodyPosition](./classes/body-position.md)
 - [BodyVelocity](./classes/body-velocity.md)
 - [BoolValue](./classes/bool-value.md)
@@ -66,6 +68,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [Mouse](./classes/mouse.md)
 - [NumberValue](./classes/number-value.md)
 - [OrderedDataStore](./classes/ordered-data-store.md)
+- [Pants](./classes/pants.md)
 - [Part](./classes/part.md)
 - [ParticleEmitter](./classes/particle-emitter.md)
 - [Player](./classes/player.md)
@@ -80,6 +83,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [ScrollingFrame](./classes/scrolling-frame.md)
 - [Seat](./classes/seat.md)
 - [ServerScriptService](./classes/server-script-service.md)
+- [Shirt](./classes/shirt.md)
 - [Sky](./classes/sky.md)
 - [Smoke](./classes/smoke.md)
 - [Sound](./classes/sound.md)

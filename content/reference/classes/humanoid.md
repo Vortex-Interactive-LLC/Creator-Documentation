@@ -46,11 +46,15 @@ Methods of the `Humanoid`.
 * [EquipTool](#equiptool): `nil`
 * [UnequipTools](#unequiptools): `nil`
 * [Move](#move): `nil`
+* [MoveTo](#moveto): `nil`
 * [ChangeState](#changestate): `nil`
 * [PlayEmote](#playemote): `Boolean`
 * [ApplyDescription](#applydescription): `nil`
 * [ApplyDescriptionAsync](#applydescriptionasync): `nil`
 * [GetAppliedDescription](#getapplieddescription): [`HumanoidDescription`](./humanoid-description.md)
+* [GetAccessories](#getaccessories): `{ Accessory }`
+* [AddAccessory](#addaccessory): `nil`
+* [RemoveAccessories](#removeaccessories): `nil`
 
 </details>
 
@@ -67,6 +71,7 @@ Signals of the `Humanoid`.
 * [FreeFalling](#freefalling): [`Signal`](../datatypes/signal.md)
 * [Running](#running): [`Signal`](../datatypes/signal.md)
 * [Seated](#seated): [`Signal`](../datatypes/signal.md)
+* [MoveToFinished](#movetofinished): [`Signal`](../datatypes/signal.md)
 
 </details>
 
@@ -264,7 +269,15 @@ Signals of the `Humanoid`.
 >
 > `humanoid:Move(direction: Vector3, relativeToCamera: Boolean?)`
 >
-> Makes the Humanoid walk in `direction`. The vertical part of `direction` is ignored and its length is limited to `1`. When `relativeToCamera` is `true`, `direction` is rotated by the current camera's heading. Pass `Vector3.zero` to stop.
+> Makes the Humanoid walk in `direction`. The vertical part of `direction` is ignored and its length is limited to `1`. When `relativeToCamera` is `true`, `direction` is rotated by the current camera's heading. Pass `Vector3.zero` to stop. A `direction` that is not zero cancels a [`MoveTo`](#moveto) in progress.
+
+### MoveTo
+
+> `nil`
+>
+> `humanoid:MoveTo(location: Vector3, part: BasePart?)`
+>
+> Makes the Humanoid walk towards `location` on the ground plane. When `part` is given, `location` is relative to that part and follows it as it moves. The walk ends when the Humanoid is within `1` stud of the target, after `8` seconds, when it dies, or when [`Move`](#move) is called with a direction, and [`MoveToFinished`](#movetofinished) fires. It does not jump over obstacles. The Humanoid has to be simulated where the script runs, so this suits NPCs in a server `Script`. A player's own controls overwrite it.
 
 ### ChangeState
 
@@ -288,7 +301,7 @@ Signals of the `Humanoid`.
 >
 > `humanoid:ApplyDescription(description: HumanoidDescription, verification: Enum.AssetTypeVerification?)`
 >
-> Changes the character's appearance to match a [`HumanoidDescription`](./humanoid-description.md). Server `Script` only. Raises an error if the same accessory is used in more than one property of the description.
+> Changes the character's appearance to match a [`HumanoidDescription`](./humanoid-description.md). It replaces the character's [`BodyColors`](./body-colors.md), [`Shirt`](./shirt.md), [`Pants`](./pants.md), and [`Accessory`](./accessory.md) objects. Server `Script` only. Raises an error if the same accessory is used in more than one property of the description.
 
 ### ApplyDescriptionAsync
 
@@ -305,6 +318,30 @@ Signals of the `Humanoid`.
 > `humanoid:GetAppliedDescription()`
 >
 > Returns a new `HumanoidDescription` that describes the character's current appearance.
+
+### GetAccessories
+
+> `{ Accessory }`
+>
+> `humanoid:GetAccessories()`
+>
+> Returns the [`Accessory`](./accessory.md) objects in the character.
+
+### AddAccessory
+
+> `nil`
+>
+> `humanoid:AddAccessory(accessory: Accessory)`
+>
+> Moves `accessory` into the character, so the avatar wears it. Server `Script` only.
+
+### RemoveAccessories
+
+> `nil`
+>
+> `humanoid:RemoveAccessories()`
+>
+> Destroys every [`Accessory`](./accessory.md) in the character. Server `Script` only.
 
 ## Signals
 
@@ -373,6 +410,18 @@ Signals of the `Humanoid`.
 #### Parameters
 
 - `active`: `Boolean` — `true` when the character sits down, `false` when it gets up.
+
+### MoveToFinished
+
+> [`Signal`](../datatypes/signal.md)
+>
+> `humanoid.MoveToFinished`
+>
+> Fires when a [`MoveTo`](#moveto) ends.
+
+#### Parameters
+
+- `reached`: `Boolean` — `true` when the Humanoid reached the target, `false` when it timed out, died, or was stopped by [`Move`](#move).
 - `seatPart`: [`Seat`](./seat.md) | `nil` — the seat the character sat in, or `nil` when it gets up.
 
 ## Notes
@@ -381,4 +430,4 @@ A character's Humanoid starts with `Health` and `MaxHealth` of `100`. In a serve
 
 `humanoid:TakeDamage(amount)` reduces `Health`. A newly spawned character has a `ForceField` for a few seconds, and damage is blocked while it is present.
 
-A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). Methods such as `MoveTo`, `LoadAnimation`, and `AddAccessory` are not available.
+A Humanoid does not provide the generic Instance methods (`IsA`, `FindFirstChild`, `GetAttribute`, `Destroy`, and so on). `LoadAnimation` is not available.

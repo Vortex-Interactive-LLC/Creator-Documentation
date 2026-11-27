@@ -128,7 +128,7 @@ description: The runtime enum namespace.
 
 ### Material
 
-`Brick`, `Grass`, `Ice`, `Metal`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
+`Brick`, `Carpet`, `Concrete`, `DiamondPlate`, `Grass`, `Ice`, `Metal`, `Neon`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
 
 ### MouseBehavior
 

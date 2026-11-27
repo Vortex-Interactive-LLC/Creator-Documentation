@@ -32,6 +32,8 @@ local player = Players.LocalPlayer
 * `GetPlayerFromCharacter(character: Character): Player` - Returns the player associated with the specified character.
 * `GetNameFromUserIdAsync(userId: number): string` - Returns the username for the specified UserId. Server `Script` only. Yields while the name is looked up.
 * `GetUserIdFromNameAsync(name: string): number` - Returns the UserId for the specified username. Server `Script` only. Yields while the id is looked up.
+* `GetHumanoidDescriptionFromUserIdAsync(userId: number): HumanoidDescription` - Returns the outfit of the specified user as a [HumanoidDescription](./humanoid-description.md). Server `Script` only. Yields while the outfit is looked up, and errors if the user does not exist.
+* `CreateHumanoidModelFromUserIdAsync(userId: number): Model` - Returns a new rig wearing the outfit of the specified user, named after the user. The rig has a [Humanoid](./humanoid.md) holding a [HumanoidDescription](./humanoid-description.md) with the outfit, a `HumanoidRootPart` and leg, head and arm parts, and is not parented, so set its `Parent` to `workspace`. The rig wears [`BodyColors`](./body-colors.md), [`Shirt`](./shirt.md), [`Pants`](./pants.md), and [`Accessory`](./accessory.md) objects. Change them, or call `ApplyDescription` with its `HumanoidDescription`, to change how it looks. Server `Script` only. Yields while the outfit is looked up, and errors if the user does not exist.
 
 ## Signals
 
