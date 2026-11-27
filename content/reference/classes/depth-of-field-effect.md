@@ -25,6 +25,6 @@ focus.Parent = game:GetService("Lighting")
 
 ## Notes
 
-- Depth of field only draws at the highest graphics quality, and not on the OpenGL backend;
+- Depth of field only draws at the two highest graphics qualities, and not on the OpenGL backend;
 - The blur is a lens approximation, so `FarIntensity` and `NearIntensity` act as one strength (the larger of the two) and `InFocusRadius` shifts the focus distance;
 - Only the first enabled `DepthOfFieldEffect` in `Lighting` is used.

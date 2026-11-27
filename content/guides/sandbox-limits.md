@@ -21,4 +21,4 @@ Executor-style filesystem and hook globals are unavailable: `readfile`, `writefi
 
 `_G` is a table. The Lua helpers `getmetatable`, `setmetatable`, `rawget`, `rawset`, `rawequal`, and `rawlen` are exposed. `getfenv`, `setfenv`, `newproxy`, and `collectgarbage` are not available.
 
-Their presence does not establish access outside the Vortex runtime sandbox. Treat scripts as isolated from the filesystem, arbitrary code loading, external networking, and privileged Roblox services.
+Their presence does not establish access outside the Vortex runtime sandbox. Treat scripts as isolated from the filesystem, arbitrary code loading, external networking, and privileged services.

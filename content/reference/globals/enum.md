@@ -128,7 +128,7 @@ description: The runtime enum namespace.
 
 ### Material
 
-`Brick`, `Carpet`, `Concrete`, `DiamondPlate`, `Grass`, `Ice`, `Metal`, `Neon`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
+`Brick`, `Carpet`, `Concrete`, `DiamondPlate`, `ForceField`, `Glass`, `Grass`, `Ice`, `Metal`, `Neon`, `Paint`, `Plastic`, `Sand`, `Smooth`, `Wood`
 
 ### MouseBehavior
 
@@ -149,6 +149,14 @@ description: The runtime enum namespace.
 ### PreferredTextSize
 
 `Large`, `Larger`, `Largest`, `Medium`
+
+### ProximityPromptExclusivity
+
+`AlwaysShow`, `OneGlobally`, `OnePerButton`
+
+### ProximityPromptStyle
+
+`Custom`, `Default`
 
 ### PurchaseResult
 

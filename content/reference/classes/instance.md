@@ -239,6 +239,50 @@ description: The methods and properties shared by objects in the game.
 >
 > The signal fires when the attribute changes, whether or not the Instance has a parent yet.
 
+### AddTag(tag: `string`)
+
+> `nil`
+>
+> Adds `tag` to the Instance. Adding a tag the Instance already has does nothing.
+>
+> ```luau
+> part:AddTag("Door")
+> ```
+>
+> A tag is 1 to 255 bytes with no control characters, and an Instance can have at most 100 tags. Anything else raises an error. See [CollectionService](./collection-service.md) and [Tags](../../guides/tags.md).
+
+### RemoveTag(tag: `string`)
+
+> `nil`
+>
+> Removes `tag` from the Instance. Removing a tag the Instance does not have does nothing.
+>
+> ```luau
+> part:RemoveTag("Door")
+> ```
+
+### HasTag(tag: `string`)
+
+> `boolean`
+>
+> Returns `true` if the Instance has `tag`.
+>
+> ```luau
+> print(part:HasTag("Door")) --> true
+> ```
+
+### GetTags()
+
+> `{ string }`
+>
+> Returns every tag on the Instance, in the order they were added.
+>
+> ```luau
+> for _, tag in part:GetTags() do
+>     print(tag)
+> end
+> ```
+
 ### GetPropertyChangedSignal(property: `string`)
 
 > [`Signal`](../datatypes/signal.md)

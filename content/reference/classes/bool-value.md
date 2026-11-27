@@ -1,6 +1,6 @@
 ---
 title: BoolValue
-description: An unsupported Roblox-compatible boolean value container.
+description: A detached boolean value container.
 ---
 
 ## Summary

@@ -23,6 +23,6 @@ bloom.Parent = game:GetService("Lighting")
 
 ## Notes
 
-- Bloom only draws at the highest graphics quality, and not on the OpenGL backend;
-- Without a `BloomEffect`, the highest quality still draws a faint default bloom. Add a disabled `BloomEffect` to turn that off;
+- Bloom only draws at the two highest graphics qualities, and not on the OpenGL backend;
+- Without a `BloomEffect`, those qualities still draw a default bloom that makes `Neon` and `ForceField` parts glow. Add a disabled `BloomEffect` to turn that off;
 - Only the first `BloomEffect` in `Lighting` is used.

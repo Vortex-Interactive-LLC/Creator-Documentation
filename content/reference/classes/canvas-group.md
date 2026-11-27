@@ -28,5 +28,5 @@ TweenService:Create(menu, TweenInfo.new(0.4), {GroupTransparency = 0}):Play()
 
 ## Limits
 
-- Each object inside the group is faded on its own, not flattened into one layer first. Where two translucent children overlap, the one underneath still shows through the one on top, which Roblox would hide. Fading a group whose children do not overlap looks the same as Roblox;
+- Each object inside the group is faded on its own, not flattened into one layer first. Where two translucent children overlap, the one underneath still shows through the one on top. A group whose children do not overlap fades the same as it would if flattened;
 - A faded object still receives clicks, so set `Visible` to `false` or `Active` to `false` once a menu has faded out.

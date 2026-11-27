@@ -27,7 +27,7 @@ frame.Parent = screenGui
 - `LayoutOrder` - `number`, order inside a `UIListLayout`. Defaults to `0`;
 - `BackgroundColor3` - [`Color3`](../datatypes/color3.md), defaults to `1, 1, 1`;
 - `BackgroundTransparency` - `number`, defaults to `0`;
-- `BorderSizePixel` - `number`, the width in pixels of a border drawn around the object, outside its edges and above its `UICorner` shape. Defaults to `0`, unlike Roblox, so existing GUIs do not gain borders. A `UIStroke` on the object replaces it;
+- `BorderSizePixel` - `number`, the width in pixels of a border drawn around the object, outside its edges and above its `UICorner` shape. Defaults to `0`. A `UIStroke` on the object replaces it;
 - `BorderColor3` - [`Color3`](../datatypes/color3.md), defaults to `0.11, 0.16, 0.21`;
 - `ClipsDescendants` - `boolean`, defaults to `false`;
 - `AutomaticSize` - `Enum.AutomaticSize`: `None`, `X`, `Y`, or `XY`. On the chosen axes the object grows to fit its children, and `Size` becomes the minimum. Children are measured from the object's top-left corner, including the right and bottom `UIPadding` and any `UIListLayout` or `UIGridLayout`. Children sized by `Scale` are measured against that minimum, so avoid full-scale children on an automatic axis. On a text object it fits the text, wrapping at the object's width when `TextWrapped` is set and that axis is not automatic, and adds any `UIPadding`; it does not fit `TextScaled` text. Does not apply to a [`ScrollingFrame`](./scrolling-frame.md), which has `AutomaticCanvasSize`. Defaults to `None`;

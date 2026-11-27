@@ -233,7 +233,7 @@ The mass of the `Part`. When the part has no physics body, it is calculated from
 ### Material
 > [`Enum.Material`](../globals/enum.md#material) \
 \
-Determines which `Material` type to apply when rendering the `Part`. Currently, this only has a visual effect. `Neon` draws the part in its `Color` at full brightness, ignoring lighting and shadows, and makes it glow when a [`BloomEffect`](./bloom-effect.md) is in [`Lighting`](./lighting.md).
+Determines which `Material` type to apply when rendering the `Part`. Currently, this only has a visual effect. `Neon` draws the part in its `Color` at full brightness, ignoring lighting and shadows, and makes it glow when bloom is drawn (see [`BloomEffect`](./bloom-effect.md)). `Glass` is glossy and reflects the sun and sky more strongly at a grazing angle; it does not bend the view behind it. `ForceField` draws a see-through glowing honeycomb in the part's `Color`, brighter at the edges, and it is always drawn as a see-through part.
 
 <br/>
 

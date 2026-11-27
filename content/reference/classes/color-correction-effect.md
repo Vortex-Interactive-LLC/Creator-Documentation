@@ -27,4 +27,4 @@ correction.Parent = game:GetService("Lighting")
 
 - It works at every graphics quality;
 - Several enabled `ColorCorrectionEffect` objects in `Lighting` add together;
-- `TintColor` is approximated with a warm to cool and green to magenta shift, so strong tints do not match Roblox exactly.
+- `TintColor` is approximated with a warm to cool and green to magenta shift, so strong tints are not exact.

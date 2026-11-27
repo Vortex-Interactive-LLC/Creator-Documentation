@@ -18,7 +18,7 @@ bloom.Parent = game:GetService("Lighting")
 - [`BlurEffect`](../reference/classes/blur-effect.md) blurs the whole screen, for menus and fades;
 - [`SunRaysEffect`](../reference/classes/sun-rays-effect.md) draws light shafts from the sun.
 
-Bloom and depth of field only draw at the highest graphics quality. Blur and sun rays draw on every backend except OpenGL. Color correction works everywhere.
+Bloom and depth of field only draw at the two highest graphics qualities. Blur and sun rays draw on every backend except OpenGL. Color correction works everywhere.
 
 ```luau
 local TweenService = game:GetService("TweenService")
