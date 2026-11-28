@@ -24,6 +24,7 @@ The reference describes what scripts can use. For explanations and examples, sta
 - [Accessory](./classes/accessory.md)
 - [Atmosphere](./classes/atmosphere.md)
 - [Backpack](./classes/backpack.md)
+- [BadgeService](./classes/badge-service.md)
 - [BillboardGui](./classes/billboard-gui.md)
 - [Beam](./classes/beam.md)
 - [BindableEvent](./classes/bindable-event.md)
